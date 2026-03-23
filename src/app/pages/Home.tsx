@@ -408,7 +408,7 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="/images/유제품_딸기요커트.png"
+                  src="/images/유제품 소개-특장점.png"
                   alt="무무목장 수제 요거트"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"

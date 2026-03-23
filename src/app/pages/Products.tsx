@@ -79,7 +79,7 @@ export function Products() {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/img_1vNJ5X4Y1BytZna2ZJUgnkbiOZbGBj4m_.jpg"
+            src="/images/우유_저지소.png"
             alt="무무목장 신선한 유제품 모음"
             className="w-full h-full object-cover"
             style={{ filter: 'brightness(0.6)' }}
@@ -297,7 +297,7 @@ export function Products() {
       <section className="relative py-32 md:py-40 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/img_1G39bjyUqMSWLTEUOapsh9GKliBhKWD5q.jpg"
+            src="/images/유제품목록.png"
             alt="무무목장 수제 치즈와 유제품"
             loading="lazy"
             className="w-full h-full object-cover"
