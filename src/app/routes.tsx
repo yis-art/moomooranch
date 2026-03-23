@@ -13,6 +13,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "blog", Component: Blog },
+      { path: "blog/:slug", Component: Blog },
       { path: "products", Component: Products },
       { path: "about", Component: About },
       { path: "contact", Component: Contact }
