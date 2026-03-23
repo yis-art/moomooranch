@@ -9,21 +9,21 @@ const teamMembers = [
     role: '현장 운영',
     origin: '남한 · 예수원 공동체',
     desc: '예수원 공동체 소속 목장 책임자. 해발 1,000m 고지대에서 저지 소의 사계절을 총괄합니다.',
-    img: '/images/무지개초지_저지소01.png',
+    img: '/images/무지개초지_저지소02.png',
   },
   {
     name: '박요셉',
     role: '모델 설계',
     origin: '북한 출신',
     desc: '건국대 수의과대학 졸업. 북한 환경에 적용 가능한 융복합 농촌 복원 모델을 설계합니다.',
-    img: '/images/무지개초지_저지소03.png',
+    img: '/images/무지개초지_저지소04.png',
   },
   {
     name: '바니 스미스',
     role: '국제 자문',
     origin: '미국',
     desc: '미국 수의사. 1997~2019년 북한 현지에서 농업 선교사로 활동한 경험을 바탕으로 자문합니다.',
-    img: '/images/예수원 상징.png',
+    img: '/images/무지개초지_저지소05.png',
   },
 ];
 
@@ -86,7 +86,7 @@ export function About() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <div className="rounded-3xl overflow-hidden" style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
-                <img src="/images/예수원 소개.png" alt="예수원 소개" loading="lazy" className="w-full aspect-[4/3] object-cover" />
+                <img src="/images/예수원 기념품.png" alt="예수원에서 만든 기도의자와 공예품" loading="lazy" className="w-full aspect-[4/3] object-cover" />
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
@@ -129,7 +129,7 @@ export function About() {
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <div className="rounded-3xl overflow-hidden" style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
-                <img src="/images/예수원 상징.png" alt="예수원 십자가와 창립 이념" loading="lazy" className="w-full aspect-[4/3] object-cover" />
+                <img src="/images/축사.png" alt="위에서 내려다본 무무목장 축사 전경" loading="lazy" className="w-full aspect-[4/3] object-cover" />
               </div>
             </motion.div>
           </div>
@@ -148,19 +148,24 @@ export function About() {
               한국, 북한, 미국 — 서로 다른 삶의 궤적이 만나 하나의 비전을 이끕니다.
             </p>
           </motion.div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {teamMembers.map((member, i) => (
               <motion.div key={member.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}>
-                <div className="rounded-3xl overflow-hidden mb-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.08)' }}>
-                  <img src={member.img} alt={member.name} loading="lazy" className="w-full aspect-[4/3] object-cover" />
+                <div className="rounded-3xl p-8 h-full" style={{ backgroundColor: 'white', boxShadow: '0 4px 24px rgba(0,0,0,0.07)', border: '1px solid rgba(141,110,99,0.08)' }}>
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5" style={{ backgroundColor: 'rgba(165,214,167,0.15)' }}>
+                    <span style={{ fontSize: '28px' }}>🐄</span>
+                  </div>
+                  <p style={{ fontFamily: 'var(--font-korean)', fontSize: '12px', fontWeight: 700, color: 'var(--sage)', letterSpacing: '0.08em', marginBottom: '6px' }}>{member.origin}</p>
+                  <h3 style={{ fontFamily: 'var(--font-korean)', fontWeight: 800, fontSize: '22px', color: 'var(--text-main)', marginBottom: '4px' }}>{member.name}</h3>
+                  <p style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', fontWeight: 600, color: 'var(--sage)', marginBottom: '14px', paddingBottom: '14px', borderBottom: '1px solid rgba(141,110,99,0.1)' }}>{member.role}</p>
+                  <p style={{ fontFamily: 'var(--font-korean)', fontSize: '15px', color: 'var(--text-light)', lineHeight: '1.8' }}>{member.desc}</p>
                 </div>
-                <p style={{ fontFamily: 'var(--font-korean)', fontSize: '12px', fontWeight: 700, color: 'var(--sage)', letterSpacing: '0.08em', marginBottom: '4px' }}>{member.origin}</p>
-                <h3 style={{ fontFamily: 'var(--font-korean)', fontWeight: 800, fontSize: '22px', color: 'var(--text-main)', marginBottom: '4px' }}>{member.name}</h3>
-                <p style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', fontWeight: 600, color: 'var(--sage)', marginBottom: '12px' }}>{member.role}</p>
-                <p style={{ fontFamily: 'var(--font-korean)', fontSize: '15px', color: 'var(--text-light)', lineHeight: '1.7' }}>{member.desc}</p>
               </motion.div>
             ))}
           </div>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.3 }} className="mt-10 rounded-3xl overflow-hidden" style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.1)' }}>
+            <img src="/images/무지개초지.png" alt="삼수령 무무목장 초지 전경" loading="lazy" className="w-full" style={{ maxHeight: '400px', objectFit: 'cover' }} />
+          </motion.div>
         </div>
       </section>
 
@@ -210,7 +215,7 @@ export function About() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
               <div className="rounded-3xl overflow-hidden" style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
-                <img src="/images/무지개초지.png" alt="초지에서 방목 중인 저지 소떼" loading="lazy" className="w-full aspect-[4/3] object-cover" />
+                <img src="/images/예수원 체류 프로그램.png" alt="예수원 공동체 일과 - 노동과 기도" loading="lazy" className="w-full aspect-[4/3] object-cover" />
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
@@ -283,7 +288,7 @@ export function About() {
       {/* CTA */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="/images/운해.png" alt="운해" className="w-full h-full object-cover" style={{ filter: 'brightness(0.4)' }} />
+          <img src="/images/축사 하늘사진.png" alt="하늘에서 본 무무목장" className="w-full h-full object-cover" style={{ filter: 'brightness(0.4)' }} />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6))' }} />
         </div>
         <div className="relative z-10 text-center px-6">
