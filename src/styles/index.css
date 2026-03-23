@@ -1,0 +1,53 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* MooMoo Ranch Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+/* Slick Slider Custom Styles */
+.slick-dots li button:before {
+  font-size: 12px;
+  color: var(--soft-blue);
+  opacity: 0.5;
+}
+
+.slick-dots li.slick-active button:before {
+  color: var(--soft-blue);
+  opacity: 1;
+}
+
+.slick-dots {
+  bottom: -40px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
