@@ -1,438 +1,306 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Award, Heart, Leaf } from 'lucide-react';
+import { Link } from 'react-router';
+import { ArrowRight } from 'lucide-react';
+
+const teamMembers = [
+  {
+    name: '히스기야',
+    role: '현장 운영',
+    origin: '남한 · 예수원 공동체',
+    desc: '예수원 공동체 소속 목장 책임자. 해발 1,000m 고지대에서 저지 소의 사계절을 총괄합니다.',
+    img: '/images/무지개초지_저지소01.png',
+  },
+  {
+    name: '박요셉',
+    role: '모델 설계',
+    origin: '북한 출신',
+    desc: '건국대 수의과대학 졸업. 북한 환경에 적용 가능한 융복합 농촌 복원 모델을 설계합니다.',
+    img: '/images/무지개초지_저지소03.png',
+  },
+  {
+    name: '바니 스미스',
+    role: '국제 자문',
+    origin: '미국',
+    desc: '미국 수의사. 1997~2019년 북한 현지에서 농업 선교사로 활동한 경험을 바탕으로 자문합니다.',
+    img: '/images/예수원 상징.png',
+  },
+];
+
+const jerseyStats = [
+  { label: '평균 체중', jersey: '400~450kg', holstein: '600~700kg' },
+  { label: '유지방 함량', jersey: '4.8~5.2%', holstein: '3.5~3.7%' },
+  { label: 'A2 유전형', jersey: '거의 100%', holstein: '혼합형' },
+  { label: '경제 수명', jersey: '12~15년', holstein: '5~7년' },
+  { label: '내한성', jersey: '우수', holstein: '보통' },
+  { label: '분만 난이도', jersey: '낮음', holstein: '상대적으로 높음' },
+];
 
 export function About() {
   return (
     <div style={{ backgroundColor: 'var(--cream)' }}>
-      {/* Hero Section with Background Image */}
+
+      {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/images/무무목장 전경.png"
-            alt="공중에서 바라본 무무목장 전경"
+            alt="해발 1,000m 삼수령 무무목장 전경"
             className="w-full h-full object-cover"
-            style={{ filter: 'brightness(0.6)' }}
+            style={{ filter: 'brightness(0.55)' }}
           />
           <div className="absolute inset-0" style={{
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5))'
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.55))'
           }} />
         </div>
-
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style={{
-              backgroundColor: 'rgba(255,255,255,0.15)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255,255,255,0.2)'
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <p style={{
+              fontFamily: 'var(--font-korean)', fontSize: '14px', fontWeight: 700,
+              color: 'rgba(255,255,255,0.8)', letterSpacing: '0.1em', marginBottom: '16px'
             }}>
-              <span style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '14px',
-                fontWeight: 700,
-                color: 'white',
-                letterSpacing: '0.05em'
-              }}>
-                목장 이야기
-              </span>
-            </div>
-
+              PASSING ON THE GIFT
+            </p>
             <h1 style={{
-              fontFamily: 'var(--font-korean)',
-              fontWeight: 800,
-              fontSize: 'clamp(40px, 7vw, 72px)',
-              lineHeight: '1.2',
-              color: 'white',
-              marginBottom: '24px',
-              letterSpacing: '-0.02em',
+              fontFamily: 'var(--font-korean)', fontWeight: 800,
+              fontSize: 'clamp(40px, 7vw, 72px)', lineHeight: '1.2',
+              color: 'white', marginBottom: '24px', letterSpacing: '-0.02em',
               textShadow: '0 4px 20px rgba(0,0,0,0.3)'
             }}>
-              자연과 함께하는<br />
-              50년 역사의 목장
+              삼수령 무무목장
             </h1>
-
             <p style={{
-              fontFamily: 'var(--font-korean)',
-              fontSize: 'clamp(16px, 2vw, 20px)',
-              lineHeight: '1.6',
-              color: 'rgba(255,255,255,0.95)',
-              marginBottom: '40px',
-              fontWeight: 400
+              fontFamily: 'var(--font-korean)', fontSize: 'clamp(16px, 2vw, 20px)',
+              lineHeight: '1.7', color: 'rgba(255,255,255,0.92)', fontWeight: 400
             }}>
-              강원도 삼척 예수원 목장에서 시작된<br />
-              무무목장의 특별한 이야기를 소개합니다
+              해발 1,000m에서 검증된 낙농 모델을<br />
+              북한 고지대에 전달하기 위한 프로젝트
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Main Story Section - 2 Column */}
+      {/* 1. 선물을 전달하라 */}
       <section className="py-24 md:py-32">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
-            {/* Left - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="rounded-3xl overflow-hidden" style={{
-                boxShadow: '0 20px 60px rgba(0,0,0,0.12)'
-              }}>
-                <img
-                  src="/images/무지개초지_저지소01.png"
-                  alt="해 뜨는 무무목장 초원"
-                  loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
-                />
-              </div>
-            </motion.div>
-
-            {/* Right - Text */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style={{
-                backgroundColor: 'rgba(165, 214, 167, 0.15)',
-                border: '1px solid rgba(165, 214, 167, 0.3)'
-              }}>
-                <span style={{
-                  fontFamily: 'var(--font-korean)',
-                  fontSize: '14px',
-                  fontWeight: 700,
-                  color: 'var(--sage)',
-                  letterSpacing: '0.05em'
-                }}>
-                  우리의 시작
-                </span>
-              </div>
-
-              <h2 style={{
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 800,
-                fontSize: 'clamp(32px, 5vw, 48px)',
-                lineHeight: '1.3',
-                color: 'var(--text-main)',
-                marginBottom: '24px',
-                letterSpacing: '-0.02em'
-              }}>
-                예수원에서 시작된<br />
-                무무목장
-              </h2>
-
-              <div style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '17px',
-                lineHeight: '1.8',
-                color: 'var(--text-main)',
-                marginBottom: '32px'
-              }}>
-                <p className="mb-4">
-                  1965년 강원도 삼척에 설립된 예수원은 신앙 공동체이자 자급자족을 실천하는 농촌 공동체입니다.
-                </p>
-                <p className="mb-4">
-                  1970년대부터 낙농업을 시작하여 50년 넘게 자연과 조화를 이루며 건강한 목축업을 이어왔습니다.
-                </p>
-                <p>
-                  무무목장은 이러한 예수원의 정신을 계승하여, 자연 방목과 생태순환 농법으로 건강하고 맛있는 유제품을 만들고 있습니다.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Reverse Layout */}
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left - Text */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="order-2 lg:order-1"
-            >
-              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style={{
-                backgroundColor: 'rgba(144, 202, 249, 0.15)',
-                border: '1px solid rgba(144, 202, 249, 0.3)'
-              }}>
-                <span style={{
-                  fontFamily: 'var(--font-korean)',
-                  fontSize: '14px',
-                  fontWeight: 700,
-                  color: 'var(--soft-blue)',
-                  letterSpacing: '0.05em'
-                }}>
-                  저지종 A2 우유
-                </span>
+            <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+              <div className="rounded-3xl overflow-hidden" style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+                <img src="/images/예수원 소개.png" alt="예수원 소개" loading="lazy" className="w-full aspect-[4/3] object-cover" />
               </div>
-
-              <h2 style={{
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 800,
-                fontSize: 'clamp(32px, 5vw, 48px)',
-                lineHeight: '1.3',
-                color: 'var(--text-main)',
-                marginBottom: '24px',
-                letterSpacing: '-0.02em'
-              }}>
-                특별한 저지종<br />
-                젖소를 키웁니다
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '13px', fontWeight: 700, color: 'var(--sage)', letterSpacing: '0.1em', marginBottom: '12px' }}>01</p>
+              <h2 style={{ fontFamily: 'var(--font-korean)', fontWeight: 800, fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: '1.3', color: 'var(--text-main)', marginBottom: '24px', letterSpacing: '-0.02em' }}>
+                선물을 전달하라
               </h2>
-
-              <div style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '17px',
-                lineHeight: '1.8',
-                color: 'var(--text-main)',
-                marginBottom: '32px'
-              }}>
-                <p className="mb-4">
-                  저지종은 영국 저지섬 원산의 소형 젖소 품종으로, 일반 홀스타인보다 우유 생산량은 적지만 영양가가 매우 높습니다.
-                </p>
-                <p className="mb-4">
-                  특히 <strong style={{ color: 'var(--soft-blue)', fontWeight: 700 }}>A2 베타카제인</strong> 단백질이 풍부하여 소화가 편하고, 단백질과 칼슘 함량이 높아 건강에 좋습니다.
-                </p>
-                <p>
-                  42마리의 건강한 저지종 젖소들이 넓은 초원에서 자유롭게 풀을 뜯으며 자라고 있습니다.
-                </p>
-              </div>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '17px', lineHeight: '1.9', color: 'var(--text-light)', marginBottom: '20px' }}>
+                헤이퍼 인터내셔널(Heifer International)은 "받은 선물을 다음 사람에게 전달하라"는 원칙으로 전 세계 빈곤 지역에 가축을 보급해왔습니다.
+              </p>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '17px', lineHeight: '1.9', color: 'var(--text-light)', marginBottom: '20px' }}>
+                1965년, 시애틀 교회가 예수원에 보낸 젖소 두 마리도 같은 정신이었습니다. 60년이 지난 지금, 무무목장은 그 선물을 북한 고지대에 전달하기 위한 실험을 합니다.
+              </p>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '17px', lineHeight: '1.9', color: 'var(--text-light)' }}>
+                해발 1,000m 태백 삼수령 — 남한에서 북한 고지대와 가장 유사한 환경. 이곳에서 검증된 소규모 낙농 모델은, 그 날이 오면 최소한의 수정만으로 북한에 이식할 수 있도록 설계되었습니다.
+              </p>
             </motion.div>
+          </div>
+        </div>
+      </section>
 
-            {/* Right - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="order-1 lg:order-2"
-            >
-              <div className="rounded-3xl overflow-hidden" style={{
-                boxShadow: '0 20px 60px rgba(0,0,0,0.12)'
-              }}>
-                <img
-                  src="/images/예수원 소개.png"
-                  alt="무무목장 저지종 젖소 클로즈업"
-                  loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
-                />
+      {/* 2. 60년의 뿌리 */}
+      <section className="py-24" style={{ backgroundColor: 'rgba(255,255,255,0.6)' }}>
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '13px', fontWeight: 700, color: 'var(--sage)', letterSpacing: '0.1em', marginBottom: '12px' }}>02</p>
+              <h2 style={{ fontFamily: 'var(--font-korean)', fontWeight: 800, fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: '1.3', color: 'var(--text-main)', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+                60년의 뿌리
+              </h2>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '15px', color: 'var(--text-light)', marginBottom: '24px' }}>
+                The Watershed Grange, 1965–현재
+              </p>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '17px', lineHeight: '1.9', color: 'var(--text-light)', marginBottom: '20px' }}>
+                1965년 덕항산 기슭에서 시작된 예수원의 낙농. 1975년 해발 1,000m 매봉산 자락으로 확장하며 "Jesus Abbey The Watershed Grange"로 불렸습니다.
+              </p>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '17px', lineHeight: '1.9', color: 'var(--text-light)' }}>
+                헤이퍼 인터내셔널 소속 Paul A. Kingsbury(김승배) 선교사가 대천덕 신부의 목장 설립을 지원했습니다. 삼수령 무무목장은 예수원의 수도회적 유산과 한국 낙농업 역사를 함께 품고 있습니다.
+              </p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+              <div className="rounded-3xl overflow-hidden" style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+                <img src="/images/예수원 상징.png" alt="예수원 십자가와 창립 이념" loading="lazy" className="w-full aspect-[4/3] object-cover" />
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Values Section - 3 Cards */}
-      <section className="py-20" style={{ backgroundColor: 'rgba(255,255,255,0.5)' }}>
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 style={{
-              fontFamily: 'var(--font-korean)',
-              fontWeight: 800,
-              fontSize: 'clamp(32px, 5vw, 48px)',
-              color: 'var(--text-main)',
-              marginBottom: '16px',
-              letterSpacing: '-0.02em'
-            }}>
-              우리가 지키는 가치
+      {/* 3. 팀 소개 */}
+      <section className="py-24 md:py-32">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-16">
+            <p style={{ fontFamily: 'var(--font-korean)', fontSize: '13px', fontWeight: 700, color: 'var(--sage)', letterSpacing: '0.1em', marginBottom: '12px' }}>03</p>
+            <h2 style={{ fontFamily: 'var(--font-korean)', fontWeight: 800, fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: '1.3', color: 'var(--text-main)', marginBottom: '16px', letterSpacing: '-0.02em' }}>
+              함께 이끄는 사람들
             </h2>
-            <p style={{
-              fontFamily: 'var(--font-korean)',
-              fontSize: '18px',
-              color: 'var(--text-light)',
-              lineHeight: '1.6'
-            }}>
-              자연, 동물, 사람이 함께 행복한 목장
+            <p style={{ fontFamily: 'var(--font-korean)', fontSize: '17px', color: 'var(--text-light)', lineHeight: '1.7' }}>
+              한국, 북한, 미국 — 서로 다른 삶의 궤적이 만나 하나의 비전을 이끕니다.
             </p>
           </motion.div>
-
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Value 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="rounded-3xl p-10 transition-all hover:scale-[1.02]"
-              style={{
-                backgroundColor: 'white',
-                border: '1px solid rgba(141, 110, 99, 0.08)',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.06)'
-              }}
-            >
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6" style={{
-                backgroundColor: 'rgba(165, 214, 167, 0.15)'
-              }}>
-                <Leaf size={32} style={{ color: 'var(--sage)' }} />
-              </div>
-              <h3 style={{
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 700,
-                fontSize: '24px',
-                color: 'var(--text-main)',
-                marginBottom: '12px'
-              }}>
-                자연과 공존
-              </h3>
-              <p style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '16px',
-                color: 'var(--text-light)',
-                lineHeight: '1.7'
-              }}>
-                자연 방목과 생태순환 농법으로 환경을 지키며 건강한 축산을 실천합니다
+            {teamMembers.map((member, i) => (
+              <motion.div key={member.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1 }}>
+                <div className="rounded-3xl overflow-hidden mb-5" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.08)' }}>
+                  <img src={member.img} alt={member.name} loading="lazy" className="w-full aspect-[4/3] object-cover" />
+                </div>
+                <p style={{ fontFamily: 'var(--font-korean)', fontSize: '12px', fontWeight: 700, color: 'var(--sage)', letterSpacing: '0.08em', marginBottom: '4px' }}>{member.origin}</p>
+                <h3 style={{ fontFamily: 'var(--font-korean)', fontWeight: 800, fontSize: '22px', color: 'var(--text-main)', marginBottom: '4px' }}>{member.name}</h3>
+                <p style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', fontWeight: 600, color: 'var(--sage)', marginBottom: '12px' }}>{member.role}</p>
+                <p style={{ fontFamily: 'var(--font-korean)', fontSize: '15px', color: 'var(--text-light)', lineHeight: '1.7' }}>{member.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. 왜 저지인가 */}
+      <section className="py-24" style={{ backgroundColor: 'rgba(255,255,255,0.6)' }}>
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '13px', fontWeight: 700, color: 'var(--sage)', letterSpacing: '0.1em', marginBottom: '12px' }}>04</p>
+              <h2 style={{ fontFamily: 'var(--font-korean)', fontWeight: 800, fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: '1.3', color: 'var(--text-main)', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+                왜 저지(Jersey)인가
+              </h2>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '15px', color: 'var(--text-light)', marginBottom: '24px' }}>고지대를 위한 전략적 선택</p>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '17px', lineHeight: '1.9', color: 'var(--text-light)', marginBottom: '16px' }}>
+                작은 체구(400~450kg), 높은 유지방(5%), 거의 100% A2 유전형, 12~15년의 긴 경제 수명. 사료가 부족한 고지대에서 저지는 홀스타인보다 훨씬 효율적입니다.
+              </p>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '17px', lineHeight: '1.9', color: 'var(--text-light)' }}>
+                낮은 분만 난이도와 뛰어난 내한성. 북한 고지대의 5~7개월 혹한기를 견딜 수 있는 품종입니다.
               </p>
             </motion.div>
-
-            {/* Value 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="rounded-3xl p-10 transition-all hover:scale-[1.02]"
-              style={{
-                backgroundColor: 'white',
-                border: '1px solid rgba(141, 110, 99, 0.08)',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.06)'
-              }}
-            >
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6" style={{
-                backgroundColor: 'rgba(255, 179, 171, 0.15)'
-              }}>
-                <Heart size={32} style={{ color: 'var(--dusty-rose)' }} />
+            <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+              <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(141,110,99,0.12)' }}>
+                <div className="grid grid-cols-3 text-center" style={{ backgroundColor: 'var(--sage)', padding: '14px 0' }}>
+                  <span style={{ fontFamily: 'var(--font-korean)', fontWeight: 700, fontSize: '14px', color: 'white' }}>항목</span>
+                  <span style={{ fontFamily: 'var(--font-korean)', fontWeight: 700, fontSize: '14px', color: 'white' }}>저지 🐄</span>
+                  <span style={{ fontFamily: 'var(--font-korean)', fontWeight: 700, fontSize: '14px', color: 'white' }}>홀스타인</span>
+                </div>
+                {jerseyStats.map((row, i) => (
+                  <div key={row.label} className="grid grid-cols-3 text-center" style={{ padding: '14px 0', backgroundColor: i % 2 === 0 ? 'white' : 'rgba(165,214,167,0.06)', borderTop: '1px solid rgba(141,110,99,0.08)' }}>
+                    <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'var(--text-light)' }}>{row.label}</span>
+                    <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', fontWeight: 700, color: 'var(--sage)' }}>{row.jersey}</span>
+                    <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'var(--text-light)' }}>{row.holstein}</span>
+                  </div>
+                ))}
               </div>
-              <h3 style={{
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 700,
-                fontSize: '24px',
-                color: 'var(--text-main)',
-                marginBottom: '12px'
-              }}>
-                동물 복지
-              </h3>
-              <p style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '16px',
-                color: 'var(--text-light)',
-                lineHeight: '1.7'
-              }}>
-                소들이 스트레스 없이 행복하게 지낼 수 있는 환경을 만듭니다
-              </p>
+              <div className="mt-6 rounded-3xl overflow-hidden" style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
+                <img src="/images/무지개초지_저지소01.png" alt="저지종 젖소" loading="lazy" className="w-full aspect-[16/9] object-cover" />
+              </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
 
-            {/* Value 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="rounded-3xl p-10 transition-all hover:scale-[1.02]"
-              style={{
-                backgroundColor: 'white',
-                border: '1px solid rgba(141, 110, 99, 0.08)',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.06)'
-              }}
-            >
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6" style={{
-                backgroundColor: 'rgba(255, 204, 128, 0.15)'
-              }}>
-                <Award size={32} style={{ color: 'var(--golden)' }} />
+      {/* 5. 창조질서의 회복 */}
+      <section className="py-24 md:py-32">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+              <div className="rounded-3xl overflow-hidden" style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+                <img src="/images/무지개초지.png" alt="초지에서 방목 중인 저지 소떼" loading="lazy" className="w-full aspect-[4/3] object-cover" />
               </div>
-              <h3 style={{
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 700,
-                fontSize: '24px',
-                color: 'var(--text-main)',
-                marginBottom: '12px'
-              }}>
-                품질 최우선
-              </h3>
-              <p style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '16px',
-                color: 'var(--text-light)',
-                lineHeight: '1.7'
-              }}>
-                매일 신선한 우유로 최고 품질의 유제품을 정성껏 만듭니다
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '13px', fontWeight: 700, color: 'var(--sage)', letterSpacing: '0.1em', marginBottom: '12px' }}>05</p>
+              <h2 style={{ fontFamily: 'var(--font-korean)', fontWeight: 800, fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: '1.3', color: 'var(--text-main)', marginBottom: '8px', letterSpacing: '-0.02em' }}>
+                창조질서의 회복
+              </h2>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '15px', color: 'var(--text-light)', marginBottom: '24px' }}>생태신학의 실천</p>
+              <blockquote style={{ fontFamily: 'var(--font-korean)', fontSize: '20px', fontWeight: 700, color: 'var(--text-main)', borderLeft: '3px solid var(--sage)', paddingLeft: '20px', marginBottom: '24px', lineHeight: '1.6' }}>
+                "소를 소답게 키운다."
+              </blockquote>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '17px', lineHeight: '1.9', color: 'var(--text-light)', marginBottom: '16px' }}>
+                토양 생태계를 보전하고, 가축의 본성을 존중하며, 자연의 계절 리듬을 따릅니다.
+              </p>
+              <p style={{ fontFamily: 'var(--font-korean)', fontSize: '17px', lineHeight: '1.9', color: 'var(--text-light)' }}>
+                과잉 생산을 배제하고, 기도와 노동이 하나 되는 예수원의 전통을 잇습니다. 단기적 이익이 아닌 창조질서 안에서의 지속 가능성을 추구합니다.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative py-32 md:py-40 overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/images/예수원 상징.png"
-            alt="이슬 맺힌 아침 무무목장 풍경"
-            loading="lazy"
-            className="w-full h-full object-cover"
-            style={{ filter: 'brightness(0.5)' }}
-          />
-        </div>
-
-        <div className="relative z-10 max-w-[900px] mx-auto px-6 md:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 style={{
-              fontFamily: 'var(--font-korean)',
-              fontWeight: 800,
-              fontSize: 'clamp(32px, 6vw, 56px)',
-              lineHeight: '1.3',
-              color: 'white',
-              marginBottom: '24px',
-              letterSpacing: '-0.02em'
-            }}>
-              무무목장의 특별한 제품을<br />
-              만나보세요
+      {/* 6. 태백에서 북한으로 */}
+      <section className="py-24" style={{ backgroundColor: 'rgba(255,255,255,0.6)' }}>
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-center mb-16">
+            <p style={{ fontFamily: 'var(--font-korean)', fontSize: '13px', fontWeight: 700, color: 'var(--sage)', letterSpacing: '0.1em', marginBottom: '12px' }}>06</p>
+            <h2 style={{ fontFamily: 'var(--font-korean)', fontWeight: 800, fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: '1.3', color: 'var(--text-main)', marginBottom: '16px', letterSpacing: '-0.02em' }}>
+              태백에서 북한으로
             </h2>
-
-            <p style={{
-              fontFamily: 'var(--font-korean)',
-              fontSize: 'clamp(16px, 2vw, 20px)',
-              lineHeight: '1.7',
-              color: 'rgba(255,255,255,0.9)',
-              marginBottom: '40px'
-            }}>
-              50년 역사와 자연이 만든 건강한 맛
+            <p style={{ fontFamily: 'var(--font-korean)', fontSize: '17px', color: 'var(--text-light)', lineHeight: '1.7', maxWidth: '700px', margin: '0 auto' }}>
+              강원도 태백은 남한에서 북한 고지대와 가장 유사한 기후와 지형을 갖추고 있습니다. 삼수령에서 검증된 모든 것은 북한을 위한 것입니다.
             </p>
-
-            <a
-              href="/products"
-              className="inline-flex items-center gap-3 px-10 py-5 rounded-full transition-transform hover:scale-105"
-              style={{
-                backgroundColor: 'white',
-                color: 'var(--text-main)',
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 700,
-                fontSize: '18px',
-                boxShadow: '0 10px 40px rgba(0,0,0,0.3)'
-              }}
-            >
-              제품 보러가기
-              <ArrowRight size={20} />
-            </a>
+          </motion.div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+              className="rounded-3xl p-8" style={{ backgroundColor: 'rgba(255,204,128,0.15)', border: '1px solid rgba(255,204,128,0.3)' }}>
+              <h3 style={{ fontFamily: 'var(--font-korean)', fontWeight: 700, fontSize: '18px', color: 'var(--text-main)', marginBottom: '16px' }}>북한 고지대의 현실</h3>
+              {['5~7개월 이상의 혹한기', '극도로 제한된 경작지', '취약한 물류 및 유통망', '외부 농업 투입재 확보 불가'].map(item => (
+                <p key={item} style={{ fontFamily: 'var(--font-korean)', fontSize: '15px', color: 'var(--text-light)', lineHeight: '1.8', paddingLeft: '16px', borderLeft: '2px solid rgba(255,204,128,0.6)', marginBottom: '8px' }}>
+                  {item}
+                </p>
+              ))}
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
+              className="rounded-3xl p-8" style={{ backgroundColor: 'rgba(165,214,167,0.1)', border: '1px solid rgba(165,214,167,0.3)' }}>
+              <h3 style={{ fontFamily: 'var(--font-korean)', fontWeight: 700, fontSize: '18px', color: 'var(--text-main)', marginBottom: '16px' }}>무무목장 모델의 해법</h3>
+              {['고가 자동화 장비 불필요', '통신 인프라 의존도 제로', '현지 사료 자급 시스템', '자연 교배 중심 번식', '도제식 기술 전수'].map(item => (
+                <p key={item} style={{ fontFamily: 'var(--font-korean)', fontSize: '15px', color: 'var(--text-light)', lineHeight: '1.8', paddingLeft: '16px', borderLeft: '2px solid rgba(165,214,167,0.6)', marginBottom: '8px' }}>
+                  {item}
+                </p>
+              ))}
+            </motion.div>
+          </div>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-8 rounded-3xl p-8 text-center" style={{ backgroundColor: 'white', border: '1px solid rgba(141,110,99,0.1)', boxShadow: '0 4px 20px rgba(0,0,0,0.06)' }}>
+            <p style={{ fontFamily: 'var(--font-korean)', fontSize: '16px', color: 'var(--text-light)', marginBottom: '8px' }}>암송아지 자가 증식 계획</p>
+            <div className="flex justify-center gap-12 mt-4">
+              {[{ n: '5', label: '현재 (두)' }, { n: '10', label: '2년 후 목표' }, { n: '20', label: '4년 후 목표' }].map(({ n, label }) => (
+                <div key={label}>
+                  <p style={{ fontFamily: 'var(--font-korean)', fontWeight: 800, fontSize: '36px', color: 'var(--sage)' }}>{n}</p>
+                  <p style={{ fontFamily: 'var(--font-korean)', fontSize: '13px', color: 'var(--text-light)' }}>{label}</p>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
+
+      {/* CTA */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/images/운해.png" alt="운해" className="w-full h-full object-cover" style={{ filter: 'brightness(0.4)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6))' }} />
+        </div>
+        <div className="relative z-10 text-center px-6">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+            <blockquote style={{ fontFamily: 'serif', fontSize: 'clamp(16px, 2.5vw, 22px)', color: 'rgba(255,255,255,0.85)', fontStyle: 'italic', marginBottom: '12px' }}>
+              "For he was looking forward to the city with foundations,<br />whose architect and builder is God."
+            </blockquote>
+            <p style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'rgba(255,255,255,0.6)', marginBottom: '40px' }}>히브리서 11:10</p>
+            <Link to="/letter" className="inline-flex items-center gap-3 px-10 py-5 rounded-full transition-transform hover:scale-105"
+              style={{ backgroundColor: 'white', color: 'var(--text-main)', fontFamily: 'var(--font-korean)', fontWeight: 700, fontSize: '17px', boxShadow: '0 10px 40px rgba(0,0,0,0.3)' }}>
+              무무편지 구독하기
+              <ArrowRight size={20} />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
     </div>
   );
 }
