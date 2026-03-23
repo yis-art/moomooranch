@@ -12,8 +12,8 @@ export function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/images/img_1cN0vT8Rihe_wMwy2sZ3pPe2ku849t1gs.jpg"
-            alt="강원도 삼척 무무목장의 푸른 초원 전경"
+            src="/images/무무목장 전경.png"
+            alt="강원도 태백 무무목장의 푸른 초원 전경"
             className="w-full h-full object-cover"
             style={{ filter: 'brightness(0.7)' }}
           />
@@ -30,7 +30,7 @@ export function Home() {
           className="absolute top-20 left-[10%] w-64 h-48 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
         >
           <img
-            src="/images/img_1vNJ5X4Y1BytZna2ZJUgnkbiOZbGBj4m_.jpg"
+            src="/images/무지개초지_저지소01.png"
             alt="무무목장의 저지종 젖소 클로즈업"
             loading="lazy"
             className="w-full h-full object-cover"
@@ -44,7 +44,7 @@ export function Home() {
           className="absolute top-32 right-[8%] w-72 h-56 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
         >
           <img
-            src="/images/img_1jwHnri8wt12fSjkmIDRBVNg45As3yUMY.jpg"
+            src="/images/무지개초지.png"
             alt="해 뜨는 무무목장 초원 풍경"
             loading="lazy"
             className="w-full h-full object-cover"
@@ -58,8 +58,8 @@ export function Home() {
           className="absolute bottom-32 left-[15%] w-56 h-44 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
         >
           <img
-            src="/images/img_11UtK5lUyKQuCtJ54gppd5Kh-Y2n5H1F9.jpg"
-            alt="갓 짜낸 신선한 우유를 잔에 따르는 모습"
+            src="/images/우유마시는 아이.png"
+            alt="갓 짜낸 신선한 우유를 마시는 모습"
             loading="lazy"
             className="w-full h-full object-cover"
           />
@@ -72,7 +72,7 @@ export function Home() {
           className="absolute bottom-40 right-[12%] w-60 h-48 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
         >
           <img
-            src="/images/img_12sq1XDyEAczW93xmc9yWHXjQK5xIZW_2.jpg"
+            src="/images/유제품 소개.png"
             alt="무무목장에서 직접 만든 수제 치즈"
             loading="lazy"
             className="w-full h-full object-cover"
@@ -113,7 +113,7 @@ export function Home() {
               fontWeight: 400
             }}
           >
-            강원도 삼척, 50년 역사의 예수원 목장에서<br />
+            강원도 태백, 50년 역사의 예수원 목장에서<br />
             저지종 젖소가 만드는 특별한 우유를 만나보세요
           </motion.p>
 
@@ -230,7 +230,7 @@ export function Home() {
                 color: 'var(--text-light)',
                 marginBottom: '32px'
               }}>
-                강원도 삼척 예수원에서 50년 넘게 이어온 목장입니다. 저지종 젖소에서 짜낸 신선한 A2 우유로 정직하게 만든 유제품을 소개합니다.
+                강원도 태백 예수원에서 50년 넘게 이어온 목장입니다. 저지종 젖소에서 짜낸 신선한 A2 우유로 정직하게 만든 유제품을 소개합니다.
               </p>
 
               <Link
@@ -263,8 +263,8 @@ export function Home() {
                   boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
                 }}>
                   <img
-                    src="/images/img_1QdJu7xzZQ5Ui8RcDQCVLf_GfEyb5pSVT.jpg"
-                    alt="이슬 맺힌 아침 목장 풍경"
+                    src="/images/무지개초지 설경.png"
+                    alt="눈 덮인 무무목장 풍경"
                     loading="lazy"
                     className="w-full h-full object-cover"
                   />
@@ -273,7 +273,7 @@ export function Home() {
                   boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
                 }}>
                   <img
-                    src="/images/img_1DMONJa8XgXYHAFjBDFtfxIxLYRnjl-N9.jpg"
+                    src="/images/무지개초지_저지소02.png"
                     alt="갈색 저지종 젖소 초상"
                     loading="lazy"
                     className="w-full h-full object-cover"
@@ -300,8 +300,8 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="/images/img_1G39bjyUqMSWLTEUOapsh9GKliBhKWD5q.jpg"
-                  alt="무무목장 초원 항공뷰"
+                  src="/images/무지개초지_저지소03.png"
+                  alt="무무목장 초원의 저지소"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
                 />
@@ -336,8 +336,8 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="/images/img_12sq1XDyEAczW93xmc9yWHXjQK5xIZW_2.jpg"
-                  alt="황금빛 목초지 일출"
+                  src="/images/무지개초지_저지소04.png"
+                  alt="목초지의 저지소들"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
                 />
@@ -349,7 +349,7 @@ export function Home() {
                 color: 'var(--text-main)',
                 marginBottom: '8px'
               }}>
-                자연 방목 목장
+                해발 1,000m 초지
               </h3>
               <p style={{
                 fontFamily: 'var(--font-korean)',
@@ -357,7 +357,7 @@ export function Home() {
                 color: 'var(--text-light)',
                 lineHeight: '1.6'
               }}>
-                넓은 초원에서 스트레스 없이 자란 건강한 소들.
+                강원도 태백 해발 1,000m 고원에서 자란 건강한 소들.
               </p>
             </motion.div>
 
@@ -372,8 +372,8 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="/images/img_1qX1AGLhJKnkKCXn4H-QpJtsDx0g38r0T.jpg"
-                  alt="잔에 우유를 따르는 모습"
+                  src="/images/우유_저지소.png"
+                  alt="저지소 우유"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
                 />
@@ -408,8 +408,8 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="/images/img_13JENdGwbWZWwh0-l9b9XOA0ErQsVGIAt.jpg"
-                  alt="장인이 만든 수제 치즈와 유제품"
+                  src="/images/유제품_딸기요커트.png"
+                  alt="무무목장 수제 요거트"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
                 />
@@ -471,13 +471,13 @@ export function Home() {
         {/* Background Images */}
         <div className="absolute inset-0 grid grid-cols-3 opacity-30">
           <div className="bg-cover bg-center" style={{
-            backgroundImage: 'url(/images/img_1wsTgFPT4nlwm7CuAm3f32ztAgsKcrVlE.jpg'
+            backgroundImage: 'url(/images/운해.png)'
           }} />
           <div className="bg-cover bg-center" style={{
-            backgroundImage: 'url(/images/img_1etQjErXiZni_Zdd0dc0fROQOJ50hVXl4.jpg'
+            backgroundImage: 'url(/images/축사 하늘사진.png)'
           }} />
           <div className="bg-cover bg-center" style={{
-            backgroundImage: 'url(/images/img_1cN0vT8Rihe_wMwy2sZ3pPe2ku849t1gs.jpg'
+            backgroundImage: 'url(/images/무무목장 전경.png)'
           }} />
         </div>
 
@@ -528,7 +528,7 @@ export function Home() {
             >
               <div className="relative aspect-[3/4]">
                 <img
-                  src="/images/img_1pauf1h4HTNWxQoazmHdPHACRNszP4bP4.jpg"
+                  src="/images/무지개초지_저지소05.png"
                   alt="저지종 젖소 클로즈업"
                   loading="lazy"
                   className="w-full h-full object-cover"
@@ -610,7 +610,13 @@ export function Home() {
           {/* Horizontal Scroll Gallery */}
           <div className="overflow-x-auto pb-8 -mx-6 px-6">
             <div className="flex gap-6" style={{ width: 'max-content' }}>
-              {[1, 2, 3, 4, 5].map((index) => (
+              {[
+                { src: '/images/무지개초지_저지소06.png', alt: '무무목장 저지소 풍경 1' },
+                { src: '/images/무지개초지.png', alt: '무지개초지 전경' },
+                { src: '/images/무지개초지_저지소03.png', alt: '무무목장 저지소 풍경 3' },
+                { src: '/images/무지개초지_저지소01.png', alt: '무무목장 저지소 풍경 4' },
+                { src: '/images/축사 하늘사진.png', alt: '축사와 하늘' },
+              ].map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -625,14 +631,8 @@ export function Home() {
                   }}
                 >
                   <img
-                    src={[
-                      '/images/img_12sq1XDyEAczW93xmc9yWHXjQK5xIZW_2.jpg',
-                      '/images/img_1jwHnri8wt12fSjkmIDRBVNg45As3yUMY.jpg',
-                      '/images/img_1G39bjyUqMSWLTEUOapsh9GKliBhKWD5q.jpg',
-                      '/images/img_1vNJ5X4Y1BytZna2ZJUgnkbiOZbGBj4m_.jpg',
-                      '/images/img_11UtK5lUyKQuCtJ54gppd5Kh-Y2n5H1F9.jpg'
-                    ][index - 1]}
-                    alt={`무무목장 갤러리 사진 ${index}`}
+                    src={item.src}
+                    alt={item.alt}
                     loading="lazy"
                     className="w-full h-full object-cover"
                   />
@@ -655,7 +655,7 @@ export function Home() {
       <section className="relative py-32 md:py-48 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/img_1G39bjyUqMSWLTEUOapsh9GKliBhKWD5q.jpg"
+            src="/images/운해.png"
             alt="햇살 비치는 무무목장 초원"
             loading="lazy"
             className="w-full h-full object-cover"
@@ -740,7 +740,7 @@ export function Home() {
               ❤️ 동물 복지 •
             </span>
             <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>
-              🏔️ 강원도 삼척 •
+              🏔️ 강원도 태백 •
             </span>
             <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>
               📦 새벽배송
