@@ -6,11 +6,10 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: '홈', path: '/' },
-    { label: '치즈의담벼락', path: '/blog' },
-    { label: '목장소개', path: '/about' },
-    { label: '상품안내', path: '/products' },
-    { label: '오시는길', path: '/contact' }
+    { label: '50년의 기도', path: '/about' },
+    { label: '목장의 하루', path: '/farm' },
+    { label: '저지 밀크', path: '/products' },
+    { label: '무무편지', path: '/letter' }
   ];
 
   return (

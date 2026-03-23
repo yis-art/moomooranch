@@ -150,7 +150,7 @@ export function Footer() {
               fontSize: '14px', 
               lineHeight: '1.8' 
             }}>
-              <p className="mb-2">강원도 삼척시 노곡면<br />예수원길 115</p>
+              <p className="mb-2">강원도 태백시 매봉산길 61</p>
               <p className="mb-2">오전 9시 - 오후 6시</p>
               <a 
                 href="https://pf.kakao.com/" 
@@ -184,7 +184,7 @@ export function Footer() {
             lineHeight: '1.8'
           }}>
             <p>사업자등록번호: 123-45-67890 | 대표: 무무목장 | 통신판매업신고: 제2026-강원삼척-00001호</p>
-            <p className="mt-1">이메일: info@moomooranch.kr | 전화: 033-XXX-XXXX</p>
+            <p className="mt-1">이메일: info@moomooranch.kr | 전화: 033-553-3395</p>
           </div>
 
           {/* Copyright */}
