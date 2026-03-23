@@ -15,9 +15,9 @@ export function Header() {
 
   return (
     <header 
-      className="sticky top-0 z-50 backdrop-blur-md"
-      style={{ 
-        backgroundColor: 'rgba(255, 255, 255, 0.97)',
+      className="sticky top-0 z-50"
+      style={{
+        backgroundColor: 'rgba(255, 255, 255, 1.0)',
         borderBottom: '1px solid rgba(141, 110, 99, 0.08)',
         boxShadow: '0 1px 3px rgba(0,0,0,0.03)'
       }}
