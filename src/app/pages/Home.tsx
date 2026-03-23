@@ -72,7 +72,7 @@ export function Home() {
           className="absolute bottom-40 right-[12%] w-60 h-48 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
         >
           <img
-            src="/images/유제품 소개.png"
+            src="/images/무무목장 소개.png"
             alt="무무목장에서 직접 만든 수제 치즈"
             loading="lazy"
             className="w-full h-full object-cover"
@@ -96,8 +96,8 @@ export function Home() {
               textShadow: '0 4px 20px rgba(0,0,0,0.3)'
             }}
           >
-            자연이 키운 건강,<br />
-            무무목장 A2 우유
+            50년의 기도가 빚은<br />
+            저지 우유
           </motion.h1>
 
           <motion.p
@@ -113,8 +113,8 @@ export function Home() {
               fontWeight: 400
             }}
           >
-            강원도 태백, 50년 역사의 예수원 목장에서<br />
-            저지종 젖소가 만드는 특별한 우유를 만나보세요
+            강원도 태백 해발 1,000m, 예수원 공동체가 지켜온 땅에서<br />
+            저지 젖소의 진한 우유가 만들어집니다
           </motion.p>
 
           <motion.div
@@ -123,7 +123,7 @@ export function Home() {
             transition={{ duration: 0.8, delay: 0.7 }}
           >
             <Link
-              to="/products"
+              to="/letter"
               className="inline-flex items-center gap-3 px-10 py-5 rounded-full transition-transform hover:scale-105"
               style={{
                 backgroundColor: 'white',
@@ -134,7 +134,7 @@ export function Home() {
                 boxShadow: '0 10px 40px rgba(0,0,0,0.3)'
               }}
             >
-              제품 둘러보기
+              무무편지 구독하기
               <ArrowRight size={20} />
             </Link>
           </motion.div>
@@ -154,7 +154,7 @@ export function Home() {
                 color: 'rgba(255,255,255,0.9)',
                 fontWeight: 500
               }}>
-                50년 역사 (예수원 설립 1965년)
+                1965년 설립 예수원 공동체
               </span>
             </div>
             <div className="flex items-center gap-3">
@@ -165,7 +165,7 @@ export function Home() {
                 color: 'rgba(255,255,255,0.9)',
                 fontWeight: 500
               }}>
-                42마리 건강한 소
+                저지종 젖소 42마리 방목
               </span>
             </div>
             <div className="flex items-center gap-3">
@@ -176,7 +176,7 @@ export function Home() {
                 color: 'rgba(255,255,255,0.9)',
                 fontWeight: 500
               }}>
-              1등급 A2 우유
+              A2 저지 우유
               </span>
             </div>
           </motion.div>
@@ -205,7 +205,7 @@ export function Home() {
                   color: 'var(--sage)',
                   letterSpacing: '0.05em'
                 }}>
-                  무무목장 이야기
+                  기도와 노동의 목장
                 </span>
               </div>
 
@@ -218,9 +218,9 @@ export function Home() {
                 marginBottom: '24px',
                 letterSpacing: '-0.02em'
               }}>
-                자연이 키운 건강함,<br />
-                정성으로 담아낸<br />
-                유제품
+                1965년부터 이어온<br />
+                예수원의 낙농 전통,<br />
+                무무목장
               </h2>
 
               <p style={{
@@ -230,7 +230,7 @@ export function Home() {
                 color: 'var(--text-light)',
                 marginBottom: '32px'
               }}>
-                강원도 태백 예수원에서 50년 넘게 이어온 목장입니다. 저지종 젖소에서 짜낸 신선한 A2 우유로 정직하게 만든 유제품을 소개합니다.
+                1965년 대천덕 신부님이 세운 예수원 공동체가 이 땅을 지켜왔습니다. 매봉산 자락 해발 1,000m, 저지 젖소가 풀을 뜯고 착유한 신선한 우유로 정직하게 만듭니다.
               </p>
 
               <Link
@@ -321,7 +321,7 @@ export function Home() {
                 color: 'var(--text-light)',
                 lineHeight: '1.6'
               }}>
-                넓은 초원에서 스트레스 없이 자란 건강한 저지종 젖소들의 이야기.
+                해발 1,000m 매봉산 초지에서 계절마다 자유롭게 방목합니다.
               </p>
             </motion.div>
 
@@ -357,7 +357,7 @@ export function Home() {
                 color: 'var(--text-light)',
                 lineHeight: '1.6'
               }}>
-                강원도 태백 해발 1,000m 고원에서 자란 건강한 소들.
+                수입 건초 없이 자가 목초 90% 이상. 땅에서 시작하는 순환 농업.
               </p>
             </motion.div>
 
@@ -393,7 +393,7 @@ export function Home() {
                 color: 'var(--text-light)',
                 lineHeight: '1.6'
               }}>
-                소화가 편한 A2 베타카제인 우유, 매일 아침 신선하게.
+                A2 유전형 거의 100%. 지방구가 작아 소화가 쉽고 크림층이 풍부합니다.
               </p>
             </motion.div>
 
@@ -408,7 +408,7 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="/images/유제품 소개-특장점.png"
+                  src="/images/무무목장 소개-특장점.png"
                   alt="무무목장 수제 요거트"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
@@ -421,7 +421,7 @@ export function Home() {
                 color: 'var(--text-main)',
                 marginBottom: '8px'
               }}>
-                수제 유제품
+                수제 무무목장
               </h3>
               <p style={{
                 fontFamily: 'var(--font-korean)',
@@ -429,7 +429,7 @@ export function Home() {
                 color: 'var(--text-light)',
                 lineHeight: '1.6'
               }}>
-                목장에서 직접 만든 신선한 치즈와 요거트.
+                목장과 가공이 같은 땅. 요거트, 치즈, 버터를 당일 생산합니다.
               </p>
             </motion.div>
           </div>
@@ -446,7 +446,7 @@ export function Home() {
 
           <div className="text-center mt-8">
             <Link
-              to="/products"
+              to="/letter"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full transition-transform hover:scale-105"
               style={{
                 backgroundColor: 'var(--sage)',
@@ -692,7 +692,7 @@ export function Home() {
               maxWidth: '700px',
               margin: '0 auto 40px'
             }}>
-              50년 역사의 예수원 목장에서 저지종 젖소가 만든 신선한 유제품을 경험해 보세요.
+              50년 역사의 예수원 목장에서 저지종 젖소가 만든 신선한 무무목장을 경험해 보세요.
             </p>
 
             <Link
