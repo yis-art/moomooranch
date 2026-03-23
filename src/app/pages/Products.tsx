@@ -16,7 +16,7 @@ export function Products() {
       location: '우유 🥛',
       price: '6,500원',
       rating: '4.9',
-      image: 'https://lh3.googleusercontent.com/d/1saOT2QMYT-QC8tHmJEGXEf0aGybtgk2G',
+      image: '/images/img_1saOT2QMYT-QC8tHmJEGXEf0aGybtgk2G.jpg',
       badge: '베스트셀러'
     },
     {
@@ -24,7 +24,7 @@ export function Products() {
       location: '우유 🥛',
       price: '9,800원',
       rating: '5.0',
-      image: 'https://lh3.googleusercontent.com/d/1vJoR6itOyJUUoReEUQ5FeuMuxUv0-2Qa',
+      image: '/images/img_1vJoR6itOyJUUoReEUQ5FeuMuxUv0-2Qa.jpg',
       badge: '정기구독'
     },
     {
@@ -32,21 +32,21 @@ export function Products() {
       location: '치즈 🧀',
       price: '12,000원',
       rating: '4.8',
-      image: 'https://lh3.googleusercontent.com/d/1pyWm3xEnsTQ9zffSSkh_lOgrbpiwj7Z6'
+      image: '/images/img_1pyWm3xEnsTQ9zffSSkh_lOgrbpiwj7Z6.jpg'
     },
     {
       name: '무무 스트링치즈',
       location: '치즈 🧀',
       price: '8,500원',
       rating: '4.7',
-      image: 'https://lh3.googleusercontent.com/d/1U0UrackvxtSa6HF50aru3WiSvGvSf6mk'
+      image: '/images/img_1U0UrackvxtSa6HF50aru3WiSvGvSf6mk.jpg'
     },
     {
       name: '무무 플레인 요거트',
       location: '요거트 🥣',
       price: '5,500원',
       rating: '4.9',
-      image: 'https://lh3.googleusercontent.com/d/1gZzsR8biJjqPgBik2FcuhtG0jobI48LO',
+      image: '/images/img_1gZzsR8biJjqPgBik2FcuhtG0jobI48LO.jpg',
       badge: '정기구독'
     },
     {
@@ -54,14 +54,14 @@ export function Products() {
       location: '디저트 🍦',
       price: '4,500원',
       rating: '4.6',
-      image: 'https://lh3.googleusercontent.com/d/1saOT2QMYT-QC8tHmJEGXEf0aGybtgk2G'
+      image: '/images/img_1saOT2QMYT-QC8tHmJEGXEf0aGybtgk2G.jpg'
     },
     {
       name: '무무 A2 우유 세트 (1L×3)',
       location: '우유 🥛',
       price: '18,000원',
       rating: '5.0',
-      image: 'https://lh3.googleusercontent.com/d/1gZzsR8biJjqPgBik2FcuhtG0jobI48LO',
+      image: '/images/img_1gZzsR8biJjqPgBik2FcuhtG0jobI48LO.jpg',
       badge: '베스트셀러'
     },
     {
@@ -69,7 +69,7 @@ export function Products() {
       location: '치즈 🧀',
       price: '25,000원',
       rating: '4.8',
-      image: 'https://lh3.googleusercontent.com/d/1pyWm3xEnsTQ9zffSSkh_lOgrbpiwj7Z6'
+      image: '/images/img_1pyWm3xEnsTQ9zffSSkh_lOgrbpiwj7Z6.jpg'
     },
   ];
 
@@ -79,7 +79,7 @@ export function Products() {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://lh3.googleusercontent.com/d/1vNJ5X4Y1BytZna2ZJUgnkbiOZbGBj4m_"
+            src="/images/img_1vNJ5X4Y1BytZna2ZJUgnkbiOZbGBj4m_.jpg"
             alt="무무목장 신선한 유제품 모음"
             className="w-full h-full object-cover"
             style={{ filter: 'brightness(0.6)' }}
@@ -297,7 +297,7 @@ export function Products() {
       <section className="relative py-32 md:py-40 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://lh3.googleusercontent.com/d/1G39bjyUqMSWLTEUOapsh9GKliBhKWD5q"
+            src="/images/img_1G39bjyUqMSWLTEUOapsh9GKliBhKWD5q.jpg"
             alt="무무목장 수제 치즈와 유제품"
             loading="lazy"
             className="w-full h-full object-cover"

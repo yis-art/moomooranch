@@ -9,7 +9,7 @@ export function About() {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://lh3.googleusercontent.com/d/12sq1XDyEAczW93xmc9yWHXjQK5xIZW_2"
+            src="/images/img_12sq1XDyEAczW93xmc9yWHXjQK5xIZW_2.jpg"
             alt="공중에서 바라본 무무목장 전경"
             className="w-full h-full object-cover"
             style={{ filter: 'brightness(0.6)' }}
@@ -85,7 +85,7 @@ export function About() {
                 boxShadow: '0 20px 60px rgba(0,0,0,0.12)'
               }}>
                 <img
-                  src="https://lh3.googleusercontent.com/d/1vNJ5X4Y1BytZna2ZJUgnkbiOZbGBj4m_"
+                  src="/images/img_1vNJ5X4Y1BytZna2ZJUgnkbiOZbGBj4m_.jpg"
                   alt="해 뜨는 무무목장 초원"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
@@ -217,7 +217,7 @@ export function About() {
                 boxShadow: '0 20px 60px rgba(0,0,0,0.12)'
               }}>
                 <img
-                  src="https://lh3.googleusercontent.com/d/11UtK5lUyKQuCtJ54gppd5Kh-Y2n5H1F9"
+                  src="/images/img_11UtK5lUyKQuCtJ54gppd5Kh-Y2n5H1F9.jpg"
                   alt="무무목장 저지종 젖소 클로즈업"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
@@ -377,7 +377,7 @@ export function About() {
       <section className="relative py-32 md:py-40 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://lh3.googleusercontent.com/d/13JENdGwbWZWwh0-l9b9XOA0ErQsVGIAt"
+            src="/images/img_13JENdGwbWZWwh0-l9b9XOA0ErQsVGIAt.jpg"
             alt="이슬 맺힌 아침 무무목장 풍경"
             loading="lazy"
             className="w-full h-full object-cover"
