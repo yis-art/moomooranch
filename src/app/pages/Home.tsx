@@ -12,7 +12,7 @@ export function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="https://drive.google.com/uc?export=view&id=1cN0vT8Rihe_wMwy2sZ3pPe2ku849t1gs"
+            src="https://lh3.googleusercontent.com/d/1cN0vT8Rihe_wMwy2sZ3pPe2ku849t1gs"
             alt="강원도 삼척 무무목장의 푸른 초원 전경"
             className="w-full h-full object-cover"
             style={{ filter: 'brightness(0.7)' }}
@@ -30,7 +30,7 @@ export function Home() {
           className="absolute top-20 left-[10%] w-64 h-48 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
         >
           <img
-            src="https://drive.google.com/uc?export=view&id=182aLJb-JEGxOD3CWEiAf1FcsQ6skBDRy"
+            src="https://lh3.googleusercontent.com/d/182aLJb-JEGxOD3CWEiAf1FcsQ6skBDRy"
             alt="무무목장의 저지종 젖소 클로즈업"
             loading="lazy"
             className="w-full h-full object-cover"
@@ -44,7 +44,7 @@ export function Home() {
           className="absolute top-32 right-[8%] w-72 h-56 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
         >
           <img
-            src="https://drive.google.com/uc?export=view&id=1D6VqDsHD4Mx_MZTbXK4h5yqT-U2Spnts"
+            src="https://lh3.googleusercontent.com/d/1D6VqDsHD4Mx_MZTbXK4h5yqT-U2Spnts"
             alt="해 뜨는 무무목장 초원 풍경"
             loading="lazy"
             className="w-full h-full object-cover"
@@ -58,7 +58,7 @@ export function Home() {
           className="absolute bottom-32 left-[15%] w-56 h-44 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
         >
           <img
-            src="https://drive.google.com/uc?export=view&id=1QpmHcIacAc-5vHc5gUN5ZaLuNXvhSxiK"
+            src="https://lh3.googleusercontent.com/d/1QpmHcIacAc-5vHc5gUN5ZaLuNXvhSxiK"
             alt="갓 짜낸 신선한 우유를 잔에 따르는 모습"
             loading="lazy"
             className="w-full h-full object-cover"
@@ -72,7 +72,7 @@ export function Home() {
           className="absolute bottom-40 right-[12%] w-60 h-48 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
         >
           <img
-            src="https://drive.google.com/uc?export=view&id=1_oAs95u0Xrfp--l6kvipLh_IK3mVo2Ph"
+            src="https://lh3.googleusercontent.com/d/1_oAs95u0Xrfp--l6kvipLh_IK3mVo2Ph"
             alt="무무목장에서 직접 만든 수제 치즈"
             loading="lazy"
             className="w-full h-full object-cover"
@@ -263,7 +263,7 @@ export function Home() {
                   boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
                 }}>
                   <img
-                    src="https://drive.google.com/uc?export=view&id=1-JeADv9UmOS3-rbAoTC2PeAfphTCd82I"
+                    src="https://lh3.googleusercontent.com/d/1-JeADv9UmOS3-rbAoTC2PeAfphTCd82I"
                     alt="이슬 맺힌 아침 목장 풍경"
                     loading="lazy"
                     className="w-full h-full object-cover"
@@ -273,7 +273,7 @@ export function Home() {
                   boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
                 }}>
                   <img
-                    src="https://drive.google.com/uc?export=view&id=1nNAJeARX2bpBZW9VaaHL3ALYHpYckBkE"
+                    src="https://lh3.googleusercontent.com/d/1nNAJeARX2bpBZW9VaaHL3ALYHpYckBkE"
                     alt="갈색 저지종 젖소 초상"
                     loading="lazy"
                     className="w-full h-full object-cover"
@@ -300,7 +300,7 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="https://drive.google.com/uc?export=view&id=1IdZjxnG3N4pgBDgUhvzBElD2Qm5vonoP"
+                  src="https://lh3.googleusercontent.com/d/1IdZjxnG3N4pgBDgUhvzBElD2Qm5vonoP"
                   alt="무무목장 초원 항공뷰"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
@@ -336,7 +336,7 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="https://drive.google.com/uc?export=view&id=1_oAs95u0Xrfp--l6kvipLh_IK3mVo2Ph"
+                  src="https://lh3.googleusercontent.com/d/1_oAs95u0Xrfp--l6kvipLh_IK3mVo2Ph"
                   alt="황금빛 목초지 일출"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
@@ -372,7 +372,7 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="https://drive.google.com/uc?export=view&id=1UxeewuxSYiq2E8r8Ax5ihrJZjYia9GaS"
+                  src="https://lh3.googleusercontent.com/d/1UxeewuxSYiq2E8r8Ax5ihrJZjYia9GaS"
                   alt="잔에 우유를 따르는 모습"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
@@ -408,7 +408,7 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="https://drive.google.com/uc?export=view&id=1jeSun4oh_Nv9bHZFgWzPuho8mp0UccV9"
+                  src="https://lh3.googleusercontent.com/d/1jeSun4oh_Nv9bHZFgWzPuho8mp0UccV9"
                   alt="장인이 만든 수제 치즈와 유제품"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
@@ -471,13 +471,13 @@ export function Home() {
         {/* Background Images */}
         <div className="absolute inset-0 grid grid-cols-3 opacity-30">
           <div className="bg-cover bg-center" style={{
-            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1wsTgFPT4nlwm7CuAm3f32ztAgsKcrVlE'
+            backgroundImage: 'url(https://lh3.googleusercontent.com/d/1wsTgFPT4nlwm7CuAm3f32ztAgsKcrVlE'
           }} />
           <div className="bg-cover bg-center" style={{
-            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1etQjErXiZni_Zdd0dc0fROQOJ50hVXl4'
+            backgroundImage: 'url(https://lh3.googleusercontent.com/d/1etQjErXiZni_Zdd0dc0fROQOJ50hVXl4'
           }} />
           <div className="bg-cover bg-center" style={{
-            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1cN0vT8Rihe_wMwy2sZ3pPe2ku849t1gs'
+            backgroundImage: 'url(https://lh3.googleusercontent.com/d/1cN0vT8Rihe_wMwy2sZ3pPe2ku849t1gs'
           }} />
         </div>
 
@@ -528,7 +528,7 @@ export function Home() {
             >
               <div className="relative aspect-[3/4]">
                 <img
-                  src="https://drive.google.com/uc?export=view&id=14OkjP0O7_u-oBD6NQGKsE5mdDPsgrBHU"
+                  src="https://lh3.googleusercontent.com/d/14OkjP0O7_u-oBD6NQGKsE5mdDPsgrBHU"
                   alt="저지종 젖소 클로즈업"
                   loading="lazy"
                   className="w-full h-full object-cover"
@@ -626,11 +626,11 @@ export function Home() {
                 >
                   <img
                     src={[
-                      'https://drive.google.com/uc?export=view&id=1_oAs95u0Xrfp--l6kvipLh_IK3mVo2Ph',
-                      'https://drive.google.com/uc?export=view&id=1D6VqDsHD4Mx_MZTbXK4h5yqT-U2Spnts',
-                      'https://drive.google.com/uc?export=view&id=1IdZjxnG3N4pgBDgUhvzBElD2Qm5vonoP',
-                      'https://drive.google.com/uc?export=view&id=182aLJb-JEGxOD3CWEiAf1FcsQ6skBDRy',
-                      'https://drive.google.com/uc?export=view&id=1QpmHcIacAc-5vHc5gUN5ZaLuNXvhSxiK'
+                      'https://lh3.googleusercontent.com/d/1_oAs95u0Xrfp--l6kvipLh_IK3mVo2Ph',
+                      'https://lh3.googleusercontent.com/d/1D6VqDsHD4Mx_MZTbXK4h5yqT-U2Spnts',
+                      'https://lh3.googleusercontent.com/d/1IdZjxnG3N4pgBDgUhvzBElD2Qm5vonoP',
+                      'https://lh3.googleusercontent.com/d/182aLJb-JEGxOD3CWEiAf1FcsQ6skBDRy',
+                      'https://lh3.googleusercontent.com/d/1QpmHcIacAc-5vHc5gUN5ZaLuNXvhSxiK'
                     ][index - 1]}
                     alt={`무무목장 갤러리 사진 ${index}`}
                     loading="lazy"
@@ -655,7 +655,7 @@ export function Home() {
       <section className="relative py-32 md:py-48 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://drive.google.com/uc?export=view&id=1Bu2CLbpgs3CpS5cmNXtxUWmD_fiMjPiW"
+            src="https://lh3.googleusercontent.com/d/1Bu2CLbpgs3CpS5cmNXtxUWmD_fiMjPiW"
             alt="햇살 비치는 무무목장 초원"
             loading="lazy"
             className="w-full h-full object-cover"
