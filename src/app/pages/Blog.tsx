@@ -10,7 +10,7 @@ const blogPosts = [
     summary: '봄비가 내리는 목장의 풍경과 소들의 모습을 전해드려요. 비가 오면 더 싱그러운 목장의 이야기입니다.',
     date: '2026.3.20',
     tag: '#오늘의목장',
-    imageUrl: 'https://lh3.googleusercontent.com/d/14OkjP0O7_u-oBD6NQGKsE5mdDPsgrBHU'
+    imageUrl: 'https://lh3.googleusercontent.com/d/12sq1XDyEAczW93xmc9yWHXjQK5xIZW_2'
   },
   {
     slug: 'jersey-cow-introduction',
@@ -18,7 +18,7 @@ const blogPosts = [
     summary: '무무목장의 저지종 젖소들이 특별한 이유를 치즈가 자세히 알려드립니다. A2 우유의 비밀도 공개해요!',
     date: '2026.3.17',
     tag: '#젖소이야기',
-    imageUrl: 'https://lh3.googleusercontent.com/d/1_oAs95u0Xrfp--l6kvipLh_IK3mVo2Ph',
+    imageUrl: 'https://lh3.googleusercontent.com/d/1vNJ5X4Y1BytZna2ZJUgnkbiOZbGBj4m_',
     hasVideo: true
   },
   {
@@ -35,7 +35,7 @@ const blogPosts = [
     summary: '1970년대부터 시작된 예수원 목장의 이야기. 한국 낙농업의 역사와 함께한 우리의 여정입니다.',
     date: '2026.3.10',
     tag: '#헤리티지',
-    imageUrl: 'https://lh3.googleusercontent.com/d/1etQjErXiZni_Zdd0dc0fROQOJ50hVXl4'
+    imageUrl: 'https://lh3.googleusercontent.com/d/1G39bjyUqMSWLTEUOapsh9GKliBhKWD5q'
   },
   {
     slug: 'fresh-cheese-making',
@@ -43,7 +43,7 @@ const blogPosts = [
     summary: '매일 아침 짜낸 우유로 만드는 치즈 제조 과정을 공개합니다. 신선함 그 자체!',
     date: '2026.3.5',
     tag: '#제품이야기',
-    imageUrl: 'https://lh3.googleusercontent.com/d/1hEWltJ0cdPMknNnd9Qmy8TmL8P58Xl97',
+    imageUrl: 'https://lh3.googleusercontent.com/d/1DMONJa8XgXYHAFjBDFtfxIxLYRnjl-N9',
     hasVideo: true
   },
   {
@@ -52,7 +52,7 @@ const blogPosts = [
     summary: '소화가 편한 A2 우유의 과학적 근거와 건강상 이점을 알기 쉽게 설명해드려요.',
     date: '2026.3.1',
     tag: '#제품이야기',
-    imageUrl: 'https://lh3.googleusercontent.com/d/182aLJb-JEGxOD3CWEiAf1FcsQ6skBDRy'
+    imageUrl: 'https://lh3.googleusercontent.com/d/11UtK5lUyKQuCtJ54gppd5Kh-Y2n5H1F9'
   }
 ];
 

@@ -30,7 +30,7 @@ export function Home() {
           className="absolute top-20 left-[10%] w-64 h-48 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
         >
           <img
-            src="https://lh3.googleusercontent.com/d/182aLJb-JEGxOD3CWEiAf1FcsQ6skBDRy"
+            src="https://lh3.googleusercontent.com/d/1vNJ5X4Y1BytZna2ZJUgnkbiOZbGBj4m_"
             alt="무무목장의 저지종 젖소 클로즈업"
             loading="lazy"
             className="w-full h-full object-cover"
@@ -44,7 +44,7 @@ export function Home() {
           className="absolute top-32 right-[8%] w-72 h-56 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
         >
           <img
-            src="https://lh3.googleusercontent.com/d/1D6VqDsHD4Mx_MZTbXK4h5yqT-U2Spnts"
+            src="https://lh3.googleusercontent.com/d/1jwHnri8wt12fSjkmIDRBVNg45As3yUMY"
             alt="해 뜨는 무무목장 초원 풍경"
             loading="lazy"
             className="w-full h-full object-cover"
@@ -58,7 +58,7 @@ export function Home() {
           className="absolute bottom-32 left-[15%] w-56 h-44 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
         >
           <img
-            src="https://lh3.googleusercontent.com/d/1QpmHcIacAc-5vHc5gUN5ZaLuNXvhSxiK"
+            src="https://lh3.googleusercontent.com/d/11UtK5lUyKQuCtJ54gppd5Kh-Y2n5H1F9"
             alt="갓 짜낸 신선한 우유를 잔에 따르는 모습"
             loading="lazy"
             className="w-full h-full object-cover"
@@ -72,7 +72,7 @@ export function Home() {
           className="absolute bottom-40 right-[12%] w-60 h-48 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
         >
           <img
-            src="https://lh3.googleusercontent.com/d/1_oAs95u0Xrfp--l6kvipLh_IK3mVo2Ph"
+            src="https://lh3.googleusercontent.com/d/12sq1XDyEAczW93xmc9yWHXjQK5xIZW_2"
             alt="무무목장에서 직접 만든 수제 치즈"
             loading="lazy"
             className="w-full h-full object-cover"
@@ -263,7 +263,7 @@ export function Home() {
                   boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
                 }}>
                   <img
-                    src="https://lh3.googleusercontent.com/d/1-JeADv9UmOS3-rbAoTC2PeAfphTCd82I"
+                    src="https://lh3.googleusercontent.com/d/1QdJu7xzZQ5Ui8RcDQCVLf_GfEyb5pSVT"
                     alt="이슬 맺힌 아침 목장 풍경"
                     loading="lazy"
                     className="w-full h-full object-cover"
@@ -273,7 +273,7 @@ export function Home() {
                   boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
                 }}>
                   <img
-                    src="https://lh3.googleusercontent.com/d/1nNAJeARX2bpBZW9VaaHL3ALYHpYckBkE"
+                    src="https://lh3.googleusercontent.com/d/1DMONJa8XgXYHAFjBDFtfxIxLYRnjl-N9"
                     alt="갈색 저지종 젖소 초상"
                     loading="lazy"
                     className="w-full h-full object-cover"
@@ -300,7 +300,7 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="https://lh3.googleusercontent.com/d/1IdZjxnG3N4pgBDgUhvzBElD2Qm5vonoP"
+                  src="https://lh3.googleusercontent.com/d/1G39bjyUqMSWLTEUOapsh9GKliBhKWD5q"
                   alt="무무목장 초원 항공뷰"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
@@ -336,7 +336,7 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="https://lh3.googleusercontent.com/d/1_oAs95u0Xrfp--l6kvipLh_IK3mVo2Ph"
+                  src="https://lh3.googleusercontent.com/d/12sq1XDyEAczW93xmc9yWHXjQK5xIZW_2"
                   alt="황금빛 목초지 일출"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
@@ -372,7 +372,7 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="https://lh3.googleusercontent.com/d/1UxeewuxSYiq2E8r8Ax5ihrJZjYia9GaS"
+                  src="https://lh3.googleusercontent.com/d/1qX1AGLhJKnkKCXn4H-QpJtsDx0g38r0T"
                   alt="잔에 우유를 따르는 모습"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
@@ -408,7 +408,7 @@ export function Home() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
               }}>
                 <img
-                  src="https://lh3.googleusercontent.com/d/1jeSun4oh_Nv9bHZFgWzPuho8mp0UccV9"
+                  src="https://lh3.googleusercontent.com/d/13JENdGwbWZWwh0-l9b9XOA0ErQsVGIAt"
                   alt="장인이 만든 수제 치즈와 유제품"
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
@@ -528,7 +528,7 @@ export function Home() {
             >
               <div className="relative aspect-[3/4]">
                 <img
-                  src="https://lh3.googleusercontent.com/d/14OkjP0O7_u-oBD6NQGKsE5mdDPsgrBHU"
+                  src="https://lh3.googleusercontent.com/d/1pauf1h4HTNWxQoazmHdPHACRNszP4bP4"
                   alt="저지종 젖소 클로즈업"
                   loading="lazy"
                   className="w-full h-full object-cover"
@@ -626,11 +626,11 @@ export function Home() {
                 >
                   <img
                     src={[
-                      'https://lh3.googleusercontent.com/d/1_oAs95u0Xrfp--l6kvipLh_IK3mVo2Ph',
-                      'https://lh3.googleusercontent.com/d/1D6VqDsHD4Mx_MZTbXK4h5yqT-U2Spnts',
-                      'https://lh3.googleusercontent.com/d/1IdZjxnG3N4pgBDgUhvzBElD2Qm5vonoP',
-                      'https://lh3.googleusercontent.com/d/182aLJb-JEGxOD3CWEiAf1FcsQ6skBDRy',
-                      'https://lh3.googleusercontent.com/d/1QpmHcIacAc-5vHc5gUN5ZaLuNXvhSxiK'
+                      'https://lh3.googleusercontent.com/d/12sq1XDyEAczW93xmc9yWHXjQK5xIZW_2',
+                      'https://lh3.googleusercontent.com/d/1jwHnri8wt12fSjkmIDRBVNg45As3yUMY',
+                      'https://lh3.googleusercontent.com/d/1G39bjyUqMSWLTEUOapsh9GKliBhKWD5q',
+                      'https://lh3.googleusercontent.com/d/1vNJ5X4Y1BytZna2ZJUgnkbiOZbGBj4m_',
+                      'https://lh3.googleusercontent.com/d/11UtK5lUyKQuCtJ54gppd5Kh-Y2n5H1F9'
                     ][index - 1]}
                     alt={`무무목장 갤러리 사진 ${index}`}
                     loading="lazy"
@@ -655,7 +655,7 @@ export function Home() {
       <section className="relative py-32 md:py-48 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://lh3.googleusercontent.com/d/1Bu2CLbpgs3CpS5cmNXtxUWmD_fiMjPiW"
+            src="https://lh3.googleusercontent.com/d/1G39bjyUqMSWLTEUOapsh9GKliBhKWD5q"
             alt="햇살 비치는 무무목장 초원"
             loading="lazy"
             className="w-full h-full object-cover"
