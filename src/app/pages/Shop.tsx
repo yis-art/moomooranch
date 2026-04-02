@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { useState } from 'react';
 
 const ds = {
   white: '#ffffff',
@@ -12,60 +12,124 @@ const ds = {
   fontBody: '"Noto Sans KR", sans-serif',
 };
 
+const badgeStyles: Record<string, { bg: string; label: string }> = {
+  '베스트셀러': { bg: ds.green, label: '베스트셀러' },
+  '입문추천':   { bg: '#b5622a', label: '입문추천' },
+  '베스트리뷰': { bg: '#6b8fa3', label: '베스트리뷰' },
+  '인기세트':   { bg: '#9b6fa8', label: '인기세트' },
+};
+
+type Category = '전체' | '우유' | '요거트' | '세트';
+
+const categories: { label: Category; emoji: string }[] = [
+  { label: '전체', emoji: '🛒' },
+  { label: '우유', emoji: '🥛' },
+  { label: '요거트', emoji: '🫐' },
+  { label: '세트', emoji: '🎁' },
+];
+
 const products = [
   {
-    img: '/images/우유_저지소.png',
-    name: 'A2 저지 우유',
-    subtitle: '매일의 건강한 선택',
+    img: '/images/유제품목록.png',
+    name: '[진짜우유] A2 저지 목초우유 1L × 2개',
+    subtitle: '가장 인기 있는 사이즈',
     desc: '소화 편한 A2 베타-카제인, 저온살균(LTLT) 방식으로 영양소 보존',
-    volume: '900ml',
-    price: '5,500원',
-    badge: '베스트',
+    volume: '1L × 2개',
+    price: '15,000원',
+    badge: '베스트셀러',
+    category: '우유' as Category,
+  },
+  {
+    img: '/images/유제품목록.png',
+    name: '[진짜우유] A2 저지 목초우유 500mL',
+    subtitle: '처음 만나는 무무목장 우유',
+    desc: '첫 주문이라면 500mL로 먼저 경험해보세요',
+    volume: '500mL',
+    price: '6,000원',
+    badge: '입문추천',
+    category: '우유' as Category,
   },
   {
     img: '/images/유제품_블루베리요거트.png',
-    name: '블루베리 요거트',
-    subtitle: '국산 블루베리의 진한 맛',
+    name: 'A2 저지 오가닉 블루베리 요거트 200mL',
+    subtitle: '한 끼 간식용 소용량',
     desc: '무무목장 원유 100% + 국산 블루베리, 설탕 최소화',
-    volume: '150ml × 4개입',
-    price: '9,000원',
+    volume: '200mL',
+    price: '2,500원',
     badge: null,
+    category: '요거트' as Category,
   },
   {
-    img: '/images/유제품_딸기요커트.png',
-    name: '딸기 요거트',
-    subtitle: '아이들이 좋아하는',
-    desc: '무무목장 원유 100% + 국산 딸기, 첨가물 최소화',
-    volume: '150ml × 4개입',
-    price: '9,000원',
+    img: '/images/유제품_블루베리요거트.png',
+    name: 'A2 저지 오가닉 블루베리 요거트 290mL',
+    subtitle: '딱 좋은 1인분',
+    desc: '무무목장 원유 100% + 국산 블루베리, 설탕 최소화',
+    volume: '290mL',
+    price: '3,000원',
     badge: null,
+    category: '요거트' as Category,
+  },
+  {
+    img: '/images/유제품_블루베리요거트.png',
+    name: 'A2 저지 오가닉 블루베리 요거트 500mL',
+    subtitle: '가장 많이 선택하는 사이즈',
+    desc: '진한 블루베리 과육, 달지 않고 자연스러운 단맛',
+    volume: '500mL',
+    price: '7,500원',
+    badge: '베스트리뷰',
+    category: '요거트' as Category,
+  },
+  {
+    img: '/images/유제품_블루베리요거트.png',
+    name: 'A2 저지 오가닉 블루베리 요거트 1L',
+    subtitle: '가족이 함께',
+    desc: '넉넉한 용량으로 온 가족이 즐기는 요거트',
+    volume: '1L',
+    price: '15,000원',
+    badge: null,
+    category: '요거트' as Category,
   },
   {
     img: '/images/유제품 소개.png',
-    name: '수제 치즈',
-    subtitle: '목장에서 당일 생산',
-    desc: '저지 우유로 만든 자연 치즈, 와인과 함께',
-    volume: '200g',
+    name: 'A2 저지 목초우유 + 오가닉 요거트 세트',
+    subtitle: '무무목장 대표 구성',
+    desc: '신선한 목초우유와 블루베리 요거트를 함께 경험하세요',
+    volume: '세트 구성',
     price: '15,000원',
-    badge: '신상품',
+    badge: '인기세트',
+    category: '세트' as Category,
   },
   {
-    img: '/images/무무목장 소개-특장점.png',
-    name: '플레인 요거트',
-    subtitle: '담백하고 진한',
-    desc: '설탕 무첨가, 저지 원유 본연의 맛',
-    volume: '500g',
-    price: '7,500원',
+    img: '/images/유제품_블루베리요거트.png',
+    name: 'A2 저지 오가닉 블루베리 요거트 세트',
+    subtitle: '요거트 선물용으로 딱',
+    desc: '다양한 용량의 블루베리 요거트를 한번에',
+    volume: '세트 구성',
+    price: '12,000원',
     badge: null,
+    category: '세트' as Category,
+  },
+  {
+    img: '/images/유제품_블루베리요거트.png',
+    name: 'A2 저지 오가닉 요거트 소용량 세트',
+    subtitle: '처음 맛보는 분께',
+    desc: '소용량으로 구성된 입문용 요거트 세트',
+    volume: '소용량 세트',
+    price: '6,000원',
+    badge: null,
+    category: '세트' as Category,
   },
 ];
 
-const badgeColor: Record<string, string> = {
-  '베스트': ds.green,
-  '신상품': '#b5622a',
-};
+const STORE_URL = 'https://smartstore.naver.com/moomooranch';
 
 export function Shop() {
+  const [activeCategory, setActiveCategory] = useState<Category>('전체');
+
+  const filtered = activeCategory === '전체'
+    ? products
+    : products.filter((p) => p.category === activeCategory);
+
   return (
     <main>
       {/* Hero */}
@@ -94,7 +158,7 @@ export function Shop() {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'linear-gradient(to top, rgba(45,37,24,0.5) 0%, transparent 50%)',
+            background: 'linear-gradient(to top, rgba(45,37,24,0.55) 0%, transparent 50%)',
           }}
         />
         <div style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
@@ -153,8 +217,52 @@ export function Shop() {
         </div>
       </section>
 
-      {/* Products */}
-      <section style={{ backgroundColor: ds.white, padding: 'clamp(80px, 12vh, 120px) 0' }}>
+      {/* Category Filter */}
+      <section style={{ backgroundColor: ds.white, paddingTop: 'clamp(60px, 10vh, 80px)', paddingBottom: '40px' }}>
+        <div
+          style={{
+            maxWidth: '960px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+            display: 'flex',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            gap: '12px',
+          }}
+        >
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat.label;
+            return (
+              <button
+                key={cat.label}
+                onClick={() => setActiveCategory(cat.label)}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '10px 24px',
+                  fontFamily: ds.fontBody,
+                  fontSize: '0.875rem',
+                  fontWeight: isActive ? 600 : 400,
+                  color: isActive ? '#fff' : ds.brownMid,
+                  backgroundColor: isActive ? ds.green : 'transparent',
+                  border: `1.5px solid ${isActive ? ds.green : ds.brownLight}`,
+                  borderRadius: '100px',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  letterSpacing: '0.02em',
+                }}
+              >
+                <span>{cat.emoji}</span>
+                {cat.label}
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Products Grid */}
+      <section style={{ backgroundColor: ds.white, paddingBottom: 'clamp(80px, 12vh, 120px)' }}>
         <div
           style={{
             maxWidth: '960px',
@@ -169,8 +277,19 @@ export function Shop() {
               gap: '48px 36px',
             }}
           >
-            {products.map((product, i) => (
-              <div key={i} style={{ position: 'relative' }}>
+            {filtered.map((product, i) => (
+              <a
+                key={`${product.name}-${i}`}
+                href={STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  position: 'relative',
+                  textDecoration: 'none',
+                  display: 'block',
+                  color: 'inherit',
+                }}
+              >
                 {/* 이미지 + 배지 */}
                 <div style={{ position: 'relative', marginBottom: '16px' }}>
                   <img
@@ -182,7 +301,10 @@ export function Shop() {
                       objectFit: 'cover',
                       borderRadius: '4px',
                       display: 'block',
+                      transition: 'transform 0.3s ease',
                     }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.transform = 'scale(1.03)'; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = 'scale(1)'; }}
                   />
                   {product.badge && (
                     <span
@@ -190,7 +312,7 @@ export function Shop() {
                         position: 'absolute',
                         top: '10px',
                         left: '10px',
-                        backgroundColor: badgeColor[product.badge] ?? ds.brownMid,
+                        backgroundColor: badgeStyles[product.badge]?.bg ?? ds.brownMid,
                         color: '#fff',
                         fontFamily: ds.fontBody,
                         fontSize: '0.6875rem',
@@ -205,14 +327,31 @@ export function Shop() {
                   )}
                 </div>
 
+                {/* 카테고리 태그 */}
+                <p
+                  style={{
+                    fontFamily: ds.fontBody,
+                    fontSize: '0.6875rem',
+                    color: ds.green,
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    margin: '0 0 4px',
+                  }}
+                >
+                  {product.category === '우유' ? '🥛 우유'
+                    : product.category === '요거트' ? '🫐 요거트'
+                    : '🎁 세트'}
+                </p>
+
                 {/* 텍스트 */}
                 <h3
                   style={{
                     fontFamily: ds.fontBody,
-                    fontSize: '1rem',
+                    fontSize: '0.9375rem',
                     fontWeight: 600,
                     color: ds.brown,
                     margin: '0 0 2px',
+                    lineHeight: 1.4,
                   }}
                 >
                   {product.name}
@@ -260,14 +399,14 @@ export function Shop() {
                     {product.price}
                   </span>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 
           {/* 스마트스토어 링크 */}
           <div style={{ textAlign: 'center', marginTop: '64px' }}>
             <a
-              href="https://smartstore.naver.com/moomooranch"
+              href={STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={{
