@@ -1,179 +1,363 @@
-import React, { useState, useEffect } from 'react';
-import { BlogCard } from '../components/BlogCard';
-import { fetchBlogPosts, BlogPost } from '../../lib/notion';
+import { Link } from 'react-router';
 
-const tags = ['전체', '#오늘의목장', '#젖소이야기', '#생태순환', '#헤리티지', '#제품이야기'];
+const ds = {
+  white: '#ffffff',
+  ivory: '#f8f6f2',
+  brown: '#2d2518',
+  brownMid: '#5c4d3a',
+  brownLight: '#8a7a68',
+  darkBrown: '#3d3020',
+  fontHeading: '"Noto Serif KR", serif',
+  fontBody: '"Noto Sans KR", sans-serif',
+};
 
-// 폴백 더미 데이터 (Notion 연결 전 또는 실패 시)
-const fallbackPosts: BlogPost[] = [
+// 블로그 포스트 데이터 (노션 콘텐츠 DB 기반)
+const posts = [
   {
-    id: '1',
-    slug: 'spring-rain-2026',
-    title: '봄비가 내린 오늘의 무무목장 🌧️🐄',
-    summary: '봄비가 내리는 목장의 풍경과 소들의 모습을 전해드려요.',
-    date: '2026.3.20',
-    tag: '#오늘의목장',
-    imageUrl: '/images/무지개초지 설경.png',
-    status: '발행완료',
+    slug: 'mom-and-cheese',
+    title: '엄마와 치즈',
+    excerpt: '별이랑 구름이가 나란히 풀을 뜯는 아침이었어. 엄마 밀크 옆에 딱 붙어서 나도 같이.',
+    date: '2026.03.21',
+    image: '/images/무지개초지_저지소01.png',
+    tags: [{ label: '#오늘의목장', color: '#4a7c59' }],
   },
   {
-    id: '2',
-    slug: 'jersey-cow-introduction',
-    title: '저지종 소를 소개할게요! 🐄',
-    summary: '무무목장의 저지종 젖소들이 특별한 이유를 치즈가 자세히 알려드립니다.',
-    date: '2026.3.17',
-    tag: '#젖소이야기',
-    imageUrl: '/images/무지개초지_저지소01.png',
-    hasVideo: true,
-    status: '발행완료',
+    slug: 'rainy-day-farm',
+    title: '봄비가 내린 오늘의 무무목장',
+    excerpt: '비 오는 날 우리는 외양간에서 졸았어. 빗소리가 자장가 같았거든.',
+    date: '2026.03.14',
+    image: '/images/무지개초지.png',
+    tags: [{ label: '#오늘의목장', color: '#4a7c59' }],
   },
   {
-    id: '3',
-    slug: 'sustainable-farming',
-    title: '순환하는 목장, 지속가능한 농업',
-    summary: '자연과 함께하는 무무목장의 생태순환 농법을 소개합니다. 50년 전통의 지혜가 담겨있어요.',
-    date: '2026.3.15',
-    tag: '#생태순환',
-    imageUrl: '/images/무지개초지.png',
-    status: '발행완료',
-  },
-  {
-    id: '4',
-    slug: 'heritage-story',
-    title: '예수원 목장 50년의 역사',
-    summary: '1970년대부터 시작된 예수원 목장의 이야기. 한국 낙농업의 역사와 함께한 우리의 여정입니다.',
-    date: '2026.3.10',
-    tag: '#헤리티지',
-    imageUrl: '/images/예수원 소개.png',
-    status: '발행완료',
-  },
-  {
-    id: '5',
-    slug: 'fresh-cheese-making',
-    title: '목장에서 만드는 신선한 치즈',
-    summary: '매일 아침 짜낸 우유로 만드는 치즈 제조 과정을 공개합니다. 신선함 그 자체!',
-    date: '2026.3.5',
-    tag: '#제품이야기',
-    imageUrl: '/images/유제품 소개.png',
-    hasVideo: true,
-    status: '발행완료',
-  },
-  {
-    id: '6',
-    slug: 'a2-milk-benefits',
-    title: 'A2 우유가 특별한 이유',
-    summary: '소화가 편한 A2 우유의 과학적 근거와 건강상 이점을 알기 쉽게 설명해드려요.',
-    date: '2026.3.1',
-    tag: '#제품이야기',
-    imageUrl: '/images/우유_저지소.png',
-    status: '발행완료',
+    slug: 'manure-to-compost',
+    title: '소똥이 퇴비가 되기까지',
+    excerpt: '내가 싼 소똥이 어떻게 땅으로 돌아가는지 아니? 요셉 삼촌이 알려줬어.',
+    date: '2026.02.28',
+    image: '/images/무지개초지_저지소02.png',
+    tags: [{ label: '#생태순환', color: '#7a5c3a' }],
   },
 ];
 
 export function Blog() {
-  const [selectedTag, setSelectedTag] = useState('전체');
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function loadPosts() {
-      try {
-        const data = await fetchBlogPosts();
-        setPosts(data.length > 0 ? data : fallbackPosts);
-      } catch {
-        setPosts(fallbackPosts);
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadPosts();
-  }, []);
-
-  const filteredPosts = selectedTag === '전체'
-    ? posts
-    : posts.filter(post => post.tag === selectedTag);
-
   return (
-    <div style={{ backgroundColor: 'var(--cream)', minHeight: '100vh' }}>
-      <div className="max-w-[1200px] mx-auto px-5 md:px-10 py-16 md:py-24">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1
-            className="mb-4"
-            style={{
-              fontFamily: 'var(--font-korean)',
-              fontWeight: 700,
-              color: 'var(--text-main)',
-              fontSize: 'clamp(30px, 5vw, 48px)'
-            }}
-          >
-            📝 치즈의 담벼락
-          </h1>
+    <main>
+      {/* Hero */}
+      <section
+        style={{
+          position: 'relative',
+          height: '60vh',
+          minHeight: '400px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <img
+          src="/images/무지개초지_저지소02.png"
+          alt="치즈의 담벼락"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(to top, rgba(45,37,24,0.5) 0%, transparent 50%)',
+          }}
+        />
+        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
           <p
             style={{
-              fontFamily: 'var(--font-korean)',
-              color: 'var(--text-light)',
-              fontSize: '18px',
-              lineHeight: '1.8'
+              fontFamily: ds.fontBody,
+              fontSize: '0.75rem',
+              color: 'rgba(255,255,255,0.7)',
+              letterSpacing: '0.2em',
+              marginBottom: '16px',
             }}
           >
-            치즈가 들려주는 무무목장 이야기
+            BLOG
           </p>
+          <h1
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+              fontWeight: 400,
+              color: '#fff',
+              margin: 0,
+            }}
+          >
+            치즈의 담벼락
+          </h1>
         </div>
+      </section>
 
-        {/* Tag Filter */}
-        <div className="mb-12 overflow-x-auto pb-4">
-          <div className="flex gap-3 min-w-max md:justify-center">
-            {tags.map((tag) => (
-              <button
-                key={tag}
-                onClick={() => setSelectedTag(tag)}
-                className="px-5 py-2 rounded-full transition-all whitespace-nowrap"
+      {/* Intro */}
+      <section style={{ backgroundColor: ds.ivory, padding: 'clamp(80px, 12vh, 120px) 0' }}>
+        <div
+          style={{
+            maxWidth: '800px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+            display: 'flex',
+            gap: '40px',
+          }}
+        >
+          <div style={{ width: '2px', backgroundColor: ds.brownLight, flexShrink: 0 }} />
+          <div>
+            <p
+              style={{
+                fontFamily: ds.fontHeading,
+                fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
+                fontWeight: 400,
+                color: ds.brown,
+                lineHeight: 2,
+                margin: '0 0 24px',
+              }}
+            >
+              안녕, 나는 치즈야. 2026년 1월 6일에 태어났어.<br />
+              여기는 내 담벼락이야. 목장에서 있었던 일들,<br />
+              엄마 밀크 이야기, 언니들 이야기...<br />
+              가끔은 요셉 삼촌이 찍어준 영상도 올려.<br />
+              천천히 구경해줘!
+            </p>
+            <p
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.8125rem',
+                color: ds.brownLight,
+                margin: 0,
+                letterSpacing: '0.05em',
+              }}
+            >
+              — 치즈 (Cheese), 무무목장 898번째 저지
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Posts */}
+      <section style={{ backgroundColor: ds.white, padding: 'clamp(80px, 12vh, 120px) 0' }}>
+        <div
+          style={{
+            maxWidth: '900px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+          }}
+        >
+          <div
+            style={{
+              display: 'grid',
+              gap: '60px',
+            }}
+          >
+            {posts.map((post) => (
+              <Link
+                key={post.slug}
+                to={`/blog/${post.slug}`}
                 style={{
-                  backgroundColor: selectedTag === tag ? 'var(--golden)' : 'var(--cream)',
-                  border: `2px solid ${selectedTag === tag ? 'var(--golden)' : 'rgba(141, 110, 99, 0.2)'}`,
-                  fontFamily: 'var(--font-korean)',
-                  fontWeight: selectedTag === tag ? 700 : 400,
-                  color: 'var(--text-main)',
-                  fontSize: '14px'
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1.5fr',
+                  gap: '40px',
+                  textDecoration: 'none',
+                  alignItems: 'center',
                 }}
               >
-                {tag}
-              </button>
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  style={{
+                    width: '100%',
+                    aspectRatio: '4/3',
+                    objectFit: 'cover',
+                    borderRadius: '4px',
+                  }}
+                />
+                <div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      gap: '8px',
+                      flexWrap: 'wrap',
+                      marginBottom: '12px',
+                    }}
+                  >
+                    {post.tags.map((tag) => (
+                      <span
+                        key={tag.label}
+                        style={{
+                          fontFamily: ds.fontBody,
+                          fontSize: '0.6875rem',
+                          color: tag.color,
+                          border: `1px solid ${tag.color}`,
+                          borderRadius: '2px',
+                          padding: '2px 8px',
+                          letterSpacing: '0.03em',
+                        }}
+                      >
+                        {tag.label}
+                      </span>
+                    ))}
+                  </div>
+                  <h2
+                    style={{
+                      fontFamily: ds.fontHeading,
+                      fontSize: '1.25rem',
+                      fontWeight: 400,
+                      color: ds.brown,
+                      margin: '0 0 12px',
+                    }}
+                  >
+                    {post.title}
+                  </h2>
+                  <p
+                    style={{
+                      fontFamily: ds.fontBody,
+                      fontSize: '0.9375rem',
+                      color: ds.brownMid,
+                      lineHeight: 1.8,
+                      margin: '0 0 16px',
+                    }}
+                  >
+                    {post.excerpt}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: ds.fontBody,
+                      fontSize: '0.75rem',
+                      color: ds.brownLight,
+                      margin: 0,
+                    }}
+                  >
+                    {post.date}
+                  </p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Loading */}
-        {loading && (
-          <div className="text-center py-16">
-            <p style={{ fontFamily: 'var(--font-korean)', color: 'var(--text-light)', fontSize: '18px' }}>
-              🐄 치즈가 이야기를 가져오고 있어요...
-            </p>
-          </div>
-        )}
+      {/* More Stories */}
+      <section style={{ backgroundColor: ds.ivory, padding: 'clamp(60px, 10vh, 80px) 0', textAlign: 'center' }}>
+        <p
+          style={{
+            fontFamily: ds.fontBody,
+            fontSize: '0.75rem',
+            color: ds.brownLight,
+            letterSpacing: '0.15em',
+            margin: '0 0 20px',
+          }}
+        >
+          MORE STORIES
+        </p>
+        <h2
+          style={{
+            fontFamily: ds.fontHeading,
+            fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+            fontWeight: 400,
+            color: ds.brown,
+            margin: '0 0 12px',
+          }}
+        >
+          더 많은 이야기 보기
+        </h2>
+        <p
+          style={{
+            fontFamily: ds.fontBody,
+            fontSize: '0.875rem',
+            color: ds.brownMid,
+            margin: '0 0 32px',
+            lineHeight: 1.8,
+          }}
+        >
+          치즈의 담벼락에는 더 많은 이야기들이 쌓여가고 있어.
+        </p>
+        <Link
+          to="/blog"
+          style={{
+            display: 'inline-block',
+            fontFamily: ds.fontBody,
+            fontSize: '0.875rem',
+            color: ds.brown,
+            textDecoration: 'none',
+            border: `1px solid ${ds.brownLight}`,
+            borderRadius: '2px',
+            padding: '12px 32px',
+            letterSpacing: '0.05em',
+          }}
+        >
+          전체 글 보기
+        </Link>
+      </section>
 
-        {/* Blog Cards Grid */}
-        {!loading && (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPosts.map((post) => (
-              <BlogCard
-                key={post.id}
-                {...post}
-              />
-            ))}
-          </div>
-        )}
-
-        {/* Empty State */}
-        {!loading && filteredPosts.length === 0 && (
-          <div className="text-center py-16">
-            <p style={{ fontFamily: 'var(--font-korean)', color: 'var(--text-light)', fontSize: '18px' }}>
-              아직 이 카테고리의 글이 없어요 😅
-            </p>
-          </div>
-        )}
-      </div>
-    </div>
+      {/* Newsletter CTA */}
+      <section style={{ backgroundColor: ds.darkBrown, padding: 'clamp(60px, 10vh, 80px) 0', textAlign: 'center' }}>
+        <h2
+          style={{
+            fontFamily: ds.fontHeading,
+            fontSize: '1.125rem',
+            fontWeight: 400,
+            color: '#fff',
+            margin: '0 0 16px',
+          }}
+        >
+          치즈레터 구독하기
+        </h2>
+        <p
+          style={{
+            fontFamily: ds.fontBody,
+            fontSize: '0.875rem',
+            color: 'rgba(255,255,255,0.7)',
+            margin: '0 0 24px',
+          }}
+        >
+          무무목장 소식을 이메일로 받아보세요
+        </p>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '8px',
+            flexWrap: 'wrap',
+            padding: '0 24px',
+          }}
+        >
+          <input
+            type="email"
+            placeholder="이메일 주소"
+            style={{
+              padding: '12px 16px',
+              fontFamily: ds.fontBody,
+              fontSize: '0.875rem',
+              border: 'none',
+              borderRadius: '4px',
+              width: '240px',
+              maxWidth: '100%',
+            }}
+          />
+          <button
+            style={{
+              padding: '12px 24px',
+              fontFamily: ds.fontBody,
+              fontSize: '0.875rem',
+              fontWeight: 500,
+              color: ds.darkBrown,
+              backgroundColor: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+            }}
+          >
+            구독하기
+          </button>
+        </div>
+      </section>
+    </main>
   );
 }
