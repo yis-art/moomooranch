@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 const ds = {
   white: '#ffffff',
   ivory: '#f8f6f2',
@@ -5,51 +7,15 @@ const ds = {
   brownMid: '#5c4d3a',
   brownLight: '#8a7a68',
   darkBrown: '#3d3020',
+  green: '#7a8469',
   fontHeading: '"Noto Serif KR", serif',
   fontBody: '"Noto Sans KR", sans-serif',
 };
 
-const SectionLabel = ({ children }: { children: string }) => (
-  <p
-    style={{
-      fontFamily: ds.fontBody,
-      fontSize: '0.6875rem',
-      letterSpacing: '0.25em',
-      color: ds.brownLight,
-      margin: '0 0 20px',
-      textTransform: 'uppercase',
-    }}
-  >
-    {children}
-  </p>
-);
-
-const SectionTitle = ({
-  children,
-  center,
-}: {
-  children: React.ReactNode;
-  center?: boolean;
-}) => (
-  <h2
-    style={{
-      fontFamily: ds.fontHeading,
-      fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
-      fontWeight: 400,
-      color: ds.brown,
-      margin: '0 0 48px',
-      lineHeight: 1.6,
-      textAlign: center ? 'center' : 'left',
-    }}
-  >
-    {children}
-  </h2>
-);
-
 export function Taste() {
   return (
     <main>
-      {/* ── Hero ── */}
+      {/* Hero */}
       <section
         style={{
           position: 'relative',
@@ -62,24 +28,17 @@ export function Taste() {
       >
         <img
           src="/images/우유_저지소.png"
-          alt="맛의 차이"
+          alt="황금빛 무무밀크"
           style={{
             position: 'absolute',
             inset: 0,
             width: '100%',
             height: '100%',
             objectFit: 'cover',
+            filter: 'brightness(0.5)',
           }}
         />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              'linear-gradient(to top, rgba(45,37,24,0.5) 0%, transparent 50%)',
-          }}
-        />
-        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
+        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '0 24px' }}>
           <p
             style={{
               fontFamily: ds.fontBody,
@@ -94,10 +53,11 @@ export function Taste() {
           <h1
             style={{
               fontFamily: ds.fontHeading,
-              fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
               fontWeight: 400,
               color: '#fff',
               margin: 0,
+              lineHeight: 1.4,
             }}
           >
             맛의 차이
@@ -105,136 +65,107 @@ export function Taste() {
         </div>
       </section>
 
-      {/* ── Intro ── */}
+      {/* 트리플 프리미엄 인트로 */}
       <section style={{ backgroundColor: ds.ivory, padding: 'clamp(80px, 12vh, 120px) 0' }}>
         <div
           style={{
-            maxWidth: '800px',
+            maxWidth: '750px',
             margin: '0 auto',
             padding: '0 clamp(24px, 6vw, 60px)',
-            display: 'flex',
-            gap: '40px',
+            textAlign: 'center',
           }}
         >
-          <div style={{ width: '2px', backgroundColor: ds.brownLight, flexShrink: 0 }} />
-          <div>
-            <p
-              style={{
-                fontFamily: ds.fontHeading,
-                fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
-                fontWeight: 400,
-                color: ds.brown,
-                lineHeight: 2,
-                margin: 0,
-              }}
-            >
-              무무목장 우유의 「안심」「건강」「맛」을<br />
-              소개합니다.
-            </p>
-          </div>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              marginBottom: '24px',
+            }}
+          >
+            트리플 프리미엄
+          </h2>
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '1rem',
+              color: ds.brownMid,
+              lineHeight: 2,
+            }}
+          >
+            <strong>A2 단백질</strong> + <strong>저지(Jersey) 품종</strong> + <strong>건초(Hay) 급여</strong><br />
+            세 가지가 만나 무무밀크의 차이를 만듭니다.
+          </p>
         </div>
       </section>
 
-      {/* ── A2 저지우유란? ── */}
+      {/* A2 단백질 */}
       <section style={{ backgroundColor: ds.white, padding: 'clamp(80px, 12vh, 120px) 0' }}>
         <div
           style={{
-            maxWidth: '800px',
+            maxWidth: '750px',
             margin: '0 auto',
             padding: '0 clamp(24px, 6vw, 60px)',
           }}
         >
-          <SectionLabel>A2 JERSEY MILK</SectionLabel>
-          <SectionTitle>A2 저지우유란?</SectionTitle>
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.75rem',
+              color: ds.green,
+              letterSpacing: '0.15em',
+              marginBottom: '16px',
+            }}
+          >
+            01 — A2 PROTEIN
+          </p>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              marginBottom: '32px',
+            }}
+          >
+            소화가 편한 A2 우유
+          </h2>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-            {[
-              {
-                icon: '◈',
-                title: 'A2 베타-카제인만 포함',
-                desc: '일반 우유(홀스타인)는 A1과 A2 카제인이 섞여 있습니다. 저지종은 A2 베타-카제인만 생성하여 몸이 더 자연스럽게 받아들입니다.',
-              },
-              {
-                icon: '◈',
-                title: '소화가 편합니다',
-                desc: '우유를 마시면 배가 불편했던 분들도 무무목장 우유는 편하게 드실 수 있습니다. A1 카제인 부재가 소화 부담을 줄여줍니다.',
-              },
-              {
-                icon: '◈',
-                title: '황금빛 크림층',
-                desc: '지방구가 작아 크림이 자연스럽게 분리되며, 저지종 특유의 베타카로틴이 우유에 은은한 황금빛을 더합니다.',
-              },
-              {
-                icon: '◈',
-                title: '높은 영양 밀도',
-                desc: '일반 우유보다 단백질 함량 약 18%, 칼슘 함량 약 20% 높습니다. 같은 양으로 더 풍부한 영양을 섭취할 수 있습니다.',
-              },
-              {
-                icon: '◈',
-                title: '진하고 고소한 풍미',
-                desc: '유지방 함량이 홀스타인의 1.5배 이상입니다. 한 모금에 느껴지는 고소함과 깊이가 다릅니다.',
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  display: 'flex',
-                  gap: '24px',
-                  alignItems: 'flex-start',
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: ds.fontHeading,
-                    fontSize: '0.875rem',
-                    color: ds.brownLight,
-                    flexShrink: 0,
-                    paddingTop: '3px',
-                  }}
-                >
-                  {item.icon}
-                </div>
-                <div>
-                  <h3
-                    style={{
-                      fontFamily: ds.fontHeading,
-                      fontSize: '1rem',
-                      fontWeight: 400,
-                      color: ds.brown,
-                      margin: '0 0 8px',
-                    }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: ds.fontBody,
-                      fontSize: '0.9rem',
-                      color: ds.brownMid,
-                      lineHeight: 1.9,
-                      margin: 0,
-                    }}
-                  >
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
+          <div
+            style={{
+              backgroundColor: ds.ivory,
+              padding: '32px',
+              borderRadius: '8px',
+              marginBottom: '32px',
+            }}
+          >
+            <p
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.9375rem',
+                color: ds.brownMid,
+                lineHeight: 2.2,
+                marginBottom: '24px',
+              }}
+            >
+              우유 단백질의 80%는 카제인이에요. 그 중 베타-카제인에 A1과 A2 두 가지 타입이 있습니다.
+            </p>
+
+            <div style={{ marginBottom: '20px', padding: '16px', backgroundColor: ds.white, borderRadius: '8px' }}>
+              <strong style={{ fontFamily: ds.fontBody, color: ds.brownMid }}>A1 베타-카제인 (일반 우유)</strong>
+              <p style={{ fontFamily: ds.fontBody, fontSize: '0.875rem', color: ds.brownMid, lineHeight: 1.8, margin: '8px 0 0' }}>
+                소화 시 BCM-7 펩타이드 생성 → 장 불편함 유발 가능
+              </p>
+            </div>
+
+            <div style={{ padding: '16px', backgroundColor: ds.white, borderRadius: '8px', border: `2px solid ${ds.green}` }}>
+              <strong style={{ fontFamily: ds.fontBody, color: ds.green }}>A2 베타-카제인 (무무밀크)</strong>
+              <p style={{ fontFamily: ds.fontBody, fontSize: '0.875rem', color: ds.brownMid, lineHeight: 1.8, margin: '8px 0 0' }}>
+                프롤린 구조로 BCM-7 생성 차단 → 소화가 편안함
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── 생태순환농업 ── */}
-      <section style={{ backgroundColor: ds.ivory, padding: 'clamp(80px, 12vh, 120px) 0' }}>
-        <div
-          style={{
-            maxWidth: '800px',
-            margin: '0 auto',
-            padding: '0 clamp(24px, 6vw, 60px)',
-          }}
-        >
-          <SectionLabel>ECOLOGICAL CYCLE FARMING</SectionLabel>
-          <SectionTitle>생태순환농업</SectionTitle>
 
           <p
             style={{
@@ -242,346 +173,408 @@ export function Taste() {
               fontSize: '0.9375rem',
               color: ds.brownMid,
               lineHeight: 2,
-              margin: '0 0 56px',
+              marginBottom: '16px',
             }}
           >
-            해발 1,000m 삼수령의 청정 초지에서 무무목장의 순환은 시작됩니다.
-            수입 건초 의존을 최소화하고, 화학비료 대신 유기 퇴비를 사용하며
-            땅과 소, 우유가 하나의 고리로 이어집니다.
+            한국인 75%가 우유를 마시면 불편함을 느낀다고 해요. 대부분 유당불내증이 아니라 A1 카제인 때문입니다.
           </p>
-
-          {/* Cycle flow */}
-          <div
+          <p
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 0,
-            }}
-          >
-            {[
-              {
-                node: '토양',
-                desc: '유기 퇴비로 키운 삼수령 청정 초지\n화학비료 최소화, 해발 1,000m',
-                arrow: true,
-              },
-              {
-                node: '자가목초 (90%)',
-                desc: '목장에서 직접 재배한 풀 · 건초\n수입 건초 의존 최소화',
-                arrow: true,
-              },
-              {
-                node: '사일리지',
-                desc: '자가 목초를 발효시킨 영양 사료\n겨울철에도 신선한 영양 공급',
-                arrow: true,
-              },
-              {
-                node: '건강한 소',
-                desc: '스트레스 없는 방목, 자연 리듬 존중\n저지종 특유의 온순함',
-                arrow: true,
-              },
-              {
-                node: '건강한 우유',
-                desc: 'A2 단백질, 높은 유지방, 황금빛 크림\n진하고 고소한 무무목장의 맛',
-                arrow: true,
-              },
-              {
-                node: '유기 퇴비',
-                desc: '소 분뇨를 발효시켜 토양으로 환원\n순환의 고리가 완성됩니다',
-                arrow: false,
-              },
-            ].map((item, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'stretch', gap: '24px' }}>
-                {/* Left: line + arrow */}
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    width: '24px',
-                    flexShrink: 0,
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '10px',
-                      height: '10px',
-                      borderRadius: '50%',
-                      backgroundColor: ds.brownLight,
-                      flexShrink: 0,
-                      marginTop: '6px',
-                    }}
-                  />
-                  {item.arrow && (
-                    <div
-                      style={{
-                        width: '1px',
-                        flexGrow: 1,
-                        backgroundColor: ds.brownLight,
-                        opacity: 0.4,
-                        margin: '6px 0',
-                      }}
-                    />
-                  )}
-                </div>
-
-                {/* Right: content */}
-                <div style={{ paddingBottom: item.arrow ? '32px' : 0 }}>
-                  <div
-                    style={{
-                      fontFamily: ds.fontHeading,
-                      fontSize: '1rem',
-                      color: ds.brown,
-                      marginBottom: '6px',
-                      paddingTop: '2px',
-                    }}
-                  >
-                    {item.node}
-                  </div>
-                  <p
-                    style={{
-                      fontFamily: ds.fontBody,
-                      fontSize: '0.875rem',
-                      color: ds.brownMid,
-                      lineHeight: 1.9,
-                      margin: 0,
-                      whiteSpace: 'pre-line',
-                    }}
-                  >
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Return arrow hint */}
-          <div
-            style={{
-              marginTop: '24px',
-              paddingLeft: '48px',
               fontFamily: ds.fontBody,
-              fontSize: '0.8125rem',
+              fontSize: '0.875rem',
               color: ds.brownLight,
-              letterSpacing: '0.05em',
+              lineHeight: 1.8,
             }}
           >
-            ↑ 다시 토양으로 — 순환이 계속됩니다
-          </div>
+            <em>참고: 서울대 분당병원 임상시험(2024) — A2 우유가 소화기 증상 개선, 장내 유익균 증가</em>
+          </p>
         </div>
       </section>
 
-      {/* ── 착유 → 배송 타임라인 ── */}
-      <section style={{ backgroundColor: ds.white, padding: 'clamp(80px, 12vh, 120px) 0' }}>
-        <div
-          style={{
-            maxWidth: '800px',
-            margin: '0 auto',
-            padding: '0 clamp(24px, 6vw, 60px)',
-          }}
-        >
-          <SectionLabel>FROM FARM TO TABLE</SectionLabel>
-          <SectionTitle center>착유부터 고객 식탁까지</SectionTitle>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            {[
-              {
-                time: '새벽 5시',
-                title: '첫 착유',
-                desc: '파이프라인 밀커(폐쇄형 착유기)로 외부 공기 접촉 없이 위생적으로 착유합니다.',
-                last: false,
-              },
-              {
-                time: '착유 직후',
-                title: '즉시 냉각',
-                desc: '착유 완료 즉시 4℃로 냉각합니다. 냉각이 빠를수록 신선도가 유지됩니다.',
-                last: false,
-              },
-              {
-                time: '오전',
-                title: '품질 검사',
-                desc: '체세포 수·세균 수 검사로 품질을 확인합니다. 기준 미달 시 출하하지 않습니다.',
-                last: false,
-              },
-              {
-                time: '당일',
-                title: '개별 포장',
-                desc: '소량씩 개별 병입하여 신선도를 극대화합니다. 최소한의 공정, 최대한의 신선함.',
-                last: false,
-              },
-              {
-                time: '익일',
-                title: '냉장 택배 출발',
-                desc: '아이스팩과 함께 냉장 상태로 출발합니다. 고객의 식탁까지 차가운 고리가 끊기지 않습니다.',
-                last: true,
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'clamp(80px, 12vw, 100px) 24px 1fr',
-                  gap: '0 20px',
-                  alignItems: 'start',
-                }}
-              >
-                {/* Time label */}
-                <div
-                  style={{
-                    fontFamily: ds.fontBody,
-                    fontSize: '0.75rem',
-                    color: ds.brownLight,
-                    letterSpacing: '0.05em',
-                    textAlign: 'right',
-                    paddingTop: '4px',
-                    paddingBottom: item.last ? 0 : '40px',
-                  }}
-                >
-                  {item.time}
-                </div>
-
-                {/* Dot + line */}
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '10px',
-                      height: '10px',
-                      borderRadius: '50%',
-                      backgroundColor: ds.brown,
-                      flexShrink: 0,
-                      marginTop: '5px',
-                    }}
-                  />
-                  {!item.last && (
-                    <div
-                      style={{
-                        width: '1px',
-                        flexGrow: 1,
-                        backgroundColor: ds.brownLight,
-                        opacity: 0.3,
-                        margin: '6px 0',
-                        minHeight: '36px',
-                      }}
-                    />
-                  )}
-                </div>
-
-                {/* Content */}
-                <div style={{ paddingBottom: item.last ? 0 : '40px' }}>
-                  <h3
-                    style={{
-                      fontFamily: ds.fontHeading,
-                      fontSize: '1rem',
-                      fontWeight: 400,
-                      color: ds.brown,
-                      margin: '0 0 8px',
-                    }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: ds.fontBody,
-                      fontSize: '0.875rem',
-                      color: ds.brownMid,
-                      lineHeight: 1.9,
-                      margin: 0,
-                    }}
-                  >
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 왜 저지종인가? ── */}
+      {/* 저지 품종 */}
       <section style={{ backgroundColor: ds.ivory, padding: 'clamp(80px, 12vh, 120px) 0' }}>
         <div
           style={{
-            maxWidth: '800px',
+            maxWidth: '750px',
             margin: '0 auto',
             padding: '0 clamp(24px, 6vw, 60px)',
           }}
         >
-          <SectionLabel>WHY JERSEY?</SectionLabel>
-          <SectionTitle>왜 저지종인가?</SectionTitle>
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.75rem',
+              color: ds.green,
+              letterSpacing: '0.15em',
+              marginBottom: '16px',
+            }}
+          >
+            02 — JERSEY COW
+          </p>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              marginBottom: '32px',
+            }}
+          >
+            저지종, 영양의 농축
+          </h2>
+
+          <img
+            src="/images/무지개초지_저지소05.png"
+            alt="저지종 젖소"
+            style={{
+              width: '100%',
+              maxWidth: '400px',
+              height: 'auto',
+              borderRadius: '8px',
+              marginBottom: '32px',
+            }}
+          />
+
+          <h3
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '1rem',
+              fontWeight: 600,
+              color: ds.brown,
+              marginBottom: '16px',
+            }}
+          >
+            저지 vs 홀스타인 비교
+          </h3>
 
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '32px',
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: '16px',
+              marginBottom: '32px',
             }}
           >
             {[
-              {
-                num: '01',
-                title: '영국 저지섬 원산',
-                desc: '영국 해협의 작은 섬, 저지섬에서 수백 년에 걸쳐 품종이 정착되었습니다.',
-              },
-              {
-                num: '02',
-                title: '전 세계 젖소의 5% 미만',
-                desc: '홀스타인이 압도적으로 많은 현대 낙농업에서 저지종은 희귀한 존재입니다.',
-              },
-              {
-                num: '03',
-                title: '한국에는 극소수',
-                desc: '국내에서 저지종을 전문적으로 기르는 목장은 손에 꼽을 정도입니다.',
-              },
-              {
-                num: '04',
-                title: '온순하고 사람을 따름',
-                desc: '스트레스를 받지 않는 소가 더 좋은 우유를 만듭니다. 저지종은 특유의 순한 기질로 유명합니다.',
-              },
-            ].map((item) => (
-              <div key={item.num}>
-                <div
-                  style={{
-                    fontFamily: ds.fontHeading,
-                    fontSize: '1.75rem',
-                    color: ds.brownLight,
-                    opacity: 0.5,
-                    marginBottom: '16px',
-                    lineHeight: 1,
-                  }}
-                >
-                  {item.num}
-                </div>
-                <h3
-                  style={{
-                    fontFamily: ds.fontHeading,
-                    fontSize: '1rem',
-                    fontWeight: 400,
-                    color: ds.brown,
-                    margin: '0 0 10px',
-                  }}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: ds.fontBody,
-                    fontSize: '0.875rem',
-                    color: ds.brownMid,
-                    lineHeight: 1.9,
-                    margin: 0,
-                  }}
-                >
-                  {item.desc}
+              { label: '유지방', jersey: '4.9~5.8%', holstein: '3.4~3.8%' },
+              { label: '단백질', jersey: '3.7~4.2%', holstein: '3.1%' },
+              { label: 'A2 유전자', jersey: '60~66%', holstein: '26~50%' },
+              { label: '경제 수명', jersey: '12~15년', holstein: '5~6년' },
+            ].map((row) => (
+              <div
+                key={row.label}
+                style={{
+                  backgroundColor: ds.white,
+                  padding: '20px',
+                  borderRadius: '8px',
+                }}
+              >
+                <p style={{ fontFamily: ds.fontBody, fontSize: '0.75rem', color: ds.brownLight, marginBottom: '8px' }}>
+                  {row.label}
+                </p>
+                <p style={{ fontFamily: ds.fontHeading, fontSize: '1.25rem', color: ds.green, marginBottom: '4px' }}>
+                  {row.jersey}
+                </p>
+                <p style={{ fontFamily: ds.fontBody, fontSize: '0.75rem', color: ds.brownLight }}>
+                  홀스타인 {row.holstein}
                 </p>
               </div>
             ))}
           </div>
+
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.9375rem',
+              color: ds.brownMid,
+              lineHeight: 2,
+            }}
+          >
+            저지종은 영국 저지 섬 원산의 소형 젖소입니다. 1789년부터 219년간 외부 소 반입이 금지되어
+            세계에서 가장 순수한 혈통을 유지하고 있어요. 추위에 강하고 사료 효율이 좋아 고지대에 적합합니다.
+          </p>
         </div>
+      </section>
+
+      {/* 건초 급여 */}
+      <section style={{ backgroundColor: ds.white, padding: 'clamp(80px, 12vh, 120px) 0' }}>
+        <div
+          style={{
+            maxWidth: '750px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.75rem',
+              color: ds.green,
+              letterSpacing: '0.15em',
+              marginBottom: '16px',
+            }}
+          >
+            03 — HAY MILK
+          </p>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              marginBottom: '32px',
+            }}
+          >
+            건초우유, 사료가 우유를 결정한다
+          </h2>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: '24px',
+              marginBottom: '32px',
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: ds.ivory,
+                padding: '24px',
+                borderRadius: '8px',
+                border: `2px solid ${ds.green}`,
+              }}
+            >
+              <h4 style={{ fontFamily: ds.fontBody, fontSize: '1rem', fontWeight: 600, color: ds.green, marginBottom: '12px' }}>
+                건초 (Hay)
+              </h4>
+              <ul
+                style={{
+                  fontFamily: ds.fontBody,
+                  fontSize: '0.875rem',
+                  color: ds.brownMid,
+                  lineHeight: 1.9,
+                  listStyle: 'none',
+                  padding: 0,
+                  margin: 0,
+                }}
+              >
+                <li>• 햇볕에 자연 건조</li>
+                <li>• 맑고 향긋한 풍미</li>
+                <li>• 베타카로틴 → 황금빛</li>
+                <li>• 오메가6:3 비율 2:1 이하</li>
+                <li>• EU TSG 인증 대상</li>
+              </ul>
+            </div>
+            <div
+              style={{
+                backgroundColor: ds.ivory,
+                padding: '24px',
+                borderRadius: '8px',
+              }}
+            >
+              <h4 style={{ fontFamily: ds.fontBody, fontSize: '1rem', fontWeight: 600, color: ds.brownLight, marginBottom: '12px' }}>
+                사일리지 (Silage)
+              </h4>
+              <ul
+                style={{
+                  fontFamily: ds.fontBody,
+                  fontSize: '0.875rem',
+                  color: ds.brownLight,
+                  lineHeight: 1.9,
+                  listStyle: 'none',
+                  padding: 0,
+                  margin: 0,
+                }}
+              >
+                <li>• 밀봉 발효 방식</li>
+                <li>• 발효 유래 묵직함</li>
+                <li>• 상대적으로 흰색</li>
+                <li>• 오메가6:3 비율 5.7:1 이상</li>
+                <li>• 대량생산에 적합</li>
+              </ul>
+            </div>
+          </div>
+
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.9375rem',
+              color: ds.brownMid,
+              lineHeight: 2,
+            }}
+          >
+            건초 급여 시 오메가-3가 147% 증가하고, CLA(공액리놀레산)가 126% 증가합니다.
+            한국의 장마철에 건초를 만드는 건 쉽지 않지만, 그만큼 가치 있는 차이를 만듭니다.
+          </p>
+        </div>
+      </section>
+
+      {/* Golden Milk */}
+      <section style={{ backgroundColor: ds.ivory, padding: 'clamp(80px, 12vh, 120px) 0' }}>
+        <div
+          style={{
+            maxWidth: '750px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.75rem',
+              color: ds.green,
+              letterSpacing: '0.15em',
+              marginBottom: '16px',
+            }}
+          >
+            GOLDEN MILK
+          </p>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              marginBottom: '32px',
+            }}
+          >
+            왜 우유가 노란색인가요?
+          </h2>
+
+          <div
+            style={{
+              backgroundColor: '#FFF9E6',
+              padding: '32px',
+              borderRadius: '8px',
+              marginBottom: '32px',
+              border: '1px solid #FFE082',
+            }}
+          >
+            <p
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '1rem',
+                color: ds.brown,
+                lineHeight: 2,
+                textAlign: 'center',
+              }}
+            >
+              착색이 아닙니다. 100% 자연 그대로의 색이에요!
+            </p>
+          </div>
+
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.9375rem',
+              color: ds.brownMid,
+              lineHeight: 2.2,
+              marginBottom: '24px',
+            }}
+          >
+            저지종은 체내 베타카로틴을 우유로 더 잘 전달해요.
+            건초에는 베타카로틴이 풍부하고요.
+          </p>
+          <p
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: '1.125rem',
+              color: ds.brown,
+              textAlign: 'center',
+              marginBottom: '24px',
+            }}
+          >
+            저지 + 건초 = 자연스러운 황금빛
+          </p>
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.9375rem',
+              color: ds.brownMid,
+              lineHeight: 2,
+            }}
+          >
+            유럽에서는 이런 우유를 "Golden Milk"라고 불러요.
+            베타카로틴은 비타민 A의 전구체로, 눈 건강과 피부 건강에 좋습니다.
+            노란 우유 = 건강한 우유의 증거예요.
+          </p>
+        </div>
+      </section>
+
+      {/* 착유→배송 */}
+      <section style={{ backgroundColor: ds.white, padding: 'clamp(60px, 10vh, 80px) 0' }}>
+        <div
+          style={{
+            maxWidth: '750px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+            textAlign: 'center',
+          }}
+        >
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: '1.25rem',
+              fontWeight: 400,
+              color: ds.brown,
+              marginBottom: '32px',
+            }}
+          >
+            착유에서 배송까지
+          </h2>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '16px',
+              flexWrap: 'wrap',
+            }}
+          >
+            {['🌅 새벽 착유', '→', '🧴 당일 병입', '→', '📦 당일 발송', '→', '🏠 신선 배송'].map((step, i) => (
+              <span
+                key={i}
+                style={{
+                  fontFamily: ds.fontBody,
+                  fontSize: step === '→' ? '1rem' : '0.9375rem',
+                  color: step === '→' ? ds.brownLight : ds.brownMid,
+                }}
+              >
+                {step}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section style={{ backgroundColor: ds.darkBrown, padding: 'clamp(60px, 10vh, 80px) 0', textAlign: 'center' }}>
+        <p
+          style={{
+            fontFamily: ds.fontBody,
+            fontSize: '0.9375rem',
+            color: 'rgba(255,255,255,0.75)',
+            marginBottom: '16px',
+          }}
+        >
+          무무밀크를 직접 맛보고 싶으신가요?
+        </p>
+        <Link
+          to="/shop"
+          style={{
+            display: 'inline-block',
+            padding: '14px 36px',
+            fontFamily: ds.fontBody,
+            fontSize: '0.9375rem',
+            fontWeight: 600,
+            color: ds.darkBrown,
+            backgroundColor: '#fff',
+            textDecoration: 'none',
+            borderRadius: '4px',
+          }}
+        >
+          무무곳간 가기
+        </Link>
       </section>
     </main>
   );

@@ -19,23 +19,23 @@ export function About() {
       <section
         style={{
           position: 'relative',
-          height: '60vh',
-          minHeight: '400px',
+          height: '70vh',
+          minHeight: '450px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         }}
       >
         <img
-          src="/images/무무목장 전경.png"
-          alt="무무목장 전경"
+          src="/images/운해.png"
+          alt="삼수령 운해"
           style={{
             position: 'absolute',
             inset: 0,
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            filter: 'brightness(0.5)',
+            filter: 'brightness(0.45)',
           }}
         />
         <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '0 24px' }}>
@@ -56,65 +56,60 @@ export function About() {
               fontSize: 'clamp(2rem, 5vw, 3rem)',
               fontWeight: 400,
               color: '#fff',
-              margin: 0,
+              margin: '0 0 16px',
               lineHeight: 1.4,
             }}
           >
-            60년 역사의 땅에서<br />
-            시작된 이야기
+            선물을 전달하라
           </h1>
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '1rem',
+              color: 'rgba(255,255,255,0.85)',
+              fontStyle: 'italic',
+            }}
+          >
+            Passing on the Gift
+          </p>
         </div>
       </section>
 
-      {/* 예수원 이야기 */}
+      {/* 헤이퍼 인터내셔널 */}
       <section style={{ backgroundColor: ds.ivory, padding: 'clamp(80px, 12vh, 120px) 0' }}>
         <div
           style={{
-            maxWidth: '800px',
+            maxWidth: '750px',
             margin: '0 auto',
             padding: '0 clamp(24px, 6vw, 60px)',
           }}
         >
-          <div style={{ display: 'flex', gap: '32px', marginBottom: '48px' }}>
-            <div style={{ width: '2px', backgroundColor: ds.brownLight, flexShrink: 0 }} />
-            <div>
-              <p
-                style={{
-                  fontFamily: ds.fontBody,
-                  fontSize: '0.75rem',
-                  color: ds.green,
-                  letterSpacing: '0.15em',
-                  marginBottom: '16px',
-                }}
-              >
-                JESUS ABBEY · 1965
-              </p>
-              <h2
-                style={{
-                  fontFamily: ds.fontHeading,
-                  fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
-                  fontWeight: 400,
-                  color: ds.brown,
-                  lineHeight: 1.6,
-                  margin: 0,
-                }}
-              >
-                "읽고, 걷고, 침묵합니다."
-              </h2>
-            </div>
+          <div style={{ display: 'flex', gap: '32px', marginBottom: '32px' }}>
+            <div style={{ width: '2px', backgroundColor: ds.green, flexShrink: 0 }} />
+            <p
+              style={{
+                fontFamily: ds.fontHeading,
+                fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
+                fontWeight: 400,
+                color: ds.brown,
+                lineHeight: 1.8,
+                margin: 0,
+              }}
+            >
+              "받은 선물을 다음 사람에게 전달하라"
+            </p>
           </div>
-
           <p
             style={{
               fontFamily: ds.fontBody,
               fontSize: '1rem',
               color: ds.brownMid,
               lineHeight: 2.2,
-              marginBottom: '32px',
+              marginBottom: '24px',
             }}
           >
-            1965년, 미국인 성공회 사제 대천덕(Archer Torrey) 신부님이 태백 삼수령에 예수원을 세웠습니다.
-            기도와 노동의 공동체로 60년을 이어온 이 땅에서, 무무목장은 새로운 장을 열고 있습니다.
+            헤이퍼 인터내셔널(Heifer International)은 이 원칙으로 전 세계 빈곤 지역에 가축을 보급해왔습니다.
+            1965년, 시애틀 교회가 예수원에 보낸 젖소 두 마리도 같은 정신이었습니다.
           </p>
           <p
             style={{
@@ -124,17 +119,16 @@ export function About() {
               lineHeight: 2.2,
             }}
           >
-            헤이퍼 인터내셔널의 "받은 선물을 다음 사람에게 전달하라(Passing on the Gift)" 정신으로
-            시작된 예수원의 낙농. 그 유산을 무무목장이 이어갑니다.
+            60년이 지난 지금, 무무목장은 그 선물을 북한 고지대에 전달하기 위한 실험을 합니다.
           </p>
         </div>
       </section>
 
-      {/* 무무목장 */}
+      {/* 예수원 1965 */}
       <section style={{ backgroundColor: ds.white, padding: 'clamp(80px, 12vh, 120px) 0' }}>
         <div
           style={{
-            maxWidth: '800px',
+            maxWidth: '750px',
             margin: '0 auto',
             padding: '0 clamp(24px, 6vw, 60px)',
           }}
@@ -148,7 +142,147 @@ export function About() {
               marginBottom: '16px',
             }}
           >
-            MOOMOO RANCH
+            JESUS ABBEY · 1965
+          </p>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              marginBottom: '32px',
+              lineHeight: 1.5,
+            }}
+          >
+            "읽고, 걷고, 침묵합니다."
+          </h2>
+
+          <img
+            src="/images/예수원 소개.png"
+            alt="예수원 전경"
+            style={{
+              width: '100%',
+              height: 'auto',
+              borderRadius: '8px',
+              marginBottom: '32px',
+            }}
+          />
+
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '1rem',
+              color: ds.brownMid,
+              lineHeight: 2.2,
+              marginBottom: '24px',
+            }}
+          >
+            1965년, 미국인 성공회 사제 대천덕(Archer Torrey) 신부님이 태백 삼수령에 예수원을 세웠습니다.
+            기도와 노동의 공동체로 60년을 이어온 수도원입니다.
+          </p>
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '1rem',
+              color: ds.brownMid,
+              lineHeight: 2.2,
+            }}
+          >
+            헤이퍼 인터내셔널 소속 Paul A. Kingsbury(김승배) 선교사가 대천덕 신부의 목장 설립을 지원했습니다.
+            1975년 해발 1,000m 매봉산 자락으로 확장하며 "Jesus Abbey The Watershed Grange"로 불렸습니다.
+          </p>
+        </div>
+      </section>
+
+      {/* 킹스베리 초지 */}
+      <section style={{ backgroundColor: ds.ivory, padding: 'clamp(80px, 12vh, 120px) 0' }}>
+        <div
+          style={{
+            maxWidth: '750px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.75rem',
+              color: ds.green,
+              letterSpacing: '0.15em',
+              marginBottom: '16px',
+            }}
+          >
+            KINGSBURY MEADOW · 1969
+          </p>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              marginBottom: '32px',
+            }}
+          >
+            킹스베리 초지
+          </h2>
+
+          <img
+            src="/images/무지개초지.png"
+            alt="킹스베리 초지 (무지개초지)"
+            style={{
+              width: '100%',
+              height: 'auto',
+              borderRadius: '8px',
+              marginBottom: '32px',
+            }}
+          />
+
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '1rem',
+              color: ds.brownMid,
+              lineHeight: 2.2,
+              marginBottom: '24px',
+            }}
+          >
+            1969년 초지조성지구로 고시된 삼수령의 초지.
+            김승배(Paul Kingsbury) 선교사의 이름을 따 "킹스베리 초지"라 불립니다.
+            지금은 "무지개초지"라는 이름으로도 불려요.
+          </p>
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '1rem',
+              color: ds.brownMid,
+              lineHeight: 2.2,
+            }}
+          >
+            해발 1,000m — 남한에서 북한 고지대와 가장 유사한 환경.
+            이곳에서 검증된 소규모 낙농 모델은, 언젠가 북한에 이식될 씨앗입니다.
+          </p>
+        </div>
+      </section>
+
+      {/* 무무목장 2024 */}
+      <section style={{ backgroundColor: ds.white, padding: 'clamp(80px, 12vh, 120px) 0' }}>
+        <div
+          style={{
+            maxWidth: '750px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.75rem',
+              color: ds.green,
+              letterSpacing: '0.15em',
+              marginBottom: '16px',
+            }}
+          >
+            MOOMOO RANCH · 2024
           </p>
           <h2
             style={{
@@ -166,419 +300,205 @@ export function About() {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '24px',
-              marginBottom: '48px',
+              gap: '16px',
+              marginBottom: '32px',
             }}
           >
-            <img
-              src="/images/무지개초지.png"
-              alt="무지개초지"
-              style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', borderRadius: '8px' }}
-            />
             <img
               src="/images/축사셀카.jpg"
               alt="축사에서 저지소와 함께"
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', borderRadius: '8px' }}
             />
-          </div>
-
-          <div style={{ marginBottom: '32px' }}>
-            <h3
-              style={{
-                fontFamily: ds.fontBody,
-                fontSize: '1rem',
-                fontWeight: 600,
-                color: ds.brown,
-                marginBottom: '12px',
-              }}
-            >
-              해발 1,000m
-            </h3>
-            <p
-              style={{
-                fontFamily: ds.fontBody,
-                fontSize: '0.9375rem',
-                color: ds.brownMid,
-                lineHeight: 2,
-              }}
-            >
-              태백 삼수령은 남한에서 북한 고지대와 가장 유사한 환경입니다.
-              이곳에서 검증된 소규모 낙농 모델은, 언젠가 북한 고지대에 전달될 씨앗입니다.
-            </p>
-          </div>
-
-          <div>
-            <h3
-              style={{
-                fontFamily: ds.fontBody,
-                fontSize: '1rem',
-                fontWeight: 600,
-                color: ds.brown,
-                marginBottom: '12px',
-              }}
-            >
-              함께 이끄는 사람들
-            </h3>
-            <ul
-              style={{
-                fontFamily: ds.fontBody,
-                fontSize: '0.9375rem',
-                color: ds.brownMid,
-                lineHeight: 2.2,
-                listStyle: 'none',
-                padding: 0,
-                margin: 0,
-              }}
-            >
-              <li>• <strong>박요셉</strong> — 목장주. 북한 출신 수의사, 통일 농업의 꿈</li>
-              <li>• <strong>히스기야</strong> — 현장 운영. 예수원 공동체 수도자</li>
-              <li>• <strong>하현제</strong> — 저지소 기증. 30년 경력 대동물 수의사</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* 저지종 */}
-      <section style={{ backgroundColor: ds.ivory, padding: 'clamp(80px, 12vh, 120px) 0' }}>
-        <div
-          style={{
-            maxWidth: '800px',
-            margin: '0 auto',
-            padding: '0 clamp(24px, 6vw, 60px)',
-          }}
-        >
-          <p
-            style={{
-              fontFamily: ds.fontBody,
-              fontSize: '0.75rem',
-              color: ds.green,
-              letterSpacing: '0.15em',
-              marginBottom: '16px',
-            }}
-          >
-            JERSEY COW
-          </p>
-          <h2
-            style={{
-              fontFamily: ds.fontHeading,
-              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
-              fontWeight: 400,
-              color: ds.brown,
-              marginBottom: '32px',
-            }}
-          >
-            왜 저지종인가?
-          </h2>
-
-          <img
-            src="/images/무지개초지_저지소04.png"
-            alt="저지종 젖소"
-            style={{
-              width: '100%',
-              maxWidth: '500px',
-              height: 'auto',
-              borderRadius: '8px',
-              marginBottom: '32px',
-            }}
-          />
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: '24px',
-              marginBottom: '32px',
-            }}
-          >
-            <div
-              style={{
-                backgroundColor: ds.white,
-                padding: '24px',
-                borderRadius: '8px',
-              }}
-            >
-              <p style={{ fontFamily: ds.fontBody, fontSize: '0.8125rem', color: ds.brownLight, marginBottom: '4px' }}>
-                체구
-              </p>
-              <p style={{ fontFamily: ds.fontHeading, fontSize: '1.5rem', color: ds.brown, marginBottom: '4px' }}>
-                400~450kg
-              </p>
-              <p style={{ fontFamily: ds.fontBody, fontSize: '0.75rem', color: ds.brownLight }}>
-                사료 효율이 높은 소형 품종
-              </p>
-            </div>
-            <div
-              style={{
-                backgroundColor: ds.white,
-                padding: '24px',
-                borderRadius: '8px',
-              }}
-            >
-              <p style={{ fontFamily: ds.fontBody, fontSize: '0.8125rem', color: ds.brownLight, marginBottom: '4px' }}>
-                유지방
-              </p>
-              <p style={{ fontFamily: ds.fontHeading, fontSize: '1.5rem', color: ds.brown, marginBottom: '4px' }}>
-                5%
-              </p>
-              <p style={{ fontFamily: ds.fontBody, fontSize: '0.75rem', color: ds.brownLight }}>
-                홀스타인(3.5%) 대비 1.5배
-              </p>
-            </div>
-            <div
-              style={{
-                backgroundColor: ds.white,
-                padding: '24px',
-                borderRadius: '8px',
-              }}
-            >
-              <p style={{ fontFamily: ds.fontBody, fontSize: '0.8125rem', color: ds.brownLight, marginBottom: '4px' }}>
-                A2 유전형
-              </p>
-              <p style={{ fontFamily: ds.fontHeading, fontSize: '1.5rem', color: ds.brown, marginBottom: '4px' }}>
-                60~66%
-              </p>
-              <p style={{ fontFamily: ds.fontBody, fontSize: '0.75rem', color: ds.brownLight }}>
-                홀스타인(26~50%) 대비 높음
-              </p>
-            </div>
-            <div
-              style={{
-                backgroundColor: ds.white,
-                padding: '24px',
-                borderRadius: '8px',
-              }}
-            >
-              <p style={{ fontFamily: ds.fontBody, fontSize: '0.8125rem', color: ds.brownLight, marginBottom: '4px' }}>
-                경제 수명
-              </p>
-              <p style={{ fontFamily: ds.fontHeading, fontSize: '1.5rem', color: ds.brown, marginBottom: '4px' }}>
-                12~15년
-              </p>
-              <p style={{ fontFamily: ds.fontBody, fontSize: '0.75rem', color: ds.brownLight }}>
-                홀스타인 대비 2배 이상
-              </p>
-            </div>
-          </div>
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-              gap: '16px',
-              marginBottom: '32px',
-            }}
-          >
-            <div>
-              <img
-                src="/images/저지소-교감.jpg"
-                alt="저지 소와 교감하는 모습"
-                style={{
-                  width: '100%',
-                  aspectRatio: '4/3',
-                  objectFit: 'cover',
-                  borderRadius: '8px',
-                  marginBottom: '12px',
-                }}
-              />
-              <p
-                style={{
-                  fontFamily: ds.fontBody,
-                  fontSize: '0.8125rem',
-                  color: ds.brownLight,
-                  lineHeight: 1.8,
-                  margin: 0,
-                }}
-              >
-                저지종은 온순한 성격으로 사람과 쉽게 교감합니다.
-                산 가득한 삼수령에서, 사람 곁에 자연스레 다가오는 소들이에요.
-              </p>
-            </div>
+            <img
+              src="/images/아이와저지소.jpg"
+              alt="아이와 저지소"
+              style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', borderRadius: '8px' }}
+            />
           </div>
 
           <p
             style={{
               fontFamily: ds.fontBody,
-              fontSize: '0.9375rem',
-              color: ds.brownMid,
-              lineHeight: 2,
-            }}
-          >
-            저지종은 영국 저지 섬 원산의 소형 젖소입니다.
-            추위에 강하고 사료 효율이 좋아, 북한 고지대처럼 자원이 제한된 환경에 적합합니다.
-            무엇보다, A2 베타-카제인만 생산하는 비율이 높아 소화가 편한 우유를 만들어요.
-          </p>
-        </div>
-      </section>
-
-      {/* A2 우유 */}
-      <section style={{ backgroundColor: ds.white, padding: 'clamp(80px, 12vh, 120px) 0' }}>
-        <div
-          style={{
-            maxWidth: '800px',
-            margin: '0 auto',
-            padding: '0 clamp(24px, 6vw, 60px)',
-          }}
-        >
-          <p
-            style={{
-              fontFamily: ds.fontBody,
-              fontSize: '0.75rem',
-              color: ds.green,
-              letterSpacing: '0.15em',
-              marginBottom: '16px',
-            }}
-          >
-            A2 MILK
-          </p>
-          <h2
-            style={{
-              fontFamily: ds.fontHeading,
-              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
-              fontWeight: 400,
-              color: ds.brown,
-              marginBottom: '32px',
-            }}
-          >
-            소화가 편한 A2 우유
-          </h2>
-
-          <div
-            style={{
-              backgroundColor: ds.ivory,
-              padding: '32px',
-              borderRadius: '8px',
-              marginBottom: '32px',
-            }}
-          >
-            <p
-              style={{
-                fontFamily: ds.fontBody,
-                fontSize: '0.9375rem',
-                color: ds.brownMid,
-                lineHeight: 2.2,
-                marginBottom: '24px',
-              }}
-            >
-              우유 단백질의 80%는 카제인이에요. 그 중 베타-카제인에 A1과 A2 두 가지 타입이 있습니다.
-            </p>
-
-            <div style={{ marginBottom: '16px' }}>
-              <strong style={{ fontFamily: ds.fontBody, color: ds.brown }}>A1 베타-카제인 (일반 우유)</strong>
-              <p style={{ fontFamily: ds.fontBody, fontSize: '0.875rem', color: ds.brownMid, lineHeight: 1.8, margin: '8px 0 0' }}>
-                소화 시 BCM-7 펩타이드 생성 → 장 불편함 유발 가능
-              </p>
-            </div>
-
-            <div>
-              <strong style={{ fontFamily: ds.fontBody, color: ds.green }}>A2 베타-카제인 (무무밀크)</strong>
-              <p style={{ fontFamily: ds.fontBody, fontSize: '0.875rem', color: ds.brownMid, lineHeight: 1.8, margin: '8px 0 0' }}>
-                BCM-7 미생성 → 소화가 편안함
-              </p>
-            </div>
-          </div>
-
-          <p
-            style={{
-              fontFamily: ds.fontBody,
-              fontSize: '0.9375rem',
-              color: ds.brownMid,
-              lineHeight: 2,
-            }}
-          >
-            한국인 75%가 우유를 마시면 불편함을 느낀다고 해요.
-            대부분 A1 카제인 때문입니다. 서울대 분당병원 임상시험(2024년)에서도
-            A2 우유가 소화기 증상을 개선한다는 결과가 나왔어요.
-          </p>
-        </div>
-      </section>
-
-      {/* 황금빛 우유 */}
-      <section style={{ backgroundColor: ds.ivory, padding: 'clamp(80px, 12vh, 120px) 0' }}>
-        <div
-          style={{
-            maxWidth: '800px',
-            margin: '0 auto',
-            padding: '0 clamp(24px, 6vw, 60px)',
-          }}
-        >
-          <p
-            style={{
-              fontFamily: ds.fontBody,
-              fontSize: '0.75rem',
-              color: ds.green,
-              letterSpacing: '0.15em',
-              marginBottom: '16px',
-            }}
-          >
-            GOLDEN MILK
-          </p>
-          <h2
-            style={{
-              fontFamily: ds.fontHeading,
-              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
-              fontWeight: 400,
-              color: ds.brown,
-              marginBottom: '32px',
-            }}
-          >
-            왜 우유가 노란색인가요?
-          </h2>
-
-          <img
-            src="/images/우유_저지소.png"
-            alt="황금빛 무무밀크"
-            style={{
-              width: '100%',
-              maxWidth: '400px',
-              height: 'auto',
-              borderRadius: '8px',
-              marginBottom: '32px',
-            }}
-          />
-
-          <p
-            style={{
-              fontFamily: ds.fontBody,
-              fontSize: '0.9375rem',
+              fontSize: '1rem',
               color: ds.brownMid,
               lineHeight: 2.2,
               marginBottom: '24px',
             }}
           >
-            착색한 거 아니에요! 자연 그대로의 색입니다.
+            2020년, 30년 경력 대동물 수의사 하현제 원장님이 저지소 2마리를 기증했습니다.
+            A2 우유를 생산하는 저지종 젖소의 시작이었습니다.
           </p>
-
           <p
             style={{
               fontFamily: ds.fontBody,
-              fontSize: '0.9375rem',
+              fontSize: '1rem',
               color: ds.brownMid,
               lineHeight: 2.2,
             }}
           >
-            저지종은 체내 베타카로틴을 우유로 잘 전달해요.
-            건초를 먹인 우유에는 베타카로틴이 더 풍부하고요.
-            저지 + 건초 = 자연스러운 황금빛.
-            유럽에서는 이런 우유를 "Golden Milk"라고 불러요.
+            2024년, 북한 출신 수의사 박요셉 목장주님이 합류하며 "무무목장"이라는 이름으로 브랜드를 시작했습니다.
+            통일 농업의 씨앗, 서포터즈 1,000명과 함께 성장하는 "제3의 공간"을 꿈꿉니다.
+          </p>
+        </div>
+      </section>
+
+      {/* 함께 이끄는 사람들 */}
+      <section style={{ backgroundColor: ds.ivory, padding: 'clamp(80px, 12vh, 120px) 0' }}>
+        <div
+          style={{
+            maxWidth: '750px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+          }}
+        >
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              marginBottom: '40px',
+              textAlign: 'center',
+            }}
+          >
+            함께 이끄는 사람들
+          </h2>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+            {[
+              {
+                name: '대천덕 (Archer Torrey)',
+                role: '예수원 설립자',
+                desc: '1965년 삼수령에 예수원을 세운 미국인 성공회 사제. 한국전쟁 때 한국에 오셔서 평생을 이 땅에서 보내셨습니다.',
+              },
+              {
+                name: '박요셉',
+                role: '무무목장 목장주',
+                desc: '북한 출신 수의사. 건국대 수의과 졸업, 사회적기업 요벨 운영. 통일 농업의 꿈을 품고 있습니다.',
+              },
+              {
+                name: '히스기야 (서수철)',
+                role: '현장 운영',
+                desc: '예수원 공동체 수도자. 매일 새벽부터 소들을 돌보며, 기도와 노동의 삶을 실천합니다.',
+              },
+              {
+                name: '하현제',
+                role: '저지소 기증',
+                desc: '30년 경력 대동물 수의사. 2020년 저지소 2마리를 기증하며 무무목장의 씨앗을 뿌렸습니다.',
+              },
+            ].map((person) => (
+              <div
+                key={person.name}
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '120px 1fr',
+                  gap: '24px',
+                  alignItems: 'start',
+                }}
+              >
+                <div
+                  style={{
+                    width: '100px',
+                    height: '100px',
+                    borderRadius: '50%',
+                    backgroundColor: ds.white,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '2.5rem',
+                  }}
+                >
+                  👤
+                </div>
+                <div>
+                  <h3
+                    style={{
+                      fontFamily: ds.fontBody,
+                      fontSize: '1rem',
+                      fontWeight: 600,
+                      color: ds.brown,
+                      margin: '0 0 4px',
+                    }}
+                  >
+                    {person.name}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: ds.fontBody,
+                      fontSize: '0.8125rem',
+                      color: ds.green,
+                      margin: '0 0 8px',
+                    }}
+                  >
+                    {person.role}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: ds.fontBody,
+                      fontSize: '0.9375rem',
+                      color: ds.brownMid,
+                      lineHeight: 1.8,
+                      margin: 0,
+                    }}
+                  >
+                    {person.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 성경 인용 */}
+      <section style={{ backgroundColor: ds.white, padding: 'clamp(60px, 10vh, 80px) 0' }}>
+        <div
+          style={{
+            maxWidth: '600px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+            textAlign: 'center',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
+              fontStyle: 'italic',
+              color: ds.brownMid,
+              lineHeight: 1.8,
+              marginBottom: '16px',
+            }}
+          >
+            "이는 하나님이 계획하시고 세우신<br />
+            터가 있는 성을 바라고 있었음이라"
+          </p>
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.875rem',
+              color: ds.brownLight,
+            }}
+          >
+            — 히브리서 11:10
           </p>
         </div>
       </section>
 
       {/* CTA */}
       <section style={{ backgroundColor: ds.darkBrown, padding: 'clamp(60px, 10vh, 80px) 0', textAlign: 'center' }}>
-        <h2
+        <p
           style={{
-            fontFamily: ds.fontHeading,
-            fontSize: '1.25rem',
-            fontWeight: 400,
-            color: '#fff',
-            margin: '0 0 16px',
+            fontFamily: ds.fontBody,
+            fontSize: '0.9375rem',
+            color: 'rgba(255,255,255,0.75)',
+            marginBottom: '16px',
           }}
         >
-          무무목장의 제품을 만나보세요
-        </h2>
+          무무밀크가 특별한 이유가 궁금하신가요?
+        </p>
         <Link
-          to="/shop"
+          to="/taste"
           style={{
             display: 'inline-block',
             padding: '14px 36px',
@@ -591,7 +511,7 @@ export function About() {
             borderRadius: '4px',
           }}
         >
-          무무곳간 가기
+          맛의 차이 알아보기
         </Link>
       </section>
     </main>

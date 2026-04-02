@@ -1,5 +1,4 @@
 import { useState, useEffect, useMemo } from 'react';
-import { motion } from 'motion/react';
 import { Play, MessageCircle } from 'lucide-react';
 
 const ds = {
@@ -53,7 +52,6 @@ const tagColors: Record<string, string> = {
   '#생태순환': '#8a6a5a',
   '#헤리티지': '#9a8a5a',
   '#제품이야기': '#8a5a6a',
-  '#이벤트': '#9a5a5a',
 };
 
 /* 폴백 데이터 */
@@ -143,7 +141,7 @@ export function Blog() {
     const shorts = isShorts(post.videoUrl);
 
     return (
-      <div style={{ width: '100%', maxWidth: shorts ? '360px' : '100%', margin: '0 auto', aspectRatio: shorts ? '9/16' : '16/9' }}>
+      <div style={{ width: '100%', maxWidth: shorts ? '300px' : '100%', margin: '0 auto', aspectRatio: shorts ? '9/16' : '16/9' }}>
         <iframe
           src={`https://www.youtube.com/embed/${ytId}?autoplay=1&mute=1&loop=1&playlist=${ytId}`}
           style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
@@ -171,15 +169,14 @@ export function Blog() {
         <img
           src="/images/무지개초지_저지소02.png"
           alt="치즈의 담벼락"
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.5)' }}
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(45,37,24,0.5) 0%, transparent 50%)' }} />
         <div style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
           <p style={{ fontFamily: ds.fontBody, fontSize: '0.75rem', color: 'rgba(255,255,255,0.7)', letterSpacing: '0.2em', marginBottom: '12px' }}>
-            🐄 무무의 담벼락
+            🐄 BLOG
           </p>
           <h1 style={{ fontFamily: ds.fontHeading, fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', fontWeight: 400, color: '#fff', margin: 0 }}>
-            치즈가 들려주는 삼수령 이야기
+            치즈의 담벼락
           </h1>
         </div>
       </section>
@@ -187,11 +184,11 @@ export function Blog() {
       {/* Featured Post */}
       {activePost && (
         <section style={{ backgroundColor: ds.white, padding: 'clamp(40px, 8vh, 60px) 0' }}>
-          <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 clamp(24px, 6vw, 60px)' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: activePost.videoUrl ? '1fr 1fr' : '1fr', gap: '40px', alignItems: 'center' }}>
+          <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 clamp(24px, 6vw, 60px)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: activePost.videoUrl ? 'minmax(200px, 1fr) 1fr' : '1fr', gap: '40px', alignItems: 'center' }}>
               {/* Video */}
               {activePost.videoUrl && (
-                <div style={{ backgroundColor: '#111', borderRadius: '12px', padding: '24px', minHeight: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ backgroundColor: '#111', borderRadius: '8px', padding: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   {renderVideo(activePost)}
                 </div>
               )}
@@ -259,7 +256,7 @@ export function Blog() {
 
       {/* Tag Filter */}
       <section style={{ backgroundColor: ds.ivory, padding: '32px 0' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 clamp(24px, 6vw, 60px)' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 clamp(24px, 6vw, 60px)' }}>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', justifyContent: 'center' }}>
             {allTags.map((tag) => (
               <button
@@ -286,30 +283,25 @@ export function Blog() {
 
       {/* Posts Grid */}
       <section style={{ backgroundColor: ds.ivory, padding: '0 0 clamp(60px, 10vh, 80px)' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 clamp(24px, 6vw, 60px)' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
-            {filteredPosts.map((post, index) => (
-              <motion.article
+        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 clamp(24px, 6vw, 60px)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
+            {filteredPosts.map((post) => (
+              <article
                 key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                whileHover={{ scale: 1.02 }}
                 onClick={() => {
                   setSelectedPostId(post.id);
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
                 style={{
                   backgroundColor: ds.white,
-                  borderRadius: '12px',
+                  borderRadius: '8px',
                   overflow: 'hidden',
                   cursor: 'pointer',
                   boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
                 }}
               >
                 {/* Thumbnail */}
-                <div style={{ position: 'relative', height: '180px', backgroundColor: '#111' }}>
+                <div style={{ position: 'relative', height: '160px', backgroundColor: '#111' }}>
                   {post.videoUrl ? (
                     <>
                       <img
@@ -393,7 +385,7 @@ export function Blog() {
                     {new Date(post.createdAt).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' })}
                   </p>
                 </div>
-              </motion.article>
+              </article>
             ))}
           </div>
 
@@ -407,44 +399,130 @@ export function Blog() {
         </div>
       </section>
 
-      {/* Kakao CTA */}
-      <section style={{ backgroundColor: ds.darkBrown, padding: 'clamp(60px, 10vh, 80px) 0' }}>
-        <div style={{ maxWidth: '600px', margin: '0 auto', padding: '0 clamp(24px, 6vw, 60px)', textAlign: 'center' }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+      {/* 치즈 가족 소개 */}
+      <section style={{ backgroundColor: ds.white, padding: 'clamp(60px, 10vh, 80px) 0' }}>
+        <div style={{ maxWidth: '700px', margin: '0 auto', padding: '0 clamp(24px, 6vw, 60px)' }}>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: '1.25rem',
+              fontWeight: 400,
+              color: ds.brown,
+              margin: '0 0 8px',
+              textAlign: 'center',
+            }}
           >
-            <h2 style={{ fontFamily: ds.fontHeading, fontSize: '1.25rem', fontWeight: 400, color: '#fff', margin: '0 0 16px' }}>
-              치즈에게 말을 걸어보세요
-            </h2>
-            <p style={{ fontFamily: ds.fontBody, fontSize: '0.9375rem', color: 'rgba(255,255,255,0.75)', margin: '0 0 32px', lineHeight: 1.8 }}>
-              목장 소식, 제품 문의, 그냥 안부 인사도 좋아요.<br />
-              치즈가 기다리고 있어요.
-            </p>
-            <a
-              href="https://pf.kakao.com/_xjVxkxjG"
-              target="_blank"
-              rel="noopener noreferrer"
+            치즈의 가족
+          </h2>
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.875rem',
+              color: ds.brownLight,
+              textAlign: 'center',
+              marginBottom: '40px',
+            }}
+          >
+            무무목장에 함께 사는 저지소 다섯 식구를 소개합니다
+          </p>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+              gap: '24px',
+              textAlign: 'center',
+            }}
+          >
+            {[
+              { name: '카페', role: '무리 대장, 커피 엄마' },
+              { name: '밀크', role: '치즈 엄마' },
+              { name: '라떼', role: '치즈 이모' },
+              { name: '커피', role: '치즈 언니' },
+              { name: '치즈', role: '막내, 나! 🐄' },
+            ].map((cow) => (
+              <div key={cow.name}>
+                <div
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    borderRadius: '50%',
+                    backgroundColor: ds.ivory,
+                    margin: '0 auto 12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.5rem',
+                  }}
+                >
+                  🐄
+                </div>
+                <h3
+                  style={{
+                    fontFamily: ds.fontBody,
+                    fontSize: '0.9375rem',
+                    fontWeight: 600,
+                    color: ds.brown,
+                    margin: '0 0 4px',
+                  }}
+                >
+                  {cow.name}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: ds.fontBody,
+                    fontSize: '0.75rem',
+                    color: ds.brownLight,
+                    margin: 0,
+                  }}
+                >
+                  {cow.role}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter CTA */}
+      <section style={{ backgroundColor: ds.darkBrown, padding: 'clamp(60px, 10vh, 80px) 0' }}>
+        <div style={{ maxWidth: '500px', margin: '0 auto', padding: '0 clamp(24px, 6vw, 60px)', textAlign: 'center' }}>
+          <h2 style={{ fontFamily: ds.fontHeading, fontSize: '1.25rem', fontWeight: 400, color: '#fff', margin: '0 0 16px' }}>
+            치즈레터 구독하기
+          </h2>
+          <p style={{ fontFamily: ds.fontBody, fontSize: '0.9375rem', color: 'rgba(255,255,255,0.75)', margin: '0 0 32px', lineHeight: 1.8 }}>
+            매주 목요일, 목장 소식과 이야기를 보내드려요.
+          </p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            <input
+              type="email"
+              placeholder="이메일 주소"
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '16px 40px',
-                borderRadius: '4px',
-                backgroundColor: '#FEE500',
+                padding: '14px 20px',
                 fontFamily: ds.fontBody,
-                fontWeight: 700,
-                fontSize: '1rem',
-                color: '#3C1E1E',
-                textDecoration: 'none',
+                fontSize: '0.9375rem',
+                border: 'none',
+                borderRadius: '4px',
+                width: '240px',
+                maxWidth: '100%',
+              }}
+            />
+            <button
+              style={{
+                padding: '14px 28px',
+                fontFamily: ds.fontBody,
+                fontSize: '0.9375rem',
+                fontWeight: 600,
+                color: ds.darkBrown,
+                backgroundColor: '#fff',
+                border: 'none',
+                borderRadius: '4px',
+                cursor: 'pointer',
               }}
             >
-              <MessageCircle size={18} />
-              치즈에게 말걸기
-            </a>
-          </motion.div>
+              구독하기
+            </button>
+          </div>
         </div>
       </section>
     </main>
