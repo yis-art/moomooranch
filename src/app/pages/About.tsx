@@ -27,8 +27,8 @@ export function About() {
         }}
       >
         <img
-          src="/images/예수원 소개.png"
-          alt="예수원 전경"
+          src="/images/무무목장 전경.png"
+          alt="무무목장 전경"
           style={{
             position: 'absolute',
             inset: 0,
@@ -176,8 +176,8 @@ export function About() {
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', borderRadius: '8px' }}
             />
             <img
-              src="/images/축사.png"
-              alt="축사"
+              src="/images/축사셀카.jpg"
+              alt="축사에서 저지소와 함께"
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', borderRadius: '8px' }}
             />
           </div>
