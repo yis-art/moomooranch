@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Link } from 'react-router';
 
 const ds = {
   white: '#ffffff',
@@ -12,523 +12,382 @@ const ds = {
   fontBody: '"Noto Sans KR", sans-serif',
 };
 
-const badgeStyles: Record<string, { bg: string; label: string }> = {
-  '베스트셀러': { bg: ds.green, label: '베스트셀러' },
-  '입문추천':   { bg: '#b5622a', label: '입문추천' },
-  '베스트리뷰': { bg: '#6b8fa3', label: '베스트리뷰' },
-  '인기세트':   { bg: '#9b6fa8', label: '인기세트' },
-};
-
-type Category = '전체' | '우유' | '요거트' | '세트';
-
-const categories: { label: Category; emoji: string }[] = [
-  { label: '전체', emoji: '🛒' },
-  { label: '우유', emoji: '🥛' },
-  { label: '요거트', emoji: '🫐' },
-  { label: '세트', emoji: '🎁' },
-];
-
 const products = [
   {
-    img: '/images/유제품목록.png',
     name: '[진짜우유] A2 저지 목초우유 1L × 2개',
-    subtitle: '가장 인기 있는 사이즈',
-    desc: '소화 편한 A2 베타-카제인, 저온살균(LTLT) 방식으로 영양소 보존',
-    volume: '1L × 2개',
+    category: '우유 🥛',
     price: '15,000원',
+    rating: '4.97',
+    image: '/images/우유_저지소.png',
     badge: '베스트셀러',
-    category: '우유' as Category,
+    storeUrl: 'https://smartstore.naver.com/moomooranch/products/10950636846',
   },
   {
-    img: '/images/유제품목록.png',
     name: '[진짜우유] A2 저지 목초우유 500mL',
-    subtitle: '처음 만나는 무무목장 우유',
-    desc: '첫 주문이라면 500mL로 먼저 경험해보세요',
-    volume: '500mL',
+    category: '우유 🥛',
     price: '6,000원',
+    rating: '5.0',
+    image: '/images/유제품 소개.png',
     badge: '입문추천',
-    category: '우유' as Category,
+    storeUrl: 'https://smartstore.naver.com/moomooranch',
   },
   {
-    img: '/images/유제품_블루베리요거트.png',
-    name: 'A2 저지 오가닉 블루베리 요거트 200mL',
-    subtitle: '한 끼 간식용 소용량',
-    desc: '무무목장 원유 100% + 국산 블루베리, 설탕 최소화',
-    volume: '200mL',
-    price: '2,500원',
-    badge: null,
-    category: '요거트' as Category,
-  },
-  {
-    img: '/images/유제품_블루베리요거트.png',
-    name: 'A2 저지 오가닉 블루베리 요거트 290mL',
-    subtitle: '딱 좋은 1인분',
-    desc: '무무목장 원유 100% + 국산 블루베리, 설탕 최소화',
-    volume: '290mL',
-    price: '3,000원',
-    badge: null,
-    category: '요거트' as Category,
-  },
-  {
-    img: '/images/유제품_블루베리요거트.png',
     name: 'A2 저지 오가닉 블루베리 요거트 500mL',
-    subtitle: '가장 많이 선택하는 사이즈',
-    desc: '진한 블루베리 과육, 달지 않고 자연스러운 단맛',
-    volume: '500mL',
+    category: '요거트 🫐',
     price: '7,500원',
+    rating: '5.0',
+    image: '/images/유제품_블루베리요거트.png',
     badge: '베스트리뷰',
-    category: '요거트' as Category,
+    storeUrl: 'https://smartstore.naver.com/moomooranch',
   },
   {
-    img: '/images/유제품_블루베리요거트.png',
-    name: 'A2 저지 오가닉 블루베리 요거트 1L',
-    subtitle: '가족이 함께',
-    desc: '넉넉한 용량으로 온 가족이 즐기는 요거트',
-    volume: '1L',
-    price: '15,000원',
-    badge: null,
-    category: '요거트' as Category,
-  },
-  {
-    img: '/images/유제품 소개.png',
     name: 'A2 저지 목초우유 + 오가닉 요거트 세트',
-    subtitle: '무무목장 대표 구성',
-    desc: '신선한 목초우유와 블루베리 요거트를 함께 경험하세요',
-    volume: '세트 구성',
+    category: '세트 🎁',
     price: '15,000원',
+    rating: '5.0',
+    image: '/images/유제품 소개.png',
     badge: '인기세트',
-    category: '세트' as Category,
-  },
-  {
-    img: '/images/유제품_블루베리요거트.png',
-    name: 'A2 저지 오가닉 블루베리 요거트 세트',
-    subtitle: '요거트 선물용으로 딱',
-    desc: '다양한 용량의 블루베리 요거트를 한번에',
-    volume: '세트 구성',
-    price: '12,000원',
-    badge: null,
-    category: '세트' as Category,
-  },
-  {
-    img: '/images/유제품_블루베리요거트.png',
-    name: 'A2 저지 오가닉 요거트 소용량 세트',
-    subtitle: '처음 맛보는 분께',
-    desc: '소용량으로 구성된 입문용 요거트 세트',
-    volume: '소용량 세트',
-    price: '6,000원',
-    badge: null,
-    category: '세트' as Category,
+    storeUrl: 'https://smartstore.naver.com/moomooranch',
   },
 ];
 
-const STORE_URL = 'https://smartstore.naver.com/moomooranch';
+const categories = [
+  { emoji: '🥛', label: '우유' },
+  { emoji: '🫐', label: '요거트' },
+  { emoji: '🎁', label: '세트' },
+];
 
 export function Shop() {
-  const [activeCategory, setActiveCategory] = useState<Category>('전체');
-
-  const filtered = activeCategory === '전체'
-    ? products
-    : products.filter((p) => p.category === activeCategory);
-
   return (
     <main>
       {/* Hero */}
       <section
         style={{
           position: 'relative',
-          height: '60vh',
-          minHeight: '400px',
+          minHeight: '60vh',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          overflow: 'hidden',
         }}
       >
         <img
-          src="/images/유제품목록.png"
-          alt="상품안내"
+          src="/images/유제품 소개.png"
+          alt="무무목장 신선한 유제품 모음"
           style={{
             position: 'absolute',
             inset: 0,
             width: '100%',
             height: '100%',
             objectFit: 'cover',
+            filter: 'brightness(0.55)',
           }}
         />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(to top, rgba(45,37,24,0.55) 0%, transparent 50%)',
-          }}
-        />
-        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
-          <p
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(122,132,105,0.3) 0%, rgba(0,0,0,0.5) 100%)' }} />
+
+        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '0 24px', maxWidth: '800px' }}>
+          <span
             style={{
+              display: 'inline-block',
+              padding: '8px 16px',
+              marginBottom: '24px',
+              borderRadius: '20px',
+              backgroundColor: 'rgba(255,255,255,0.15)',
+              backdropFilter: 'blur(10px)',
               fontFamily: ds.fontBody,
-              fontSize: '0.75rem',
-              color: 'rgba(255,255,255,0.7)',
-              letterSpacing: '0.2em',
-              marginBottom: '16px',
+              fontSize: '0.8125rem',
+              fontWeight: 600,
+              color: '#fff',
             }}
           >
-            SHOP
-          </p>
+            🛒 무무의 선물
+          </span>
+
           <h1
             style={{
               fontFamily: ds.fontHeading,
-              fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+              fontSize: 'clamp(2rem, 6vw, 3.5rem)',
               fontWeight: 400,
               color: '#fff',
-              margin: 0,
+              margin: '0 0 24px',
+              lineHeight: 1.2,
+              textShadow: '0 4px 20px rgba(0,0,0,0.3)',
             }}
           >
-            상품안내
+            자연이 키운 건강함,<br />무무목장의 선물
           </h1>
+
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: 'clamp(0.9375rem, 1.8vw, 1.125rem)',
+              color: 'rgba(255,255,255,0.95)',
+              lineHeight: 1.7,
+            }}
+          >
+            저지종 젖소에서 갓 짜낸 신선한 A2 목초우유와<br />
+            목장에서 직접 만든 수제 유제품을 만나보세요
+          </p>
         </div>
       </section>
 
-      {/* Intro */}
-      <section style={{ backgroundColor: ds.ivory, padding: 'clamp(80px, 12vh, 120px) 0' }}>
-        <div
-          style={{
-            maxWidth: '800px',
-            margin: '0 auto',
-            padding: '0 clamp(24px, 6vw, 60px)',
-            display: 'flex',
-            gap: '40px',
-          }}
-        >
-          <div style={{ width: '2px', backgroundColor: ds.brownLight, flexShrink: 0 }} />
-          <div>
-            <p
-              style={{
-                fontFamily: ds.fontHeading,
-                fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
-                fontWeight: 400,
-                color: ds.brown,
-                lineHeight: 2,
-                margin: 0,
-              }}
-            >
-              착유 당일 신선하게 발송합니다.<br />
-              무무목장의 정직한 제품들입니다.
-            </p>
+      {/* Category Icons */}
+      <section style={{ backgroundColor: ds.white, padding: '40px 0' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '48px', flexWrap: 'wrap' }}>
+            {categories.map((cat) => (
+              <div key={cat.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+                <div
+                  style={{
+                    width: '72px',
+                    height: '72px',
+                    borderRadius: '50%',
+                    backgroundColor: ds.ivory,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
+                  }}
+                >
+                  <span style={{ fontSize: '2rem' }}>{cat.emoji}</span>
+                </div>
+                <span style={{ fontFamily: ds.fontBody, fontSize: '0.875rem', fontWeight: 600, color: ds.brown }}>
+                  {cat.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Category Filter */}
-      <section style={{ backgroundColor: ds.white, paddingTop: 'clamp(60px, 10vh, 80px)', paddingBottom: '40px' }}>
-        <div
-          style={{
-            maxWidth: '960px',
-            margin: '0 auto',
-            padding: '0 clamp(24px, 6vw, 60px)',
-            display: 'flex',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            gap: '12px',
-          }}
-        >
-          {categories.map((cat) => {
-            const isActive = activeCategory === cat.label;
-            return (
-              <button
-                key={cat.label}
-                onClick={() => setActiveCategory(cat.label)}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  padding: '10px 24px',
-                  fontFamily: ds.fontBody,
-                  fontSize: '0.875rem',
-                  fontWeight: isActive ? 600 : 400,
-                  color: isActive ? '#fff' : ds.brownMid,
-                  backgroundColor: isActive ? ds.green : 'transparent',
-                  border: `1.5px solid ${isActive ? ds.green : ds.brownLight}`,
-                  borderRadius: '100px',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  letterSpacing: '0.02em',
-                }}
-              >
-                <span>{cat.emoji}</span>
-                {cat.label}
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
       {/* Products Grid */}
-      <section style={{ backgroundColor: ds.white, paddingBottom: 'clamp(80px, 12vh, 120px)' }}>
-        <div
-          style={{
-            maxWidth: '960px',
-            margin: '0 auto',
-            padding: '0 clamp(24px, 6vw, 60px)',
-          }}
-        >
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-              gap: '48px 36px',
-            }}
-          >
-            {filtered.map((product, i) => (
+      <section style={{ backgroundColor: ds.ivory, padding: 'clamp(60px, 10vh, 80px) 0' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 clamp(24px, 6vw, 60px)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
+            {products.map((product) => (
               <a
-                key={`${product.name}-${i}`}
-                href={STORE_URL}
+                key={product.name}
+                href={product.storeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  position: 'relative',
+                  backgroundColor: ds.white,
+                  borderRadius: '12px',
+                  overflow: 'hidden',
                   textDecoration: 'none',
-                  display: 'block',
-                  color: 'inherit',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
                 }}
               >
-                {/* 이미지 + 배지 */}
-                <div style={{ position: 'relative', marginBottom: '16px' }}>
-                  <img
-                    src={product.img}
-                    alt={product.name}
-                    style={{
-                      width: '100%',
-                      aspectRatio: '1',
-                      objectFit: 'cover',
-                      borderRadius: '4px',
-                      display: 'block',
-                      transition: 'transform 0.3s ease',
-                    }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.transform = 'scale(1.03)'; }}
-                    onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = 'scale(1)'; }}
-                  />
+                {/* Image */}
+                <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden' }}>
                   {product.badge && (
                     <span
                       style={{
                         position: 'absolute',
-                        top: '10px',
-                        left: '10px',
-                        backgroundColor: badgeStyles[product.badge]?.bg ?? ds.brownMid,
-                        color: '#fff',
+                        top: '12px',
+                        left: '12px',
+                        padding: '4px 12px',
+                        borderRadius: '20px',
+                        backgroundColor: product.badge === '베스트셀러' ? '#5a7a8a' : ds.green,
                         fontFamily: ds.fontBody,
-                        fontSize: '0.6875rem',
+                        fontSize: '0.75rem',
                         fontWeight: 600,
-                        letterSpacing: '0.04em',
-                        padding: '3px 8px',
-                        borderRadius: '2px',
+                        color: '#fff',
+                        zIndex: 10,
                       }}
                     >
                       {product.badge}
                     </span>
                   )}
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
                 </div>
 
-                {/* 카테고리 태그 */}
-                <p
-                  style={{
-                    fontFamily: ds.fontBody,
-                    fontSize: '0.6875rem',
-                    color: ds.green,
-                    fontWeight: 600,
-                    letterSpacing: '0.08em',
-                    margin: '0 0 4px',
-                  }}
-                >
-                  {product.category === '우유' ? '🥛 우유'
-                    : product.category === '요거트' ? '🫐 요거트'
-                    : '🎁 세트'}
-                </p>
-
-                {/* 텍스트 */}
-                <h3
-                  style={{
-                    fontFamily: ds.fontBody,
-                    fontSize: '0.9375rem',
-                    fontWeight: 600,
-                    color: ds.brown,
-                    margin: '0 0 2px',
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {product.name}
-                </h3>
-                <p
-                  style={{
-                    fontFamily: ds.fontBody,
-                    fontSize: '0.8125rem',
-                    color: ds.green,
-                    margin: '0 0 8px',
-                    fontWeight: 500,
-                  }}
-                >
-                  {product.subtitle}
-                </p>
-                <p
-                  style={{
-                    fontFamily: ds.fontBody,
-                    fontSize: '0.8125rem',
-                    color: ds.brownMid,
-                    margin: '0 0 10px',
-                    lineHeight: 1.6,
-                  }}
-                >
-                  {product.desc}
-                </p>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                  <span
-                    style={{
-                      fontFamily: ds.fontBody,
-                      fontSize: '0.75rem',
-                      color: ds.brownLight,
-                    }}
-                  >
-                    {product.volume}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: ds.fontBody,
-                      fontSize: '0.9375rem',
-                      fontWeight: 700,
-                      color: ds.brown,
-                    }}
-                  >
-                    {product.price}
-                  </span>
+                {/* Content */}
+                <div style={{ padding: '20px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                    <span style={{ fontFamily: ds.fontBody, fontSize: '0.8125rem', color: ds.brownLight }}>
+                      {product.category}
+                    </span>
+                    <span style={{ fontFamily: ds.fontBody, fontSize: '0.8125rem', color: '#9a8a5a', fontWeight: 600 }}>
+                      ⭐ {product.rating}
+                    </span>
+                  </div>
+                  <h3 style={{ fontFamily: ds.fontBody, fontSize: '1rem', fontWeight: 600, color: ds.brown, margin: '0 0 12px', lineHeight: 1.4 }}>
+                    {product.name}
+                  </h3>
+                  <div>
+                    <span style={{ fontFamily: ds.fontBody, fontSize: '0.75rem', color: ds.brownLight }}>
+                      가격
+                    </span>
+                    <p style={{ fontFamily: ds.fontBody, fontSize: '1.25rem', fontWeight: 700, color: ds.brown, margin: 0 }}>
+                      {product.price}
+                    </p>
+                  </div>
                 </div>
               </a>
             ))}
           </div>
 
-          {/* 스마트스토어 링크 */}
-          <div style={{ textAlign: 'center', marginTop: '64px' }}>
+          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+            <p style={{ fontFamily: ds.fontBody, fontSize: '0.9375rem', color: ds.brownLight, marginBottom: '16px' }}>
+              무무목장의 더 많은 제품이 궁금하시다면
+            </p>
             <a
-              href={STORE_URL}
+              href="https://smartstore.naver.com/moomooranch"
               target="_blank"
               rel="noopener noreferrer"
               style={{
                 display: 'inline-block',
-                padding: '14px 40px',
+                padding: '14px 36px',
                 fontFamily: ds.fontBody,
-                fontSize: '0.875rem',
-                fontWeight: 500,
+                fontSize: '0.9375rem',
+                fontWeight: 600,
                 color: '#fff',
                 backgroundColor: ds.green,
                 textDecoration: 'none',
                 borderRadius: '4px',
-                letterSpacing: '0.04em',
               }}
             >
-              네이버 스마트스토어에서 구매하기
+              스마트스토어에서 전체 보기 →
             </a>
           </div>
         </div>
       </section>
 
-      {/* 정기구독 안내 */}
-      <section style={{ backgroundColor: ds.ivory, padding: 'clamp(60px, 10vh, 100px) 0' }}>
-        <div
-          style={{
-            maxWidth: '600px',
-            margin: '0 auto',
-            padding: '0 clamp(24px, 6vw, 60px)',
-            textAlign: 'center',
-          }}
-        >
-          <p
-            style={{
-              fontFamily: ds.fontBody,
-              fontSize: '0.75rem',
-              letterSpacing: '0.2em',
-              color: ds.brownLight,
-              marginBottom: '16px',
-            }}
-          >
-            SUBSCRIPTION
-          </p>
+      {/* Why MooMoo Section */}
+      <section style={{ backgroundColor: ds.white, padding: 'clamp(80px, 12vh, 120px) 0' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 clamp(24px, 6vw, 60px)' }}>
+          <h2 style={{ fontFamily: ds.fontHeading, fontSize: '1.5rem', fontWeight: 400, color: ds.brown, textAlign: 'center', margin: '0 0 48px' }}>
+            왜 무무밀크인가요?
+          </h2>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '32px' }}>
+            {[
+              {
+                icon: '🐄',
+                title: '저지종 젖소',
+                desc: '유지방 5%, 홀스타인 대비 1.5배. 진하고 고소한 맛의 비결입니다.',
+              },
+              {
+                icon: '🧬',
+                title: 'A2 베타-카제인',
+                desc: '소화가 편한 A2 단백질만 함유. 우유 마시면 속이 불편했던 분들께 추천해요.',
+              },
+              {
+                icon: '🌿',
+                title: '100% 건초 급여',
+                desc: '발효사료(TMR) 없이 건초만. 베타카로틴이 풍부한 황금빛 우유입니다.',
+              },
+              {
+                icon: '🏔️',
+                title: '해발 1,000m',
+                desc: '삼수령 청정 고원에서 스트레스 없이 자란 건강한 젖소들.',
+              },
+            ].map((item) => (
+              <div key={item.title} style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '2.5rem', marginBottom: '16px' }}>{item.icon}</div>
+                <h3 style={{ fontFamily: ds.fontBody, fontSize: '1rem', fontWeight: 600, color: ds.brown, margin: '0 0 8px' }}>
+                  {item.title}
+                </h3>
+                <p style={{ fontFamily: ds.fontBody, fontSize: '0.875rem', color: ds.brownMid, lineHeight: 1.7, margin: 0 }}>
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Delivery Info */}
+      <section style={{ backgroundColor: ds.ivory, padding: 'clamp(60px, 10vh, 80px) 0' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 clamp(24px, 6vw, 60px)' }}>
+          <h2 style={{ fontFamily: ds.fontHeading, fontSize: '1.25rem', fontWeight: 400, color: ds.brown, textAlign: 'center', margin: '0 0 32px' }}>
+            배송 안내
+          </h2>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px' }}>
+            {[
+              { title: '착유 당일/익일 발송', desc: '주문 확인 후 가장 신선한 상태로 보내드려요' },
+              { title: '냉장 택배', desc: '아이스팩과 함께 냉장 상태 유지' },
+              { title: '보관 온도', desc: '냉장 0~5°C, 개봉 후 3일 이내 드세요' },
+              { title: '정기구독 할인', desc: '스마트스토어에서 정기구독 시 10% 할인' },
+            ].map((item) => (
+              <div
+                key={item.title}
+                style={{
+                  backgroundColor: ds.white,
+                  borderRadius: '8px',
+                  padding: '24px',
+                  textAlign: 'center',
+                }}
+              >
+                <h3 style={{ fontFamily: ds.fontBody, fontSize: '0.9375rem', fontWeight: 600, color: ds.brown, margin: '0 0 8px' }}>
+                  {item.title}
+                </h3>
+                <p style={{ fontFamily: ds.fontBody, fontSize: '0.8125rem', color: ds.brownMid, lineHeight: 1.6, margin: 0 }}>
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section
+        style={{
+          position: 'relative',
+          padding: 'clamp(100px, 15vh, 140px) 0',
+          overflow: 'hidden',
+        }}
+      >
+        <img
+          src="/images/무지개초지.png"
+          alt="무무목장 수제 치즈와 유제품"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.4)' }}
+        />
+
+        <div style={{ position: 'relative', zIndex: 10, maxWidth: '700px', margin: '0 auto', padding: '0 clamp(24px, 6vw, 60px)', textAlign: 'center' }}>
           <h2
             style={{
               fontFamily: ds.fontHeading,
-              fontSize: 'clamp(1.25rem, 2.5vw, 1.625rem)',
+              fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
               fontWeight: 400,
-              color: ds.brown,
-              margin: '0 0 16px',
+              color: '#fff',
+              margin: '0 0 24px',
+              lineHeight: 1.3,
             }}
           >
-            정기 구독 준비중
+            신선한 무무목장 유제품을<br />집에서 만나보세요
           </h2>
-          <p
-            style={{
-              fontFamily: ds.fontBody,
-              fontSize: '0.9375rem',
-              color: ds.brownMid,
-              lineHeight: 1.8,
-              margin: '0 0 36px',
-            }}
-          >
-            치즈레터를 구독하시면<br />
-            정기 구독 오픈 시 가장 먼저 알려드립니다.
+
+          <p style={{ fontFamily: ds.fontBody, fontSize: '1rem', lineHeight: 1.8, color: 'rgba(255,255,255,0.9)', marginBottom: '40px' }}>
+            네이버 스마트스토어에서 정기구독과 새벽배송으로 편리하게 주문하세요.
           </p>
+
           <a
-            href="https://moomooranch.stibee.com"
+            href="https://smartstore.naver.com/moomooranch"
             target="_blank"
             rel="noopener noreferrer"
             style={{
               display: 'inline-block',
-              padding: '12px 32px',
+              padding: '18px 40px',
               fontFamily: ds.fontBody,
-              fontSize: '0.875rem',
-              fontWeight: 500,
+              fontSize: '1rem',
+              fontWeight: 600,
               color: ds.brown,
-              border: `1.5px solid ${ds.brownLight}`,
+              backgroundColor: '#fff',
               textDecoration: 'none',
               borderRadius: '4px',
-              letterSpacing: '0.04em',
+              boxShadow: '0 10px 40px rgba(0,0,0,0.3)',
             }}
           >
-            치즈레터 구독하기
+            스마트스토어 바로가기 →
           </a>
-        </div>
-      </section>
-
-      {/* Shipping Info */}
-      <section style={{ backgroundColor: ds.white, padding: 'clamp(60px, 10vh, 80px) 0' }}>
-        <div
-          style={{
-            maxWidth: '800px',
-            margin: '0 auto',
-            padding: '0 clamp(24px, 6vw, 60px)',
-          }}
-        >
-          <h2
-            style={{
-              fontFamily: ds.fontHeading,
-              fontSize: '1.125rem',
-              fontWeight: 400,
-              color: ds.brown,
-              margin: '0 0 24px',
-            }}
-          >
-            배송 안내
-          </h2>
-          <ul
-            style={{
-              fontFamily: ds.fontBody,
-              fontSize: '0.875rem',
-              color: ds.brownMid,
-              lineHeight: 2,
-              margin: 0,
-              paddingLeft: '20px',
-            }}
-          >
-            <li>착유 당일 또는 익일 발송</li>
-            <li>냉장 택배 (아이스팩 동봉)</li>
-            <li>제주/도서산간 지역 추가 배송비 발생</li>
-            <li>배송 중 파손 시 100% 교환/환불</li>
-          </ul>
         </div>
       </section>
     </main>

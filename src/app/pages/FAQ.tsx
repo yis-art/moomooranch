@@ -249,7 +249,7 @@ export function FAQ() {
           평일 9:00–18:00 운영합니다.
         </p>
         <a
-          href="https://pf.kakao.com/_moomoo"
+          href="https://pf.kakao.com/_xjVxkxjG"
           target="_blank"
           rel="noopener noreferrer"
           style={{
