@@ -6,10 +6,14 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: '치즈의담벼락', path: '/blog' },
-    { label: '목장소개', path: '/about' },
-    { label: '상품안내', path: '/products' },
-    { label: '오시는길', path: '/contact' }
+    { path: '/', label: '홈' },
+    { path: '/journey', label: '순례길' },
+    { path: '/blog', label: '담벼락' },
+    { path: '/about', label: '목장소개' },
+    { path: '/taste', label: '맛의차이' },
+    { path: '/shop', label: '상품안내' },
+    { path: '/faq', label: '문의FAQ' },
+    { path: '/visit', label: '오시는길' },
   ];
 
   return (
