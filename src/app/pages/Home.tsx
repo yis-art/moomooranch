@@ -1,753 +1,1141 @@
-import React from 'react';
 import { Link } from 'react-router';
-import { CheeseAvatar } from '../components/CheeseAvatar';
-import { motion } from 'motion/react';
-import { ArrowRight, MapPin, Award, Users, Clock } from 'lucide-react';
+import { useState } from 'react';
+
+/**
+ * 예수원 + 사고타니 하이브리드 디자인 시스템
+ *
+ * 핵심 원칙:
+ * 1. 극도의 절제 — 명조체의 힘
+ * 2. 여백이 곧 디자인
+ * 3. 세로선 구분
+ * 4. 첫 방문자를 위한 친절한 안내
+ */
+
+const ds = {
+  // Colors (예수원 기반)
+  white: '#ffffff',
+  ivory: '#f8f6f2',
+  brown: '#2d2518',
+  brownMid: '#5c4d3a',
+  brownLight: '#8a7a68',
+  darkBrown: '#3d3020',
+  green: '#7a8469',
+  
+  // Typography
+  fontHeading: '"Noto Serif KR", serif',
+  fontBody: '"Noto Sans KR", sans-serif',
+};
 
 export function Home() {
   return (
-    <div style={{ backgroundColor: 'var(--cream)' }}>
-      {/* Hero Section - Full Screen with Floating Images */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="/images/무무목장 전경.png"
-            alt="강원도 태백 무무목장의 푸른 초원 전경"
-            className="w-full h-full object-cover"
-            style={{ filter: 'brightness(0.7)' }}
-          />
-          <div className="absolute inset-0" style={{
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4))'
-          }} />
+    <main>
+      {/* ═══════════════════════════════════════════
+          HERO — 풀스크린, 중앙 명조 카피 (예수원 스타일)
+          ═══════════════════════════════════════════ */}
+      <section
+        style={{
+          position: 'relative',
+          height: '100vh',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <img
+          src="/images/무무목장 전경.png"
+          alt="삼수령 무무목장"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+        
+        {/* 카피 — 중앙 정렬 (예수원처럼) */}
+        <div
+          style={{
+            position: 'relative',
+            zIndex: 10,
+            textAlign: 'center',
+            padding: '0 24px',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.8125rem',
+              color: 'rgba(255,255,255,0.7)',
+              letterSpacing: '0.15em',
+              marginBottom: '20px',
+            }}
+          >
+            강원도 태백 삼수령 · 예수원 공동체
+          </p>
+          <h1
+            style={{
+              fontFamily: ds.fontHeading,
+              fontWeight: 400,
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              lineHeight: 1.5,
+              color: '#fff',
+              margin: 0,
+              letterSpacing: '0.02em',
+            }}
+          >
+            해발 1,000m<br />
+            60년 기도의 우유
+          </h1>
         </div>
+      </section>
 
-        {/* Floating Images */}
-        <motion.div
-          initial={{ opacity: 0, y: -50, rotate: -8 }}
-          animate={{ opacity: 1, y: 0, rotate: -8 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="absolute top-20 left-[10%] w-64 h-48 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
+      {/* ═══════════════════════════════════════════
+          INTRO — 세로선 + 한 문장 (예수원 스타일)
+          ═══════════════════════════════════════════ */}
+      <section
+        style={{
+          backgroundColor: ds.ivory,
+          padding: 'clamp(100px, 15vh, 150px) 0',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '800px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+            display: 'flex',
+            gap: '40px',
+          }}
+        >
+          {/* 세로선 */}
+          <div
+            style={{
+              width: '2px',
+              backgroundColor: ds.brownLight,
+              flexShrink: 0,
+            }}
+          />
+          
+          {/* 텍스트 */}
+          <div>
+            <p
+              style={{
+                fontFamily: ds.fontHeading,
+                fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+                fontWeight: 400,
+                color: ds.brown,
+                lineHeight: 2,
+                margin: 0,
+                wordBreak: 'keep-all',
+              }}
+            >
+              1965년, 대천덕 신부님이 세운 예수원 공동체가<br />
+              이 땅을 60년 동안 기도와 노동으로 지켜왔습니다.<br />
+              저지 젖소가 풀을 뜯고, 우유가 만들어집니다.
+            </p>
+            
+            <p
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.875rem',
+                color: ds.brownMid,
+                marginTop: '32px',
+                lineHeight: 1.8,
+              }}
+            >
+              A2 베타-카제인 · 자가 목초 90% · 착유 당일 발송
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          FIRST VISIT — 처음 오셨나요? (3 카드)
+          ═══════════════════════════════════════════ */}
+      <section
+        style={{
+          backgroundColor: ds.white,
+          padding: 'clamp(80px, 12vh, 120px) 0',
+          borderTop: `1px solid rgba(138,122,104,0.15)`,
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1000px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: ds.brownLight,
+              letterSpacing: '0.15em',
+              marginBottom: '12px',
+            }}
+          >
+            WELCOME
+          </p>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.375rem, 2.5vw, 1.875rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              margin: '0 0 48px',
+              lineHeight: 1.5,
+            }}
+          >
+            처음 오셨나요?
+          </h2>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+              gap: '24px',
+            }}
+          >
+            {[
+              {
+                emoji: '🥛',
+                title: 'A2 저지우유가 뭔가요?',
+                desc: '일반 우유와 뭐가 다른지 궁금하시다면',
+                to: '/taste',
+                cta: '우유 이야기 읽기',
+              },
+              {
+                emoji: '🐄',
+                title: '치즈를 만나보세요',
+                desc: '2026년 1월 6일 태어난 막내 송아지',
+                to: '/blog',
+                cta: '목장 소식 보기',
+              },
+              {
+                emoji: '📍',
+                title: '목장에 오시려면',
+                desc: '서울에서 3시간, 사전예약 필수',
+                to: '/visit',
+                cta: '오시는 길 확인',
+              },
+            ].map((card) => (
+              <Link
+                key={card.to}
+                to={card.to}
+                style={{
+                  display: 'block',
+                  padding: '36px 32px',
+                  backgroundColor: ds.ivory,
+                  border: `1px solid rgba(138,122,104,0.2)`,
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  transition: 'border-color 0.25s, transform 0.25s',
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = ds.brownLight;
+                  (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = 'rgba(138,122,104,0.2)';
+                  (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+                }}
+              >
+                <span style={{ fontSize: '2rem', display: 'block', marginBottom: '20px' }}>
+                  {card.emoji}
+                </span>
+                <h3
+                  style={{
+                    fontFamily: ds.fontHeading,
+                    fontSize: '1.0625rem',
+                    fontWeight: 400,
+                    color: ds.brown,
+                    margin: '0 0 10px',
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {card.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: ds.fontBody,
+                    fontSize: '0.875rem',
+                    color: ds.brownMid,
+                    margin: '0 0 24px',
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {card.desc}
+                </p>
+                <span
+                  style={{
+                    fontFamily: ds.fontBody,
+                    fontSize: '0.8125rem',
+                    fontWeight: 500,
+                    color: ds.green,
+                    borderBottom: `1px solid ${ds.green}`,
+                    paddingBottom: '2px',
+                  }}
+                >
+                  {card.cta} →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          TWO PATHS — 순례길 / 담벼락 (큰 이미지 2분할)
+          ═══════════════════════════════════════════ */}
+      <section
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+        }}
+      >
+        {/* 순례길 */}
+        <Link
+          to="/journey"
+          style={{
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'flex-end',
+            minHeight: '70vh',
+            padding: 'clamp(40px, 6vw, 60px)',
+            textDecoration: 'none',
+            overflow: 'hidden',
+          }}
+        >
+          <img
+            src="/images/운해.png"
+            alt="디지털 순례길"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'linear-gradient(to top, rgba(45,37,24,0.7) 0%, transparent 50%)',
+            }}
+          />
+          <div style={{ position: 'relative', zIndex: 10 }}>
+            <span
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.6875rem',
+                color: 'rgba(255,255,255,0.6)',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+              }}
+            >
+              Journey
+            </span>
+            <h2
+              style={{
+                fontFamily: ds.fontHeading,
+                fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+                fontWeight: 400,
+                color: '#fff',
+                margin: '8px 0 0',
+              }}
+            >
+              디지털 순례길
+            </h2>
+            <p
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.875rem',
+                color: 'rgba(255,255,255,0.75)',
+                marginTop: '12px',
+              }}
+            >
+              60년 역사를 따라 걷는 무무목장 이야기
+            </p>
+          </div>
+        </Link>
+
+        {/* 담벼락 */}
+        <Link
+          to="/blog"
+          style={{
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'flex-end',
+            minHeight: '70vh',
+            padding: 'clamp(40px, 6vw, 60px)',
+            textDecoration: 'none',
+            overflow: 'hidden',
+          }}
         >
           <img
             src="/images/무지개초지_저지소01.png"
-            alt="무무목장의 저지종 젖소 클로즈업"
-            loading="lazy"
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 50, rotate: 8 }}
-          animate={{ opacity: 1, y: 0, rotate: 8 }}
-          transition={{ duration: 1, delay: 0.7 }}
-          className="absolute top-32 right-[8%] w-72 h-56 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
-        >
-          <img
-            src="/images/무지개초지.png"
-            alt="해 뜨는 무무목장 초원 풍경"
-            loading="lazy"
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: -50, rotate: -5 }}
-          animate={{ opacity: 1, x: 0, rotate: -5 }}
-          transition={{ duration: 1, delay: 0.9 }}
-          className="absolute bottom-32 left-[15%] w-56 h-44 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
-        >
-          <img
-            src="/images/우유마시는 아이.png"
-            alt="갓 짜낸 신선한 우유를 마시는 모습"
-            loading="lazy"
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 50, rotate: 6 }}
-          animate={{ opacity: 1, x: 0, rotate: 6 }}
-          transition={{ duration: 1, delay: 1.1 }}
-          className="absolute bottom-40 right-[12%] w-60 h-48 rounded-3xl overflow-hidden shadow-2xl hidden lg:block"
-        >
-          <img
-            src="/images/무무목장 소개.png"
-            alt="무무목장에서 직접 만든 수제 치즈"
-            loading="lazy"
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            alt="치즈의 담벼락"
             style={{
-              fontFamily: 'var(--font-korean)',
-              fontWeight: 800,
-              fontSize: 'clamp(48px, 8vw, 88px)',
-              lineHeight: '1.2',
-              color: 'white',
-              marginBottom: '24px',
-              letterSpacing: '-0.02em',
-              textShadow: '0 4px 20px rgba(0,0,0,0.3)'
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
             }}
-          >
-            50년의 기도가 빚은<br />
-            저지 우유
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+          />
+          <div
             style={{
-              fontFamily: 'var(--font-korean)',
-              fontSize: 'clamp(18px, 2.5vw, 24px)',
-              lineHeight: '1.6',
-              color: 'rgba(255,255,255,0.95)',
-              marginBottom: '48px',
-              fontWeight: 400
+              position: 'absolute',
+              inset: 0,
+              background: 'linear-gradient(to top, rgba(45,37,24,0.7) 0%, transparent 50%)',
             }}
-          >
-            강원도 태백 해발 1,000m, 예수원 공동체가 지켜온 땅에서<br />
-            저지 젖소의 진한 우유가 만들어집니다
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          >
-            <Link
-              to="/letter"
-              className="inline-flex items-center gap-3 px-10 py-5 rounded-full transition-transform hover:scale-105"
+          />
+          <div style={{ position: 'relative', zIndex: 10 }}>
+            <span
               style={{
-                backgroundColor: 'white',
-                color: 'var(--text-main)',
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 700,
-                fontSize: '18px',
-                boxShadow: '0 10px 40px rgba(0,0,0,0.3)'
+                fontFamily: ds.fontBody,
+                fontSize: '0.6875rem',
+                color: 'rgba(255,255,255,0.6)',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
               }}
             >
-              무무편지 구독하기
-              <ArrowRight size={20} />
-            </Link>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex flex-wrap justify-center gap-8 md:gap-16 mt-20"
-          >
-            <div className="flex items-center gap-3">
-              <Clock size={24} style={{ color: 'rgba(255,255,255,0.9)' }} />
-              <span style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '16px',
-                color: 'rgba(255,255,255,0.9)',
-                fontWeight: 500
-              }}>
-                1965년 설립 예수원 공동체
-              </span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Users size={24} style={{ color: 'rgba(255,255,255,0.9)' }} />
-              <span style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '16px',
-                color: 'rgba(255,255,255,0.9)',
-                fontWeight: 500
-              }}>
-                저지종 젖소 42마리 방목
-              </span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Award size={24} style={{ color: 'rgba(255,255,255,0.9)' }} />
-              <span style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '16px',
-                color: 'rgba(255,255,255,0.9)',
-                fontWeight: 500
-              }}>
-              A2 저지 우유
-              </span>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* About Section - 2 Column Layout */}
-      <section className="py-24 md:py-32">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left - Text */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+              Blog
+            </span>
+            <h2
+              style={{
+                fontFamily: ds.fontHeading,
+                fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+                fontWeight: 400,
+                color: '#fff',
+                margin: '8px 0 0',
+              }}
             >
-              <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style={{
-                backgroundColor: 'rgba(165, 214, 167, 0.15)',
-                border: '1px solid rgba(165, 214, 167, 0.3)'
-              }}>
-                <span style={{
-                  fontFamily: 'var(--font-korean)',
-                  fontSize: '14px',
-                  fontWeight: 700,
-                  color: 'var(--sage)',
-                  letterSpacing: '0.05em'
-                }}>
-                  기도와 노동의 목장
-                </span>
-              </div>
-
-              <h2 style={{
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 800,
-                fontSize: 'clamp(36px, 5vw, 56px)',
-                lineHeight: '1.3',
-                color: 'var(--text-main)',
-                marginBottom: '24px',
-                letterSpacing: '-0.02em'
-              }}>
-                1965년부터 이어온<br />
-                예수원의 낙농 전통,<br />
-                무무목장
-              </h2>
-
-              <p style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '18px',
-                lineHeight: '1.8',
-                color: 'var(--text-light)',
-                marginBottom: '32px'
-              }}>
-                1965년 대천덕 신부님이 세운 예수원 공동체가 이 땅을 지켜왔습니다. 매봉산 자락 해발 1,000m, 저지 젖소가 풀을 뜯고 착유한 신선한 우유로 정직하게 만듭니다.
-              </p>
-
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full transition-transform hover:scale-105"
-                style={{
-                  backgroundColor: 'var(--sage)',
-                  color: 'white',
-                  fontFamily: 'var(--font-korean)',
-                  fontWeight: 700,
-                  fontSize: '16px',
-                  boxShadow: '0 4px 20px rgba(165, 214, 167, 0.3)'
-                }}
-              >
-                더 알아보기
-                <ArrowRight size={18} />
-              </Link>
-            </motion.div>
-
-            {/* Right - Images */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
+              치즈의 담벼락
+            </h2>
+            <p
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.875rem',
+                color: 'rgba(255,255,255,0.75)',
+                marginTop: '12px',
+              }}
             >
-              <div className="grid grid-cols-2 gap-6">
-                <div className="rounded-3xl overflow-hidden aspect-[3/4]" style={{
-                  boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
-                }}>
-                  <img
-                    src="/images/무지개초지 설경.png"
-                    alt="눈 덮인 무무목장 풍경"
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="rounded-3xl overflow-hidden aspect-[3/4] mt-12" style={{
-                  boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
-                }}>
-                  <img
-                    src="/images/무지개초지_저지소02.png"
-                    alt="갈색 저지종 젖소 초상"
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Feature Cards Grid */}
-      <section className="py-20" style={{ backgroundColor: 'rgba(255,255,255,0.5)' }}>
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Card 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="rounded-3xl overflow-hidden mb-6" style={{
-                boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
-              }}>
-                <img
-                  src="/images/무지개초지_저지소03.png"
-                  alt="무무목장 초원의 저지소"
-                  loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
-                />
-              </div>
-              <h3 style={{
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 700,
-                fontSize: '20px',
-                color: 'var(--text-main)',
-                marginBottom: '8px'
-              }}>
-                자연 방목 목장
-              </h3>
-              <p style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '15px',
-                color: 'var(--text-light)',
-                lineHeight: '1.6'
-              }}>
-                해발 1,000m 매봉산 초지에서 계절마다 자유롭게 방목합니다.
-              </p>
-            </motion.div>
-
-            {/* Card 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <div className="rounded-3xl overflow-hidden mb-6" style={{
-                boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
-              }}>
-                <img
-                  src="/images/무지개초지_저지소04.png"
-                  alt="목초지의 저지소들"
-                  loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
-                />
-              </div>
-              <h3 style={{
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 700,
-                fontSize: '20px',
-                color: 'var(--text-main)',
-                marginBottom: '8px'
-              }}>
-                해발 1,000m 초지
-              </h3>
-              <p style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '15px',
-                color: 'var(--text-light)',
-                lineHeight: '1.6'
-              }}>
-                수입 건초 없이 자가 목초 90% 이상. 땅에서 시작하는 순환 농업.
-              </p>
-            </motion.div>
-
-            {/* Card 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="rounded-3xl overflow-hidden mb-6" style={{
-                boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
-              }}>
-                <img
-                  src="/images/우유_저지소.png"
-                  alt="저지소 우유"
-                  loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
-                />
-              </div>
-              <h3 style={{
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 700,
-                fontSize: '20px',
-                color: 'var(--text-main)',
-                marginBottom: '8px'
-              }}>
-                신선한 A2 우유
-              </h3>
-              <p style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '15px',
-                color: 'var(--text-light)',
-                lineHeight: '1.6'
-              }}>
-                A2 유전형 거의 100%. 지방구가 작아 소화가 쉽고 크림층이 풍부합니다.
-              </p>
-            </motion.div>
-
-            {/* Card 4 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div className="rounded-3xl overflow-hidden mb-6" style={{
-                boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
-              }}>
-                <img
-                  src="/images/무무목장 소개-특장점.png"
-                  alt="무무목장 수제 요거트"
-                  loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
-                />
-              </div>
-              <h3 style={{
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 700,
-                fontSize: '20px',
-                color: 'var(--text-main)',
-                marginBottom: '8px'
-              }}>
-                수제 무무목장
-              </h3>
-              <p style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '15px',
-                color: 'var(--text-light)',
-                lineHeight: '1.6'
-              }}>
-                목장과 가공이 같은 땅. 요거트, 치즈, 버터를 당일 생산합니다.
-              </p>
-            </motion.div>
-          </div>
-
-          <div className="text-center mt-12">
-            <p style={{
-              fontFamily: 'var(--font-korean)',
-              fontSize: '16px',
-              color: 'var(--text-light)'
-            }}>
-              무무목장의 더 많은 제품을 만나보세요
+              목장의 일상과 치즈가 전하는 소식
             </p>
           </div>
+        </Link>
+      </section>
 
-          <div className="text-center mt-8">
-            <Link
-              to="/letter"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full transition-transform hover:scale-105"
+      {/* ═══════════════════════════════════════════
+          FOR WHOM — 이런 분께 추천해요
+          ═══════════════════════════════════════════ */}
+      <section
+        style={{
+          backgroundColor: ds.ivory,
+          padding: 'clamp(80px, 12vh, 120px) 0',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '800px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              gap: '40px',
+            }}
+          >
+            {/* 세로선 */}
+            <div
               style={{
-                backgroundColor: 'var(--sage)',
-                color: 'white',
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 700,
-                fontSize: '16px',
-                boxShadow: '0 4px 20px rgba(165, 214, 167, 0.3)'
+                width: '2px',
+                backgroundColor: ds.brownLight,
+                flexShrink: 0,
               }}
-            >
-              제품 보러가기
-              <ArrowRight size={18} />
-            </Link>
+            />
+            <div>
+              <h2
+                style={{
+                  fontFamily: ds.fontHeading,
+                  fontSize: 'clamp(1.25rem, 2vw, 1.625rem)',
+                  fontWeight: 400,
+                  color: ds.brown,
+                  margin: '0 0 36px',
+                  lineHeight: 1.5,
+                }}
+              >
+                이런 분께 추천해요
+              </h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                {[
+                  '우유를 마시면 배가 불편했던 분',
+                  '아이에게 건강한 우유를 주고 싶은 부모님',
+                  '첨가물 없는 자연식품을 찾는 분',
+                  '특별한 선물을 찾는 분',
+                  '예수원의 정신에 공감하시는 분',
+                ].map((item) => (
+                  <div
+                    key={item}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'baseline',
+                      gap: '14px',
+                    }}
+                  >
+                    <span
+                      style={{
+                        width: '5px',
+                        height: '5px',
+                        borderRadius: '50%',
+                        backgroundColor: ds.green,
+                        flexShrink: 0,
+                        marginTop: '2px',
+                        display: 'inline-block',
+                      }}
+                    />
+                    <p
+                      style={{
+                        fontFamily: ds.fontBody,
+                        fontSize: '1rem',
+                        color: ds.brownMid,
+                        margin: 0,
+                        lineHeight: 1.7,
+                        wordBreak: 'keep-all',
+                      }}
+                    >
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <Link
+                to="/taste"
+                style={{
+                  display: 'inline-block',
+                  marginTop: '40px',
+                  fontFamily: ds.fontBody,
+                  fontSize: '0.875rem',
+                  fontWeight: 500,
+                  color: ds.green,
+                  textDecoration: 'none',
+                  borderBottom: `1px solid ${ds.green}`,
+                  paddingBottom: '2px',
+                }}
+              >
+                A2 우유에 대해 더 알아보기 →
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Dark Section - Featured Destination */}
-      <section className="relative py-32 md:py-40 overflow-hidden" style={{
-        backgroundColor: '#1a1a1a'
-      }}>
-        {/* Background Images */}
-        <div className="absolute inset-0 grid grid-cols-3 opacity-30">
-          <div className="bg-cover bg-center" style={{
-            backgroundImage: 'url(/images/운해.png)'
-          }} />
-          <div className="bg-cover bg-center" style={{
-            backgroundImage: 'url(/images/축사 하늘사진.png)'
-          }} />
-          <div className="bg-cover bg-center" style={{
-            backgroundImage: 'url(/images/무무목장 전경.png)'
-          }} />
-        </div>
-
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+      {/* ═══════════════════════════════════════════
+          WHY — 무무목장이 특별한 이유
+          ═══════════════════════════════════════════ */}
+      <section
+        style={{
+          backgroundColor: ds.white,
+          padding: 'clamp(80px, 12vh, 120px) 0',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1000px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: ds.brownLight,
+              letterSpacing: '0.15em',
+              marginBottom: '12px',
+            }}
           >
-            <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full" style={{
-              backgroundColor: 'rgba(255,255,255,0.1)',
-              border: '1px solid rgba(255,255,255,0.2)'
-            }}>
-              <span style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '14px',
-                fontWeight: 700,
-                color: 'white',
-                letterSpacing: '0.05em'
-              }}>
-                🐄 가장 사랑받는 저지종
-              </span>
-            </div>
-
-            <h2 style={{
-              fontFamily: 'var(--font-korean)',
-              fontWeight: 800,
-              fontSize: 'clamp(36px, 6vw, 64px)',
-              lineHeight: '1.3',
-              color: 'white',
-              marginBottom: '48px',
-              letterSpacing: '-0.02em'
-            }}>
-              무무목장이 자랑하는<br />
-              특별한 저지종 젖소
-            </h2>
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="max-w-md mx-auto rounded-3xl overflow-hidden"
-              style={{
-                boxShadow: '0 20px 60px rgba(0,0,0,0.5)'
-              }}
-            >
-              <div className="relative aspect-[3/4]">
-                <img
-                  src="/images/무지개초지_저지소05.png"
-                  alt="저지종 젖소 클로즈업"
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-left">
-                  <a
-                    href="#"
-                    className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-6 transition-transform hover:scale-110"
+            WHY MOOMOO
+          </p>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.375rem, 2.5vw, 1.875rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              margin: '0 0 52px',
+              lineHeight: 1.5,
+            }}
+          >
+            무무목장이 특별한 이유
+          </h2>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '0',
+              borderTop: `1px solid rgba(138,122,104,0.2)`,
+            }}
+          >
+            {[
+              {
+                label: '해발 1,000m',
+                title: '삼수령 청정 고원에서 방목',
+                desc: '강원도 태백 삼수령. 미세먼지 없는 하늘 아래 소들이 자유롭게 풀을 뜯습니다.',
+              },
+              {
+                label: 'A2 저지종',
+                title: '소화 편한 프리미엄 우유',
+                desc: '일반 홀스타인과 달리 A2 베타-카제인만 함유. 우유 소화가 불편했던 분도 편하게 드실 수 있습니다.',
+              },
+              {
+                label: '자가목초 90%',
+                title: '수입 건초 의존 최소화',
+                desc: '목장 자체 목초지에서 키운 풀을 먹입니다. 먹는 것이 달라지면 우유 맛도 달라집니다.',
+              },
+              {
+                label: '착유 당일 발송',
+                title: '신선함 그대로',
+                desc: '착유 당일 또는 익일 발송. 냉장 새벽배송으로 가장 신선한 상태로 도착합니다.',
+              },
+              {
+                label: '60년 예수원 공동체',
+                title: '기도와 노동의 땅',
+                desc: '1965년부터 이 땅을 지켜온 예수원 공동체. 단순한 농장이 아니라 삶의 방식입니다.',
+              },
+            ].map((item) => (
+              <div
+                key={item.label}
+                style={{
+                  padding: '36px 0 36px',
+                  borderBottom: `1px solid rgba(138,122,104,0.2)`,
+                  display: 'grid',
+                  gridTemplateColumns: '140px 1fr',
+                  gap: '24px',
+                  alignItems: 'start',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: ds.fontBody,
+                    fontSize: '0.8125rem',
+                    fontWeight: 600,
+                    color: ds.green,
+                    paddingTop: '4px',
+                  }}
+                >
+                  {item.label}
+                </span>
+                <div>
+                  <p
                     style={{
-                      backgroundColor: 'white',
-                      color: 'var(--text-main)'
+                      fontFamily: ds.fontHeading,
+                      fontSize: '1rem',
+                      fontWeight: 400,
+                      color: ds.brown,
+                      margin: '0 0 8px',
                     }}
                   >
-                    <ArrowRight size={20} />
-                  </a>
-                  <h3 style={{
-                    fontFamily: 'var(--font-korean)',
-                    fontWeight: 700,
-                    fontSize: '28px',
-                    color: 'white',
-                    marginBottom: '8px'
-                  }}>
-                    저지종
-                  </h3>
-                  <p style={{
-                    fontFamily: 'var(--font-korean)',
-                    fontSize: '16px',
-                    color: 'rgba(255,255,255,0.9)',
-                    lineHeight: '1.5'
-                  }}>
-                    영양가 높은 A2 우유를 만드는 특별한 품종
+                    {item.title}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: ds.fontBody,
+                      fontSize: '0.875rem',
+                      color: ds.brownMid,
+                      margin: 0,
+                      lineHeight: 1.7,
+                      wordBreak: 'keep-all',
+                    }}
+                  >
+                    {item.desc}
                   </p>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+            <Link
+              to="/shop"
+              style={{
+                display: 'inline-block',
+                padding: '14px 40px',
+                fontFamily: ds.fontBody,
+                fontSize: '0.9375rem',
+                fontWeight: 500,
+                color: '#fff',
+                backgroundColor: ds.green,
+                textDecoration: 'none',
+                borderRadius: '4px',
+              }}
+            >
+              제품 보기
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Instagram-style Gallery */}
-      <section className="py-24 md:py-32">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+      {/* ═══════════════════════════════════════════
+          FAQ TOP 3 — 자주 묻는 질문
+          ═══════════════════════════════════════════ */}
+      <section
+        style={{
+          backgroundColor: ds.ivory,
+          padding: 'clamp(80px, 12vh, 120px) 0',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '800px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: ds.brownLight,
+              letterSpacing: '0.15em',
+              marginBottom: '12px',
+            }}
           >
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full" style={{
-              backgroundColor: 'rgba(255, 204, 128, 0.15)',
-              border: '1px solid rgba(255, 204, 128, 0.3)'
-            }}>
-              <span style={{
-                fontFamily: 'var(--font-korean)',
-                fontSize: '14px',
-                fontWeight: 700,
-                color: 'var(--pale-orange)',
-                letterSpacing: '0.05em'
-              }}>
-                📷 무무목장의 일상을 만나보세요
-              </span>
-            </div>
-
-            <h2 style={{
-              fontFamily: 'var(--font-korean)',
-              fontWeight: 800,
-              fontSize: 'clamp(36px, 5vw, 56px)',
-              lineHeight: '1.3',
-              color: 'var(--text-main)',
-              marginBottom: '16px',
-              letterSpacing: '-0.02em'
-            }}>
-              자연 속 무무목장 풍경
-            </h2>
-          </motion.div>
-
-          {/* Horizontal Scroll Gallery */}
-          <div className="overflow-x-auto pb-8 -mx-6 px-6">
-            <div className="flex gap-6" style={{ width: 'max-content' }}>
-              {[
-                { src: '/images/무지개초지_저지소06.png', alt: '무무목장 저지소 풍경 1' },
-                { src: '/images/무지개초지.png', alt: '무지개초지 전경' },
-                { src: '/images/무지개초지_저지소03.png', alt: '무무목장 저지소 풍경 3' },
-                { src: '/images/무지개초지_저지소01.png', alt: '무무목장 저지소 풍경 4' },
-                { src: '/images/축사 하늘사진.png', alt: '축사와 하늘' },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="rounded-3xl overflow-hidden"
+            FAQ
+          </p>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.375rem, 2.5vw, 1.875rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              margin: '0 0 48px',
+              lineHeight: 1.5,
+            }}
+          >
+            자주 묻는 질문 TOP 3
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+            {[
+              {
+                q: '배송은 얼마나 걸리나요?',
+                a: '착유 당일 또는 익일 발송합니다. 냉장 새벽배송으로 주문 후 1~2일 이내 도착합니다.',
+              },
+              {
+                q: '유통기한은 얼마나 되나요?',
+                a: '제조일로부터 10일입니다. 무첨가 자연 우유이므로 빠르게 드시는 것을 권장합니다.',
+              },
+              {
+                q: '목장 방문이 가능한가요?',
+                a: '네, 방문 가능합니다. 다만 목장 특성상 사전예약이 필수입니다. 카카오채널 "무무목장"으로 문의해주세요.',
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  padding: '32px 0',
+                  borderTop: `1px solid rgba(138,122,104,0.2)`,
+                }}
+              >
+                <p
                   style={{
-                    width: '320px',
-                    height: '420px',
-                    boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
+                    fontFamily: ds.fontHeading,
+                    fontSize: '1rem',
+                    fontWeight: 400,
+                    color: ds.brown,
+                    margin: '0 0 12px',
+                    lineHeight: 1.6,
                   }}
                 >
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
+                  Q. {item.q}
+                </p>
+                <p
+                  style={{
+                    fontFamily: ds.fontBody,
+                    fontSize: '0.9375rem',
+                    color: ds.brownMid,
+                    margin: 0,
+                    lineHeight: 1.8,
+                    wordBreak: 'keep-all',
+                    paddingLeft: '16px',
+                  }}
+                >
+                  {item.a}
+                </p>
+              </div>
+            ))}
+            <div style={{ borderTop: `1px solid rgba(138,122,104,0.2)`, paddingTop: '32px' }}>
+              <Link
+                to="/faq"
+                style={{
+                  fontFamily: ds.fontBody,
+                  fontSize: '0.875rem',
+                  fontWeight: 500,
+                  color: ds.green,
+                  textDecoration: 'none',
+                  borderBottom: `1px solid ${ds.green}`,
+                  paddingBottom: '2px',
+                }}
+              >
+                더 많은 질문 보기 →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          NEWSLETTER — 치즈레터 구독
+          ═══════════════════════════════════════════ */}
+      <NewsletterSection ds={ds} />
+
+      {/* ═══════════════════════════════════════════
+          CONTACT — 다크 브라운 (예수원 스타일)
+          ═══════════════════════════════════════════ */}
+      <section
+        style={{
+          backgroundColor: ds.darkBrown,
+          padding: 'clamp(60px, 10vh, 100px) 0',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '900px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '40px',
+          }}
+        >
+          {/* 문의 */}
+          <div>
+            <h3
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: 'rgba(255,255,255,0.5)',
+                letterSpacing: '0.1em',
+                margin: '0 0 16px',
+              }}
+            >
+              문의
+            </h3>
+            <p
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '1.125rem',
+                fontWeight: 600,
+                color: '#fff',
+                margin: 0,
+              }}
+            >
+              033-552-0662
+            </p>
+            <p
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.8125rem',
+                color: 'rgba(255,255,255,0.6)',
+                marginTop: '8px',
+              }}
+            >
+              카카오채널 "무무목장"
+            </p>
+          </div>
+
+          {/* 주소 */}
+          <div>
+            <h3
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: 'rgba(255,255,255,0.5)',
+                letterSpacing: '0.1em',
+                margin: '0 0 16px',
+              }}
+            >
+              주소
+            </h3>
+            <p
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.875rem',
+                color: 'rgba(255,255,255,0.7)',
+                margin: 0,
+                lineHeight: 1.7,
+              }}
+            >
+              강원특별자치도 태백시<br />
+              매봉산길 61
+            </p>
+          </div>
+
+          {/* 링크 */}
+          <div>
+            <h3
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: 'rgba(255,255,255,0.5)',
+                letterSpacing: '0.1em',
+                margin: '0 0 16px',
+              }}
+            >
+              바로가기
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {[
+                { to: '/about', label: '목장소개' },
+                { to: '/faq', label: '자주 묻는 질문' },
+                { to: '/visit', label: '오시는 길' },
+              ].map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  style={{
+                    fontFamily: ds.fontBody,
+                    fontSize: '0.875rem',
+                    color: 'rgba(255,255,255,0.7)',
+                    textDecoration: 'none',
+                  }}
+                >
+                  {item.label}
+                </Link>
               ))}
             </div>
           </div>
-
-          <p className="text-center mt-8" style={{
-            fontFamily: 'var(--font-korean)',
-            fontSize: '15px',
-            color: 'var(--text-light)'
-          }}>
-            #무무목장 태그로 여러분의 목장 방문 이야기를 공유해 주세요.
-          </p>
         </div>
       </section>
+    </main>
+  );
+}
 
-      {/* CTA Section - Full Width Image Background */}
-      <section className="relative py-32 md:py-48 overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="/images/운해.png"
-            alt="햇살 비치는 무무목장 초원"
-            loading="lazy"
-            className="w-full h-full object-cover"
-            style={{ filter: 'brightness(0.5)' }}
-          />
-        </div>
+/* ─────────────────────────────────────────────
+   치즈레터 구독 섹션 (별도 컴포넌트 — useState 필요)
+   ───────────────────────────────────────────── */
+type DsType = {
+  white: string;
+  ivory: string;
+  brown: string;
+  brownMid: string;
+  brownLight: string;
+  darkBrown: string;
+  green: string;
+  fontHeading: string;
+  fontBody: string;
+};
 
-        <div className="relative z-10 max-w-[1000px] mx-auto px-6 md:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 style={{
-              fontFamily: 'var(--font-korean)',
-              fontWeight: 800,
-              fontSize: 'clamp(36px, 6vw, 64px)',
-              lineHeight: '1.3',
-              color: 'white',
-              marginBottom: '24px',
-              letterSpacing: '-0.02em'
-            }}>
-              자연이 키운 건강한 맛,<br />
-              무무목장에서 만나보세요
-            </h2>
+function NewsletterSection({ ds }: { ds: DsType }) {
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
-            <p style={{
-              fontFamily: 'var(--font-korean)',
-              fontSize: 'clamp(16px, 2vw, 20px)',
-              lineHeight: '1.7',
-              color: 'rgba(255,255,255,0.9)',
-              marginBottom: '40px',
-              maxWidth: '700px',
-              margin: '0 auto 40px'
-            }}>
-              50년 역사의 예수원 목장에서 저지종 젖소가 만든 신선한 무무목장을 경험해 보세요.
-            </p>
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) {
+      setSubmitted(true);
+    }
+  };
 
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-3 px-10 py-5 rounded-full transition-transform hover:scale-105"
+  return (
+    <section
+      style={{
+        backgroundColor: ds.brown,
+        padding: 'clamp(80px, 12vh, 120px) 0',
+      }}
+    >
+      <div
+        style={{
+          maxWidth: '700px',
+          margin: '0 auto',
+          padding: '0 clamp(24px, 6vw, 60px)',
+          textAlign: 'center',
+        }}
+      >
+        <p
+          style={{
+            fontFamily: ds.fontBody,
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            color: 'rgba(255,255,255,0.45)',
+            letterSpacing: '0.15em',
+            marginBottom: '16px',
+          }}
+        >
+          NEWSLETTER
+        </p>
+        <h2
+          style={{
+            fontFamily: ds.fontHeading,
+            fontSize: 'clamp(1.375rem, 2.5vw, 1.875rem)',
+            fontWeight: 400,
+            color: '#fff',
+            margin: '0 0 16px',
+            lineHeight: 1.5,
+          }}
+        >
+          치즈레터 구독하기
+        </h2>
+        <p
+          style={{
+            fontFamily: ds.fontBody,
+            fontSize: '0.9375rem',
+            color: 'rgba(255,255,255,0.65)',
+            margin: '0 0 40px',
+            lineHeight: 1.8,
+            wordBreak: 'keep-all',
+          }}
+        >
+          치즈와 목장의 소식을 가장 먼저 받아보세요
+        </p>
+
+        {/* 혜택 목록 */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: '12px 24px',
+            marginBottom: '40px',
+            textAlign: 'left',
+          }}
+        >
+          {[
+            '치즈의 일상 소식',
+            '신제품 출시 알림',
+            '구독자 전용 할인',
+            '목장 방문 우선 예약',
+          ].map((benefit) => (
+            <div
+              key={benefit}
               style={{
-                backgroundColor: 'white',
-                color: 'var(--text-main)',
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 700,
-                fontSize: '18px',
-                boxShadow: '0 10px 40px rgba(0,0,0,0.3)'
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
               }}
             >
-              제품 구경하기
-              <ArrowRight size={20} />
-            </Link>
-          </motion.div>
+              <span
+                style={{
+                  width: '4px',
+                  height: '4px',
+                  borderRadius: '50%',
+                  backgroundColor: ds.brownLight,
+                  flexShrink: 0,
+                }}
+              />
+              <span
+                style={{
+                  fontFamily: ds.fontBody,
+                  fontSize: '0.875rem',
+                  color: 'rgba(255,255,255,0.7)',
+                }}
+              >
+                {benefit}
+              </span>
+            </div>
+          ))}
         </div>
-      </section>
 
-      {/* Footer Emoji Bar */}
-      <section className="py-8" style={{ backgroundColor: 'var(--text-main)' }}>
-        <div className="max-w-[1400px] mx-auto px-6">
-          <div className="flex flex-wrap justify-center items-center gap-4 text-center">
-            <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>
-              🥛 A2 우유 •
-            </span>
-            <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>
-              🧀 수제 치즈 •
-            </span>
-            <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>
-              🥣 플레인 요거트 •
-            </span>
-            <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>
-              🍦 수제 아이스크림 •
-            </span>
-            <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>
-              🐄 저지종 젖소 •
-            </span>
-            <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>
-              🌿 자연 방목 •
-            </span>
-            <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>
-              ❤️ 동물 복지 •
-            </span>
-            <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>
-              🏔️ 강원도 태백 •
-            </span>
-            <span style={{ fontFamily: 'var(--font-korean)', fontSize: '14px', color: 'rgba(255,255,255,0.7)' }}>
-              📦 새벽배송
-            </span>
+        {submitted ? (
+          <div
+            style={{
+              padding: '20px',
+              borderRadius: '8px',
+              backgroundColor: 'rgba(255,255,255,0.1)',
+              border: '1px solid rgba(255,255,255,0.2)',
+            }}
+          >
+            <p
+              style={{
+                fontFamily: ds.fontHeading,
+                fontSize: '1rem',
+                color: '#fff',
+                margin: 0,
+                lineHeight: 1.6,
+              }}
+            >
+              구독해 주셔서 감사합니다 🙏
+            </p>
+            <p
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.875rem',
+                color: 'rgba(255,255,255,0.6)',
+                marginTop: '8px',
+              }}
+            >
+              목장 소식을 곧 보내드릴게요.
+            </p>
           </div>
-        </div>
-      </section>
-    </div>
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              display: 'flex',
+              gap: '0',
+              maxWidth: '480px',
+              margin: '0 auto',
+            }}
+          >
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="이메일 주소를 입력해 주세요"
+              required
+              style={{
+                flex: 1,
+                padding: '14px 20px',
+                fontFamily: ds.fontBody,
+                fontSize: '0.9375rem',
+                color: ds.brown,
+                backgroundColor: '#fff',
+                border: 'none',
+                borderRadius: '4px 0 0 4px',
+                outline: 'none',
+              }}
+            />
+            <button
+              type="submit"
+              style={{
+                padding: '14px 24px',
+                fontFamily: ds.fontBody,
+                fontSize: '0.875rem',
+                fontWeight: 600,
+                color: '#fff',
+                backgroundColor: ds.green,
+                border: 'none',
+                borderRadius: '0 4px 4px 0',
+                cursor: 'pointer',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              구독하기
+            </button>
+          </form>
+        )}
+
+        <p
+          style={{
+            fontFamily: ds.fontBody,
+            fontSize: '0.75rem',
+            color: 'rgba(255,255,255,0.35)',
+            marginTop: '16px',
+          }}
+        >
+          언제든지 수신 거부할 수 있습니다.
+        </p>
+      </div>
+    </section>
   );
 }
