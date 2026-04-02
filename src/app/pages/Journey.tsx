@@ -70,19 +70,46 @@ export function Journey() {
         </div>
       </section>
 
-      {/* Intro */}
+      {/* 디지털 순례길이란? */}
       <section style={{ backgroundColor: ds.ivory, padding: 'clamp(80px, 12vh, 120px) 0' }}>
         <div
           style={{
             maxWidth: '800px',
             margin: '0 auto',
             padding: '0 clamp(24px, 6vw, 60px)',
-            display: 'flex',
-            gap: '40px',
           }}
         >
-          <div style={{ width: '2px', backgroundColor: ds.brownLight, flexShrink: 0 }} />
-          <div>
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.75rem',
+              color: ds.brownLight,
+              letterSpacing: '0.2em',
+              margin: '0 0 12px',
+            }}
+          >
+            WHAT IS THIS?
+          </p>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              margin: '0 0 40px',
+            }}
+          >
+            디지털 순례길이란?
+          </h2>
+
+          <div
+            style={{
+              display: 'flex',
+              gap: '40px',
+              marginBottom: '48px',
+            }}
+          >
+            <div style={{ width: '2px', backgroundColor: ds.brownLight, flexShrink: 0 }} />
             <p
               style={{
                 fontFamily: ds.fontHeading,
@@ -93,60 +120,36 @@ export function Journey() {
                 margin: 0,
               }}
             >
-              60년 역사를 따라 걷는 무무목장 이야기.<br />
-              예수원 공동체의 기도와 노동,<br />
-              그 땅에서 태어난 치즈를 만나보세요.
+              집에서도 무무목장의 60년 역사를 체험할 수 있는<br />
+              인터랙티브 스토리입니다.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* Timeline */}
-      <section style={{ backgroundColor: ds.white, padding: 'clamp(80px, 12vh, 120px) 0' }}>
-        <div
-          style={{
-            maxWidth: '800px',
-            margin: '0 auto',
-            padding: '0 clamp(24px, 6vw, 60px)',
-          }}
-        >
-          {[
-            { year: '1965', title: '예수원 설립', desc: '대천덕 신부님이 태백 삼수령에 예수원 공동체를 세웁니다.' },
-            { year: '1970s', title: '낙농 시작', desc: '기도와 노동의 공동체, 젖소를 키우기 시작합니다.' },
-            { year: '2020', title: '저지종 도입', desc: 'A2 우유를 생산하는 저지종 젖소를 들여옵니다.' },
-            { year: '2026', title: '치즈 탄생', desc: '898번째 송아지 치즈가 태어납니다.' },
-          ].map((item, i) => (
-            <div
-              key={i}
-              style={{
-                display: 'flex',
-                gap: '40px',
-                marginBottom: i < 3 ? '60px' : 0,
-              }}
-            >
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '16px',
+            }}
+          >
+            {[
+              { icon: '🏡', text: '실제 목장에 오시기 전, 미리 이야기를 만나보세요' },
+              { icon: '📖', text: '다녀가신 후에도 기억을 되새기며 다시 걸어보세요' },
+              { icon: '⏱️', text: '약 5~10분이면 하나의 이야기를 완주할 수 있어요' },
+            ].map((item, i) => (
               <div
+                key={i}
                 style={{
-                  fontFamily: ds.fontHeading,
-                  fontSize: '1.5rem',
-                  fontWeight: 400,
-                  color: ds.brownLight,
-                  minWidth: '80px',
+                  backgroundColor: ds.white,
+                  border: '1px solid #e8e2d8',
+                  borderRadius: '4px',
+                  padding: '24px 20px',
+                  display: 'flex',
+                  gap: '14px',
+                  alignItems: 'flex-start',
                 }}
               >
-                {item.year}
-              </div>
-              <div>
-                <h3
-                  style={{
-                    fontFamily: ds.fontHeading,
-                    fontSize: '1.125rem',
-                    fontWeight: 400,
-                    color: ds.brown,
-                    margin: '0 0 8px',
-                  }}
-                >
-                  {item.title}
-                </h3>
+                <span style={{ fontSize: '1.25rem', flexShrink: 0, marginTop: '2px' }}>{item.icon}</span>
                 <p
                   style={{
                     fontFamily: ds.fontBody,
@@ -156,11 +159,112 @@ export function Journey() {
                     lineHeight: 1.8,
                   }}
                 >
-                  {item.desc}
+                  {item.text}
                 </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 어떻게 체험하나요? */}
+      <section style={{ backgroundColor: ds.white, padding: 'clamp(80px, 12vh, 120px) 0' }}>
+        <div
+          style={{
+            maxWidth: '800px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+          }}
+        >
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.75rem',
+              color: ds.brownLight,
+              letterSpacing: '0.2em',
+              margin: '0 0 12px',
+            }}
+          >
+            HOW TO PLAY
+          </p>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              margin: '0 0 48px',
+            }}
+          >
+            어떻게 체험하나요?
+          </h2>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+            {[
+              {
+                step: '01',
+                title: '이야기를 선택하세요',
+                desc: '아래 게임 목록에서 마음에 드는 이야기를 고르세요. 지금은 EMPTY BARN 하나를 체험할 수 있어요.',
+              },
+              {
+                step: '02',
+                title: '화면의 안내를 따라가세요',
+                desc: '선택지를 고르고, 사진을 보고, 이야기를 읽어가며 자연스럽게 순례길을 걸어보세요.',
+              },
+              {
+                step: '03',
+                title: '완주 후 치즈레터를 구독하세요',
+                desc: '새 이야기가 추가되면 가장 먼저 알려드려요. 구독은 언제든지 취소할 수 있어요.',
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  display: 'flex',
+                  gap: '32px',
+                  alignItems: 'flex-start',
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: ds.fontHeading,
+                    fontSize: '1.75rem',
+                    fontWeight: 400,
+                    color: '#e8dfd0',
+                    minWidth: '48px',
+                    lineHeight: 1,
+                    paddingTop: '2px',
+                  }}
+                >
+                  {item.step}
+                </div>
+                <div>
+                  <h3
+                    style={{
+                      fontFamily: ds.fontHeading,
+                      fontSize: '1.0625rem',
+                      fontWeight: 400,
+                      color: ds.brown,
+                      margin: '0 0 8px',
+                    }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontFamily: ds.fontBody,
+                      fontSize: '0.875rem',
+                      color: ds.brownMid,
+                      margin: 0,
+                      lineHeight: 1.8,
+                    }}
+                  >
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -193,7 +297,7 @@ export function Journey() {
               margin: '0 0 48px',
             }}
           >
-            인터랙티브 스토리
+            지금 걸을 수 있는 길
           </h2>
 
           <div
@@ -270,12 +374,22 @@ export function Journey() {
                     fontFamily: ds.fontBody,
                     fontSize: '0.8125rem',
                     color: 'rgba(255,255,255,0.6)',
-                    margin: 0,
+                    margin: '0 0 12px',
                     lineHeight: 1.7,
                   }}
                 >
-                  897마리의 흔적을 따라서
+                  897마리의 흔적 — 헤이퍼 프로젝트의 역사를 따라가는 5분 체험
                 </p>
+                <span
+                  style={{
+                    fontFamily: ds.fontBody,
+                    fontSize: '0.75rem',
+                    color: 'rgba(255,255,255,0.35)',
+                    letterSpacing: '0.1em',
+                  }}
+                >
+                  지금 시작하기 →
+                </span>
               </div>
             </Link>
 
@@ -462,35 +576,180 @@ export function Journey() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ backgroundColor: ds.darkBrown, padding: 'clamp(60px, 10vh, 80px) 0', textAlign: 'center' }}>
-        <h2
+      {/* 완주 후에는 */}
+      <section style={{ backgroundColor: ds.white, padding: 'clamp(80px, 12vh, 120px) 0' }}>
+        <div
           style={{
-            fontFamily: ds.fontHeading,
-            fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
-            fontWeight: 400,
-            color: '#fff',
-            margin: '0 0 24px',
+            maxWidth: '800px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
           }}
         >
-          순례를 마치고
-        </h2>
-        <Link
-          to="/blog"
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.75rem',
+              color: ds.brownLight,
+              letterSpacing: '0.2em',
+              margin: '0 0 12px',
+            }}
+          >
+            AFTER YOUR JOURNEY
+          </p>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
+              fontWeight: 400,
+              color: ds.brown,
+              margin: '0 0 48px',
+            }}
+          >
+            완주 후에는
+          </h2>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '16px',
+            }}
+          >
+            {[
+              {
+                label: 'VISIT',
+                title: '목장에 직접 방문해보세요',
+                desc: '이야기 속 그 공간에서 실제로 숨을 쉬어보세요.',
+                href: '/visit',
+                linkText: '방문 안내 →',
+              },
+              {
+                label: 'BLOG',
+                title: '치즈의 일상 구경하기',
+                desc: '898번째 송아지 치즈의 하루를 담은 이야기들.',
+                href: '/blog',
+                linkText: '담벼락 가기 →',
+              },
+              {
+                label: 'SHOP',
+                title: '건강한 우유 맛보기',
+                desc: 'A2 저지 건초우유, 집에서도 만날 수 있어요.',
+                href: '/shop',
+                linkText: '구매하러 가기 →',
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  backgroundColor: ds.ivory,
+                  borderRadius: '4px',
+                  padding: '28px 24px',
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: ds.fontBody,
+                    fontSize: '0.625rem',
+                    color: ds.brownLight,
+                    letterSpacing: '0.2em',
+                    margin: '0 0 12px',
+                  }}
+                >
+                  {item.label}
+                </p>
+                <h3
+                  style={{
+                    fontFamily: ds.fontHeading,
+                    fontSize: '1rem',
+                    fontWeight: 400,
+                    color: ds.brown,
+                    margin: '0 0 8px',
+                  }}
+                >
+                  {item.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: ds.fontBody,
+                    fontSize: '0.8125rem',
+                    color: ds.brownMid,
+                    margin: '0 0 20px',
+                    lineHeight: 1.7,
+                  }}
+                >
+                  {item.desc}
+                </p>
+                <Link
+                  to={item.href}
+                  style={{
+                    fontFamily: ds.fontBody,
+                    fontSize: '0.8125rem',
+                    color: ds.brown,
+                    textDecoration: 'none',
+                    borderBottom: `1px solid ${ds.brownLight}`,
+                    paddingBottom: '1px',
+                  }}
+                >
+                  {item.linkText}
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 피드백 */}
+      <section style={{ backgroundColor: ds.darkBrown, padding: 'clamp(60px, 10vh, 80px) 0' }}>
+        <div
           style={{
-            display: 'inline-block',
-            padding: '12px 32px',
-            fontFamily: ds.fontBody,
-            fontSize: '0.875rem',
-            fontWeight: 500,
-            color: ds.darkBrown,
-            backgroundColor: '#fff',
-            textDecoration: 'none',
-            borderRadius: '4px',
+            maxWidth: '800px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+            textAlign: 'center',
           }}
         >
-          치즈의 담벼락 가기
-        </Link>
+          <h2
+            style={{
+              fontFamily: ds.fontHeading,
+              fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+              fontWeight: 400,
+              color: '#fff',
+              margin: '0 0 12px',
+            }}
+          >
+            이 순례길이 마음에 드셨나요?
+          </h2>
+          <p
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.875rem',
+              color: 'rgba(255,255,255,0.5)',
+              margin: '0 0 32px',
+              lineHeight: 1.8,
+            }}
+          >
+            어떤 이야기가 좋았는지, 어떤 이야기를 더 보고 싶은지<br />
+            작은 의견 하나하나가 다음 순례길을 만드는 데 큰 힘이 됩니다.
+          </p>
+          <a
+            href="https://pf.kakao.com/_moomoo"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              padding: '12px 32px',
+              fontFamily: ds.fontBody,
+              fontSize: '0.875rem',
+              fontWeight: 500,
+              color: ds.darkBrown,
+              backgroundColor: '#FEE500',
+              textDecoration: 'none',
+              borderRadius: '4px',
+            }}
+          >
+            카카오채널로 의견 남기기
+          </a>
+        </div>
       </section>
     </main>
   );
