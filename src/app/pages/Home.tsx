@@ -152,6 +152,174 @@ export function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════
+          DAILY TIMELINE — 무무목장의 하루 (예수원 스타일)
+          ═══════════════════════════════════════════ */}
+      <section
+        style={{
+          backgroundColor: ds.darkBrown,
+          padding: 'clamp(100px, 15vh, 150px) 0',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '800px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+          }}
+        >
+          {/* 섹션 헤더 */}
+          <div style={{ marginBottom: 'clamp(60px, 8vh, 80px)' }}>
+            <p
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: 'rgba(255,255,255,0.35)',
+                letterSpacing: '0.2em',
+                marginBottom: '16px',
+              }}
+            >
+              THE DAY AT MOOMOO RANCH
+            </p>
+            <h2
+              style={{
+                fontFamily: ds.fontHeading,
+                fontSize: 'clamp(1.375rem, 2.5vw, 1.875rem)',
+                fontWeight: 400,
+                color: 'rgba(255,255,255,0.9)',
+                margin: 0,
+                lineHeight: 1.5,
+              }}
+            >
+              무무목장의 하루
+            </h2>
+          </div>
+
+          {/* 타임라인 */}
+          <div style={{ position: 'relative' }}>
+            {/* 세로 연결선 */}
+            <div
+              style={{
+                position: 'absolute',
+                left: '72px',
+                top: '8px',
+                bottom: '8px',
+                width: '1px',
+                background: 'linear-gradient(to bottom, transparent, rgba(138,122,104,0.4) 8%, rgba(138,122,104,0.4) 92%, transparent)',
+              }}
+            />
+
+            {[
+              {
+                time: '05:00',
+                label: '새벽',
+                desc: '첫 착유가 시작됩니다. 아직 어두운 축사에 불이 켜지고, 파이프라인 밀커가 윙윙 돌아갑니다.',
+              },
+              {
+                time: '06:30',
+                label: '아침',
+                desc: '착유를 마친 소들이 목초지로 나갑니다. 이슬 맺힌 풀밭을 천천히 걷습니다.',
+              },
+              {
+                time: '09:00',
+                label: '오전',
+                desc: '착유한 우유를 4℃로 즉시 냉각합니다. 품질 검사를 하고 포장을 시작합니다.',
+              },
+              {
+                time: '12:00',
+                label: '점심',
+                desc: '소들은 목초지에서 풀을 뜯고, 사람들은 잠시 쉽니다.',
+              },
+              {
+                time: '15:00',
+                label: '오후',
+                desc: '저녁 착유를 준비합니다. 소들이 천천히 축사로 돌아옵니다.',
+              },
+              {
+                time: '17:00',
+                label: '저녁',
+                desc: '두 번째 착유. 오늘 하루도 무사히 마칩니다.',
+              },
+              {
+                time: '19:00',
+                label: '밤',
+                desc: '소들은 잠자리에 들고, 내일을 위해 축사를 정돈합니다.',
+              },
+            ].map((item, i) => (
+              <div
+                key={item.time}
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '72px 1fr',
+                  gap: '0 32px',
+                  alignItems: 'start',
+                  marginBottom: i < 6 ? 'clamp(32px, 5vh, 44px)' : 0,
+                }}
+              >
+                {/* 시간 + 점 */}
+                <div style={{ textAlign: 'right', paddingRight: '20px', position: 'relative' }}>
+                  {/* 점 */}
+                  <span
+                    style={{
+                      position: 'absolute',
+                      right: '-5px',
+                      top: '6px',
+                      width: '9px',
+                      height: '9px',
+                      borderRadius: '50%',
+                      border: `1px solid rgba(138,122,104,0.6)`,
+                      backgroundColor: ds.darkBrown,
+                      display: 'block',
+                    }}
+                  />
+                  <p
+                    style={{
+                      fontFamily: ds.fontBody,
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      color: 'rgba(255,255,255,0.4)',
+                      margin: 0,
+                      letterSpacing: '0.05em',
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {item.time}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: ds.fontBody,
+                      fontSize: '0.625rem',
+                      color: 'rgba(138,122,104,0.7)',
+                      margin: '2px 0 0',
+                      letterSpacing: '0.08em',
+                    }}
+                  >
+                    {item.label}
+                  </p>
+                </div>
+
+                {/* 설명 */}
+                <p
+                  style={{
+                    fontFamily: ds.fontHeading,
+                    fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
+                    fontWeight: 400,
+                    color: 'rgba(255,255,255,0.75)',
+                    margin: 0,
+                    lineHeight: 1.9,
+                    wordBreak: 'keep-all',
+                    paddingTop: '2px',
+                  }}
+                >
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
           FIRST VISIT — 처음 오셨나요? (3 카드)
           ═══════════════════════════════════════════ */}
       <section
