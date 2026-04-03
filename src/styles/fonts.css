@@ -1,1 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+/**
+ * 무무목장 웹폰트
+ *
+ * ① Noto Serif KR — 제목 (예수원 선언적 무게감, 한국어 명조)
+ * ② Noto Sans KR  — 본문 (사고타니 현대적 가독성, 한국어 고딕)
+ * ③ Playfair Display — 영문 브랜드 워드 (낙농 장인 분위기)
+ *
+ * display=swap: FOUT 허용, FOIT 방지 (목장 감성 — 바로 보이는 게 중요)
+ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');

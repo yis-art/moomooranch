@@ -1,0 +1,947 @@
+/**
+ * ╔══════════════════════════════════════════════════════════╗
+ * ║       무무목장 — COMPONENT STYLES                        ║
+ * ║       버튼, 카드, 네비, 히어로, 태그/배지                 ║
+ * ╚══════════════════════════════════════════════════════════╝
+ *
+ * @import './design-tokens.css' 먼저 import할 것.
+ */
+
+@import './design-tokens.css';
+
+/* ══════════════════════════════════════════════════════
+   BASE RESET & BODY
+   예수원: 여백 넉넉, 폰트 선명
+   사고타니: 배경은 따뜻한 크림
+   ══════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-text-medium);
+  background-color: var(--color-bg);
+}
+
+/* ══════════════════════════════════════════════════════
+   TYPOGRAPHY BASE
+   ══════════════════════════════════════════════════════ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-dark);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  word-break: keep-all;   /* 한국어 단어 단위 줄바꿈 */
+}
+
+h1 { font-size: var(--text-h1); }
+h2 { font-size: var(--text-h2); }
+h3 { font-size: var(--text-h3); }
+h4 { font-size: var(--text-h4); letter-spacing: var(--tracking-normal); }
+h5 { font-size: var(--text-h5); }
+h6 { font-size: var(--text-h6); }
+
+p {
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-medium);
+  word-break: keep-all;
+}
+
+/* 브랜드 영문 (MOOMOO RANCH, MooMoo Milk 등) */
+.brand-text {
+  font-family: var(--font-brand);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* ══════════════════════════════════════════════════════
+   LAYOUT UTILITIES
+   ══════════════════════════════════════════════════════ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--section-padding-x);
+}
+
+.container--content {
+  max-width: var(--container-content);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.section {
+  padding-block: var(--section-padding-y);
+}
+
+/* ══════════════════════════════════════════════════════
+   COMPONENT 1: BUTTON
+   ══════════════════════════════════════════════════════
+
+   설계 원칙:
+   - 사고타니: 버튼이 페이지에서 튀지 않음. 내용이 먼저.
+   - 예수원: "Join the Rhythm" → 선언적이되 압박하지 않는 CTA
+   - Primary: 브랜드 그린 fill → 진지한 행동 유도
+   - Secondary: 크림 배경 + 그린 보더 → 덜 긴박한 행동
+   - Ghost: 투명 배경 + 그린 텍스트 → 최소한의 존재감
+   ══════════════════════════════════════════════════════ */
+
+/* 버튼 기본 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  text-decoration: none;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-6);
+  cursor: pointer;
+  transition: var(--transition-color), var(--transition-shadow), transform var(--duration-fast) var(--ease-out);
+  white-space: nowrap;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Primary 버튼 */
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-fg);
+  border-color: var(--color-primary);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ── Secondary 버튼 */
+.btn--secondary {
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-primary-subtle);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.btn--secondary:active {
+  transform: translateY(0);
+  background-color: var(--mm-green-100);
+}
+
+/* ── Ghost 버튼 (예수원 "Read more →" 스타일) */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: transparent;
+  padding-inline: var(--space-2);
+}
+
+.btn--ghost:hover {
+  background-color: var(--color-primary-subtle);
+  color: var(--color-primary-dark);
+}
+
+/* ── Accent 버튼 (골드 — 황금빛 CTA, 특별한 경우만) */
+.btn--accent {
+  background-color: var(--color-accent);
+  color: var(--color-accent-fg);
+  border-color: var(--color-accent);
+}
+
+.btn--accent:hover {
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* ── 크기 변형 */
+.btn--sm {
+  font-size: var(--text-caption);
+  padding: var(--space-2) var(--space-4);
+}
+
+.btn--lg {
+  font-size: var(--text-body-lg);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-lg);
+}
+
+/* ── 아이콘 전용 */
+.btn--icon {
+  padding: var(--space-3);
+  aspect-ratio: 1;
+}
+
+/* ══════════════════════════════════════════════════════
+   COMPONENT 2: CARD (담벼락 포스트 카드)
+   ══════════════════════════════════════════════════════
+
+   설계 원칙:
+   - 사고타니: 이미지 꽉 채운 카드, 여백 넉넉
+   - 예수원: 텍스트 중심, 선명한 타이포 계층
+   - 담벼락 = 목장 일기. 카드 = 나무 게시판 한 장.
+   ══════════════════════════════════════════════════════ */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--mm-white);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition-shadow), transform var(--duration-normal) var(--ease-out);
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+  border-color: var(--color-border-strong);
+}
+
+/* 카드 이미지 영역 */
+.card__image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--color-surface);
+}
+
+.card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.card:hover .card__image img {
+  transform: scale(1.04);
+}
+
+/* 카드 이미지 위 배지 */
+.card__image-badge {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+}
+
+/* 카드 본문 */
+.card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-6);
+  gap: var(--space-3);
+}
+
+/* 카드 메타 (날짜, 카테고리) */
+.card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-caption);
+  color: var(--color-text-light);
+  letter-spacing: var(--tracking-wide);
+}
+
+.card__date {
+  font-size: var(--text-caption);
+  color: var(--color-text-light);
+}
+
+/* 카드 제목 */
+.card__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-dark);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  word-break: keep-all;
+
+  /* 2줄 클램프 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 카드 발췌문 */
+.card__excerpt {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-medium);
+  line-height: var(--leading-normal);
+  word-break: keep-all;
+
+  /* 3줄 클램프 */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 카드 푸터 (태그, 더보기) */
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: var(--border-width) solid var(--color-border-subtle);
+}
+
+.card__tags {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+/* ── 카드 변형: 수평 카드 (목록형) */
+.card--horizontal {
+  flex-direction: row;
+}
+
+.card--horizontal .card__image {
+  width: 200px;
+  min-width: 200px;
+  aspect-ratio: auto;
+}
+
+.card--horizontal .card__body {
+  padding: var(--space-5);
+}
+
+/* ── 카드 변형: 피처드 카드 (대형) */
+.card--featured .card__image {
+  aspect-ratio: 16 / 9;
+}
+
+.card--featured .card__title {
+  font-size: var(--text-h3);
+  -webkit-line-clamp: 3;
+}
+
+/* ── 카드 변형: 미니 카드 */
+.card--mini .card__body {
+  padding: var(--space-4);
+  gap: var(--space-2);
+}
+
+.card--mini .card__title {
+  font-size: var(--text-body);
+}
+
+/* ══════════════════════════════════════════════════════
+   COMPONENT 3: NAVIGATION BAR
+   ══════════════════════════════════════════════════════
+
+   설계 원칙:
+   - 사고타니: 투명 배경, 스크롤 시 흰 배경으로 전환
+   - 예수원: 로고 + 최소한의 메뉴. 군더더기 없음.
+   - 스크롤 전 = 투명 + 흰 텍스트 (히어로 이미지 위)
+   - 스크롤 후 = 크림 배경 + 다크 텍스트
+   ══════════════════════════════════════════════════════ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding-inline: var(--section-padding-x);
+  background-color: transparent;
+  transition: background-color var(--duration-slow) var(--ease-default),
+              box-shadow var(--duration-slow) var(--ease-default);
+}
+
+/* 스크롤 후 상태 (JS로 .scrolled 클래스 토글) */
+.navbar.scrolled {
+  background-color: rgba(250, 247, 240, 0.96);  /* --mm-cream-50 반투명 */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+/* 로고 */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar__logo-text {
+  font-family: var(--font-heading);
+  font-size: var(--text-h5);
+  font-weight: var(--weight-bold);
+  color: var(--mm-white);
+  transition: color var(--duration-fast) var(--ease-default);
+  letter-spacing: -0.01em;
+}
+
+.navbar.scrolled .navbar__logo-text {
+  color: var(--color-text-dark);
+}
+
+/* 네비 메뉴 */
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  .navbar__menu {
+    display: none;  /* 모바일 → 햄버거 메뉴로 대체 */
+  }
+}
+
+.navbar__link {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: rgba(255, 253, 248, 0.85);  /* --mm-white 85% */
+  text-decoration: none;
+  letter-spacing: var(--tracking-wide);
+  transition: color var(--duration-fast) var(--ease-default);
+  position: relative;
+}
+
+/* 언더라인 애니메이션 */
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width var(--duration-normal) var(--ease-out);
+}
+
+.navbar__link:hover::after,
+.navbar__link.active::after {
+  width: 100%;
+}
+
+.navbar__link:hover {
+  color: var(--mm-white);
+}
+
+.navbar.scrolled .navbar__link {
+  color: var(--color-text-medium);
+}
+
+.navbar.scrolled .navbar__link:hover {
+  color: var(--color-primary);
+}
+
+/* CTA 버튼 in 네비 */
+.navbar__cta {
+  margin-left: var(--space-4);
+}
+
+/* 모바일 햄버거 */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: var(--space-2);
+  background: none;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .navbar__hamburger {
+    display: flex;
+  }
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--mm-white);
+  transition: var(--transition-base);
+  border-radius: 2px;
+}
+
+.navbar.scrolled .navbar__hamburger span {
+  background-color: var(--color-text-dark);
+}
+
+/* ══════════════════════════════════════════════════════
+   COMPONENT 4: HERO SECTION
+   ══════════════════════════════════════════════════════
+
+   설계 원칙:
+   - 예수원: "Right now at Jesus Abbey" — 현재 이 순간, 생동감
+   - 사고타니: 꽉 찬 배경 이미지, 중앙 정렬 심플 카피
+   - 무무목장 히어로 = 해발 1,000m + 황금빛 우유 + 치즈 송아지
+   - 배경: 무지개초지 전경 사진 (반드시 자연광)
+   - 오버레이: 그린 → 투명 그라디언트 (아래서 위로)
+   ══════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;   /* 모바일 뷰포트 안전 */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--mm-green-900);  /* 이미지 로딩 전 fallback */
+}
+
+/* 배경 이미지 */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-base);
+}
+
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;  /* 하늘보다 초지 강조 */
+}
+
+/* 오버레이: 바닥에서 올라오는 그린 그라디언트 (사고타니 레퍼런스: 이미지 선명하게 유지) */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-raised);
+  background: linear-gradient(
+    to top,
+    rgba(17, 30, 23, 0.85) 0%,    /* mm-green-950 진하게 */
+    rgba(17, 30, 23, 0.45) 40%,
+    rgba(17, 30, 23, 0.10) 70%,
+    transparent 100%
+  );
+}
+
+/* 히어로 컨텐츠 */
+.hero__content {
+  position: relative;
+  z-index: var(--z-dropdown);
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--section-padding-x);
+  padding-bottom: clamp(var(--space-12), 8vw, var(--space-24));
+  padding-top: 100px;  /* 네비바 높이 */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* 히어로 태그라인 (예수원 "Right now at" 느낌의 소제목) */
+.hero__tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+}
+
+.hero__tagline::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background-color: var(--color-accent);
+}
+
+/* 히어로 대제목 */
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-display);
+  font-weight: var(--weight-black);
+  color: var(--mm-white);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  max-width: 700px;
+  word-break: keep-all;
+}
+
+/* 강조 단어 — 골드 컬러 */
+.hero__title mark {
+  background: none;
+  color: var(--color-accent-light);
+}
+
+/* 히어로 부제목 */
+.hero__subtitle {
+  font-size: var(--text-body-lg);
+  color: rgba(250, 247, 240, 0.80);
+  line-height: var(--leading-relaxed);
+  max-width: 520px;
+  word-break: keep-all;
+}
+
+/* 히어로 액션 */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+/* 히어로 스탯 (예수원 "60 Years" 스타일 숫자 강조) */
+.hero__stats {
+  display: flex;
+  gap: var(--space-8);
+  margin-top: var(--space-4);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255, 253, 248, 0.2);
+}
+
+.hero__stat-value {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-black);
+  color: var(--mm-white);
+  line-height: 1;
+}
+
+.hero__stat-label {
+  font-size: var(--text-caption);
+  color: rgba(250, 247, 240, 0.65);
+  letter-spacing: var(--tracking-wide);
+  margin-top: var(--space-1);
+}
+
+/* ══════════════════════════════════════════════════════
+   COMPONENT 5: TAG / BADGE
+   ══════════════════════════════════════════════════════
+
+   설계 원칙:
+   - 목장 카테고리를 시각적으로 구분
+   - 컬러 코딩: 그린=목장이야기, 골드=제품, 크림=일상
+   ══════════════════════════════════════════════════════ */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  border: var(--border-width) solid transparent;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: var(--transition-color);
+  cursor: default;
+}
+
+/* ── 기본 태그 (크림) */
+.tag {
+  background-color: var(--color-surface);
+  color: var(--color-text-medium);
+  border-color: var(--color-border);
+}
+
+/* ── 그린 태그 (목장 이야기) */
+.tag--green {
+  background-color: var(--mm-green-100);
+  color: var(--mm-green-700);
+  border-color: var(--mm-green-200);
+}
+
+/* ── 골드 태그 (무무밀크 제품) */
+.tag--gold {
+  background-color: var(--mm-gold-100);
+  color: var(--mm-gold-700);
+  border-color: var(--mm-gold-200);
+}
+
+/* ── 브라운 태그 (치즈 이야기) */
+.tag--brown {
+  background-color: var(--mm-brown-100);
+  color: var(--mm-brown-600);
+  border-color: var(--mm-brown-200);
+}
+
+/* ── 다크 태그 (진지한 주제 — 예수원, 북한) */
+.tag--dark {
+  background-color: var(--mm-green-900);
+  color: var(--mm-cream-100);
+  border-color: var(--mm-green-700);
+}
+
+/* ── 링크 태그 (클릭 가능) */
+.tag--link {
+  cursor: pointer;
+}
+
+.tag--link:hover {
+  background-color: var(--color-primary-subtle);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ── 배지 (숫자, 상태) */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding-inline: var(--space-2);
+  font-size: var(--text-micro);
+  font-weight: var(--weight-bold);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+  color: var(--mm-white);
+}
+
+.badge--accent {
+  background-color: var(--color-accent);
+  color: var(--color-accent-fg);
+}
+
+.badge--new {
+  background-color: var(--mm-gold-500);
+  color: var(--mm-white);
+}
+
+/* ══════════════════════════════════════════════════════
+   SECTION: 담벼락 (블로그 그리드)
+   ══════════════════════════════════════════════════════ */
+.wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-8);
+}
+
+@media (max-width: 640px) {
+  .wall {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* ── 첫 번째 카드 피처드 (사고타니 메인 이미지 스타일) */
+.wall > .card:first-child {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 768px) {
+  .wall > .card:first-child {
+    flex-direction: row;
+  }
+
+  .wall > .card:first-child .card__image {
+    width: 55%;
+    aspect-ratio: auto;
+  }
+
+  .wall > .card:first-child .card__title {
+    font-size: var(--text-h2);
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   SECTION: QUOTE / SCRIPTURE
+   ══════════════════════════════════════════════════════
+   예수원 레퍼런스: 성경 구절을 페이지 안에 넣는 방식.
+   "The Lord God took the man and put him in the Garden"
+   → 이미지 위에 크게, 또는 섹션 사이 여백에 조용히.
+   ══════════════════════════════════════════════════════ */
+
+.scripture {
+  padding: var(--space-16) var(--section-padding-x);
+  text-align: center;
+  background-color: var(--color-overlay);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.scripture__text {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-style: italic;
+  font-weight: var(--weight-regular);
+  color: var(--color-text-dark);
+  line-height: var(--leading-snug);
+  max-width: 640px;
+  margin-inline: auto;
+  word-break: keep-all;
+}
+
+.scripture__source {
+  margin-top: var(--space-4);
+  font-size: var(--text-caption);
+  color: var(--color-text-light);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* ══════════════════════════════════════════════════════
+   SECTION: STORY TIMELINE
+   ══════════════════════════════════════════════════════
+   예수원 "60 Years of Story" 레퍼런스:
+   타임라인 수직 흐름 → 60년 예수원 + 박요셉 수의사 스토리
+   ══════════════════════════════════════════════════════ */
+
+.timeline {
+  position: relative;
+  padding-left: var(--space-10);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: var(--space-4);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-accent) 10%,
+    var(--color-accent) 90%,
+    transparent
+  );
+}
+
+.timeline__item {
+  position: relative;
+  padding-bottom: var(--space-10);
+}
+
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-10) + var(--space-3));
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  border: 2px solid var(--color-bg);
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.timeline__year {
+  font-size: var(--text-caption);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent-dark);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.timeline__content h4 {
+  font-size: var(--text-h5);
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-2);
+}
+
+.timeline__content p {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-medium);
+}
+
+/* ══════════════════════════════════════════════════════
+   UTILITY CLASSES
+   ══════════════════════════════════════════════════════ */
+
+/* 텍스트 색상 */
+.text-primary   { color: var(--color-primary); }
+.text-accent    { color: var(--color-accent); }
+.text-dark      { color: var(--color-text-dark); }
+.text-medium    { color: var(--color-text-medium); }
+.text-light     { color: var(--color-text-light); }
+.text-on-dark   { color: var(--color-text-on-dark); }
+
+/* 배경색 */
+.bg-primary     { background-color: var(--color-primary); }
+.bg-accent      { background-color: var(--color-accent); }
+.bg-surface     { background-color: var(--color-surface); }
+.bg-overlay     { background-color: var(--color-overlay); }
+.bg-dark        { background-color: var(--mm-green-950); }
+
+/* 구분선 */
+.divider {
+  border: none;
+  border-top: var(--border-width) solid var(--color-border);
+  margin-block: var(--space-8);
+}
+
+/* 스크린 리더 전용 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

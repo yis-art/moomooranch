@@ -1,0 +1,293 @@
+/**
+ * ╔══════════════════════════════════════════════════════════╗
+ * ║       무무목장 (MOOMOO RANCH) — DESIGN TOKENS            ║
+ * ║       삼수령 해발 1,000m · A2 저지 건초우유 · 치즈       ║
+ * ╚══════════════════════════════════════════════════════════╝
+ *
+ * 영감:
+ *   - 사고타니 목장 (sagotani.net): 여백, 장인, 미니멀
+ *   - 예수원 (jesusabbey.org): 고요함, 선언적 타이포, 60년 리듬
+ *
+ * 파일 용도: 이 파일만 import하면 모든 토큰 사용 가능.
+ * 사용 방법: @import './design-tokens.css';
+ */
+
+/* ─────────────────────────────────────────────
+   0. FONT IMPORTS
+   ─────────────────────────────────────────────
+   Noto Serif KR  → 제목 (예수원의 선언적 무게감)
+   Noto Sans KR   → 본문 (사고타니의 깔끔한 가독성)
+   Playfair Display → 영문 브랜드 워드 (장인/낙농)
+   ───────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
+
+:root {
+
+  /* ═══════════════════════════════════════════
+     1. COLOR PALETTE
+     ═══════════════════════════════════════════ */
+
+  /* ── 그린 스케일 (브랜드 그린 — 삼수령 산림)
+     사고타니: 자연 배경색에서 채도 낮은 그린
+     예수원: 덕항산 능선, 고요한 숲
+     ────────────────────────────────────────── */
+  --mm-green-950: #111e17;   /* 가장 진한 산림 — 다크모드 배경 */
+  --mm-green-900: #1e3028;   /* 깊은 숲 */
+  --mm-green-800: #263d32;
+  --mm-green-700: #2f4a3a;   /* ★ Primary — 브랜드 그린 */
+  --mm-green-600: #3d6150;
+  --mm-green-500: #4a7157;   /* 인터랙션 상태 */
+  --mm-green-400: #6d9b7f;
+  --mm-green-300: #90b89f;   /* Subtle accent */
+  --mm-green-200: #bdd6c8;
+  --mm-green-100: #deeee6;   /* 아주 연한 배경 tint */
+  --mm-green-50:  #f0f7f3;   /* 카드 hover 배경 */
+
+  /* ── 골드 스케일 (황금빛 — Jersey 우유 컬러)
+     저지 품종 특유의 황금빛 크림 우유.
+     사고타니: 따뜻한 목장 조명
+     ────────────────────────────────────────── */
+  --mm-gold-950: #4a2d08;
+  --mm-gold-900: #6b3f0d;
+  --mm-gold-800: #8a5415;
+  --mm-gold-700: #a86c1e;    /* Deep amber */
+  --mm-gold-600: #c4862a;
+  --mm-gold-500: #d4983c;    /* ★ Accent — 황금빛 우유 */
+  --mm-gold-400: #e0b060;
+  --mm-gold-300: #ecc882;    /* Warm honey */
+  --mm-gold-200: #f4dca8;
+  --mm-gold-100: #f9eece;    /* 크림 오버레이 */
+  --mm-gold-50:  #fdf8ed;    /* 가장 연한 크림 배경 */
+
+  /* ── 크림/오프화이트 스케일 (Background)
+     예수원: 바랜 종이, 돌담
+     사고타니: 우유빛 흰 배경
+     ────────────────────────────────────────── */
+  --mm-cream-900: #c4b89a;
+  --mm-cream-700: #d8cdb2;
+  --mm-cream-500: #e8dcc8;   /* ★ Border — 따뜻한 선 */
+  --mm-cream-300: #f0e9d8;   /* ★ Surface — 카드 배경 */
+  --mm-cream-100: #f5f0e6;   /* 섹션 배경 */
+  --mm-cream-50:  #faf7f0;   /* ★ Background — 전체 배경 */
+
+  /* ── 브라운 스케일 (Text)
+     목장 흙, 나무 기둥, 오래된 책
+     ────────────────────────────────────────── */
+  --mm-brown-950: #120c06;   /* ★ Text Dark — 거의 검정 */
+  --mm-brown-900: #1f160a;
+  --mm-brown-800: #2e200f;
+  --mm-brown-700: #3d2b14;
+  --mm-brown-600: #5c4122;   /* ★ Text Medium */
+  --mm-brown-500: #7a5830;
+  --mm-brown-400: #9c7a52;   /* ★ Text Light */
+  --mm-brown-300: #b99976;
+  --mm-brown-200: #d0b99a;   /* Placeholder */
+  --mm-brown-100: #e8d9c8;
+  --mm-brown-50:  #f4ece0;
+
+  /* ── 보조 색상 */
+  --mm-white:     #fffdf8;   /* 따뜻한 흰색 (차가운 흰색 대신) */
+  --mm-error:     #c0392b;
+  --mm-success:   #27ae60;
+  --mm-info:      #2980b9;
+
+  /* ─────────────────────────────────────────────
+     ★ 시맨틱 컬러 알리아스 (이걸 실제로 사용)
+     ───────────────────────────────────────────── */
+  --color-primary:          var(--mm-green-700);
+  --color-primary-dark:     var(--mm-green-900);
+  --color-primary-light:    var(--mm-green-500);
+  --color-primary-subtle:   var(--mm-green-50);
+  --color-primary-fg:       var(--mm-white);        /* on primary text */
+
+  --color-accent:           var(--mm-gold-500);
+  --color-accent-dark:      var(--mm-gold-700);
+  --color-accent-light:     var(--mm-gold-300);
+  --color-accent-subtle:    var(--mm-gold-50);
+  --color-accent-fg:        var(--mm-brown-950);    /* on accent text */
+
+  --color-bg:               var(--mm-cream-50);     /* 페이지 전체 배경 */
+  --color-surface:          var(--mm-cream-300);    /* 카드, 패널 배경 */
+  --color-surface-hover:    var(--mm-cream-100);    /* hover state */
+  --color-overlay:          var(--mm-gold-50);      /* 섹션 오버레이 */
+
+  --color-border:           var(--mm-cream-500);    /* 기본 선 */
+  --color-border-strong:    var(--mm-cream-700);    /* 강조 선 */
+  --color-border-subtle:    var(--mm-cream-100);    /* 아주 연한 선 */
+
+  --color-text-dark:        var(--mm-brown-950);    /* 제목, 강조 */
+  --color-text-medium:      var(--mm-brown-600);    /* 본문 */
+  --color-text-light:       var(--mm-brown-400);    /* 보조 텍스트 */
+  --color-text-placeholder: var(--mm-brown-200);    /* 입력 placeholder */
+  --color-text-on-dark:     var(--mm-cream-50);     /* 다크 배경 위 텍스트 */
+  --color-text-on-primary:  var(--mm-white);
+
+  /* ═══════════════════════════════════════════
+     2. TYPOGRAPHY
+     ═══════════════════════════════════════════
+
+     ★ 제목 폰트: Noto Serif KR
+       → 예수원의 선언적 무게감. 60년 이야기를 담을 수 있는 서체.
+       → 사고타니의 장인정신 → 한자어 획이 살아있는 명조체 계열.
+
+     ★ 본문 폰트: Noto Sans KR
+       → 사고타니의 깔끔하고 현대적인 가독성.
+       → 모바일 가독성 최우선.
+
+     ★ 영문 브랜드: Playfair Display
+       → MOOMOO RANCH, MooMoo Milk 등 영문 브랜드명에만.
+       → 낙농/장인 분위기 (영국 유제품 라벨 레퍼런스).
+     ─────────────────────────────────────────── */
+
+  --font-heading:  'Noto Serif KR', 'Georgia', serif;
+  --font-body:     'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  --font-brand:    'Playfair Display', 'Noto Serif KR', serif;
+  --font-mono:     'Menlo', 'Monaco', 'Courier New', monospace;
+
+  /* ── 폰트 스케일 (Major Third, 1.25 ratio 기반)
+     예수원 사이트: h2에 여백 듬뿍 + 큰 사이즈로 선언적
+     사고타니 사이트: 섹션 제목보다 설명 텍스트가 크게 느껴지는 비율
+     ────────────────────────────────────────── */
+  --text-display: clamp(2.5rem, 6vw, 4.5rem);   /* 히어로 대제목 */
+  --text-h1:      clamp(2rem, 4.5vw, 3.5rem);   /* 섹션 대제목 */
+  --text-h2:      clamp(1.625rem, 3vw, 2.5rem);
+  --text-h3:      clamp(1.375rem, 2.5vw, 2rem);
+  --text-h4:      clamp(1.125rem, 2vw, 1.5rem);
+  --text-h5:      1.25rem;
+  --text-h6:      1.0625rem;
+  --text-body-lg: 1.125rem;    /* 중요 설명, 인트로 텍스트 */
+  --text-body:    1rem;        /* 기본 본문 (16px) */
+  --text-body-sm: 0.9375rem;   /* 보조 본문 */
+  --text-caption: 0.8125rem;   /* 날짜, 카테고리, 메타 */
+  --text-label:   0.75rem;     /* 태그, 배지 */
+  --text-micro:   0.6875rem;   /* 아주 작은 레이블 */
+
+  /* ── 폰트 굵기 */
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-black:    900;
+
+  /* ── 행간 */
+  --leading-tight:  1.2;   /* 디스플레이 제목 */
+  --leading-snug:   1.35;  /* h1~h3 */
+  --leading-normal: 1.6;   /* 본문 */
+  --leading-relaxed:1.75;  /* 가독성 중요한 긴 본문 */
+
+  /* ── 자간 */
+  --tracking-tight:  -0.02em;  /* 디스플레이 큰 제목 */
+  --tracking-normal:  0em;
+  --tracking-wide:    0.05em;  /* 캡션, 태그 */
+  --tracking-wider:   0.1em;   /* 대문자 레이블 */
+
+  /* ═══════════════════════════════════════════
+     3. SPACING & LAYOUT
+     ═══════════════════════════════════════════
+     기본 단위: 8px (8px grid system)
+     사고타니: 여백이 매우 넉넉 — 폼 팩터보다 공기감 우선
+     예수원: 선 하나하나에 호흡이 있음
+     ─────────────────────────────────────────── */
+
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+  --space-32:  8rem;      /* 128px */
+  --space-40: 10rem;      /* 160px */
+  --space-48: 12rem;      /* 192px */
+
+  /* ── 컨테이너 */
+  --container-max:       1200px;   /* 전체 레이아웃 */
+  --container-content:    760px;   /* 본문 읽기 (사고타니 스타일 — 좁고 집중) */
+  --container-narrow:     560px;   /* 폼, 카드 */
+  --container-wide:      1440px;   /* 풀블리드 이미지 */
+
+  /* ── 섹션 패딩 (사고타니/예수원 모두 큰 여백 사용) */
+  --section-padding-y:   clamp(var(--space-16), 10vw, var(--space-32));
+  --section-padding-x:   clamp(var(--space-6),  5vw,  var(--space-20));
+
+  /* ── Breakpoints (참고용 — CSS에서 직접 사용 불가, Tailwind에서 사용) */
+  /* sm: 640px | md: 768px | lg: 1024px | xl: 1280px | 2xl: 1440px */
+
+  /* ═══════════════════════════════════════════
+     4. BORDERS & RADIUS
+     ═══════════════════════════════════════════
+     둥글기 전략:
+     - 버튼: 살짝 둥글게 (장인 느낌 → 너무 동그라면 장난감처럼)
+     - 카드: 약간만 (사고타니 = 직각에 가까운 카드)
+     - 태그/배지: 완전 pill (귀여움 + 기능적 구분)
+     - 이미지: 거의 직각 (예수원 = 고요한 프레임감)
+     ─────────────────────────────────────────── */
+  --radius-sm:   0.25rem;   /*  4px — 태그, 인풋 */
+  --radius-md:   0.5rem;    /*  8px — 버튼 */
+  --radius-lg:   0.75rem;   /* 12px — 카드 */
+  --radius-xl:   1rem;      /* 16px — 모달, 토스트 */
+  --radius-2xl:  1.5rem;    /* 24px — 히어로 이미지 */
+  --radius-pill: 9999px;    /* 완전 pill — 배지 */
+
+  --border-width:        1px;
+  --border-width-medium: 2px;
+
+  /* ═══════════════════════════════════════════
+     5. SHADOW
+     ═══════════════════════════════════════════
+     사고타니 = 그림자 거의 없음. 있어도 아주 미묘하게.
+     예수원 = 그림자 없음. 대신 border로 구분.
+     무무목장 = 따뜻한 amber 틴트 그림자.
+     ─────────────────────────────────────────── */
+  --shadow-xs:  0 1px 2px rgba(30, 20, 8, 0.06);
+  --shadow-sm:  0 2px 6px rgba(30, 20, 8, 0.08);
+  --shadow-md:  0 4px 16px rgba(30, 20, 8, 0.10);
+  --shadow-lg:  0 8px 32px rgba(30, 20, 8, 0.12);
+  --shadow-xl:  0 16px 48px rgba(30, 20, 8, 0.15);
+  --shadow-hover: 0 6px 24px rgba(47, 74, 58, 0.18);   /* 그린 틴트 hover shadow */
+
+  /* ═══════════════════════════════════════════
+     6. ANIMATION & TRANSITION
+     ═══════════════════════════════════════════
+     예수원 = 느린 전환. 급하지 않다. 60년의 리듬.
+     사고타니 = 부드럽고 자연스러운 동작.
+     ─────────────────────────────────────────── */
+  --ease-default:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:      cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);  /* 자연스러운 탄력 */
+
+  --duration-instant: 80ms;
+  --duration-fast:    150ms;
+  --duration-normal:  250ms;
+  --duration-slow:    400ms;
+  --duration-slower:  600ms;   /* 페이지 전환, 히어로 애니메이션 */
+  --duration-crawl:   1000ms;  /* 배경 페이드, 스크롤 연동 */
+
+  --transition-base:   all var(--duration-normal) var(--ease-default);
+  --transition-color:  color var(--duration-fast) var(--ease-default),
+                       background-color var(--duration-fast) var(--ease-default),
+                       border-color var(--duration-fast) var(--ease-default);
+  --transition-shadow: box-shadow var(--duration-normal) var(--ease-default);
+  --transition-transform: transform var(--duration-normal) var(--ease-spring);
+
+  /* ═══════════════════════════════════════════
+     7. Z-INDEX SCALE
+     ─────────────────────────────────────────── */
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+  --z-top:      999;
+}

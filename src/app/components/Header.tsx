@@ -1,130 +1,161 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router';
 import { Menu, X } from 'lucide-react';
+
+const ds = {
+  white: '#ffffff',
+  brown: '#2d2518',
+  brownLight: '#8a7a68',
+  green: '#7a8469',
+  fontHeading: '"Noto Serif KR", serif',
+  fontBody: '"Noto Sans KR", sans-serif',
+};
+
+const navItems = [
+  { path: '/journey', label: '순례길' },
+  { path: '/blog', label: '담벼락' },
+  { path: '/about', label: '목장소개' },
+  { path: '/taste', label: '맛의차이' },
+  { path: '/shop', label: '상품안내' },
+  { path: '/faq', label: '문의' },
+  { path: '/visit', label: '오시는길' },
+];
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
-  const navItems = [
-    { path: '/', label: '홈' },
-    { path: '/journey', label: '순례길' },
-    { path: '/blog', label: '담벼락' },
-    { path: '/about', label: '목장소개' },
-    { path: '/taste', label: '맛의차이' },
-    { path: '/shop', label: '상품안내' },
-    { path: '/faq', label: '문의FAQ' },
-    { path: '/visit', label: '오시는길' },
-  ];
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const showSolid = !isHome || scrolled || isMenuOpen;
 
   return (
-    <header 
-      className="sticky top-0 z-50"
+    <header
       style={{
-        backgroundColor: 'rgba(255, 255, 255, 1.0)',
-        borderBottom: '1px solid rgba(141, 110, 99, 0.08)',
-        boxShadow: '0 1px 3px rgba(0,0,0,0.03)'
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 100,
+        backgroundColor: showSolid ? ds.white : 'transparent',
+        borderBottom: showSolid ? '1px solid rgba(0,0,0,0.08)' : 'none',
+        transition: 'all 0.3s ease',
       }}
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="flex items-center justify-between h-16 md:h-18">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <span className="text-2xl">🐄</span>
-            <span style={{ 
-              fontFamily: 'var(--font-korean)', 
-              fontWeight: 800, 
-              color: 'var(--text-main)',
-              fontSize: '20px',
-              letterSpacing: '-0.01em'
-            }}>
-              무무목장
-            </span>
-          </Link>
+      <div
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '16px clamp(20px, 5vw, 40px)',
+        }}
+      >
+        {/* 로고 */}
+        <Link
+          to="/"
+          style={{
+            fontFamily: ds.fontHeading,
+            fontSize: '1.125rem',
+            fontWeight: 500,
+            color: showSolid ? ds.brown : '#fff',
+            textDecoration: 'none',
+            letterSpacing: '0.02em',
+            transition: 'color 0.3s',
+          }}
+        >
+          무무목장
+        </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className="transition-colors hover:opacity-70"
-                style={{ 
-                  fontFamily: 'var(--font-korean)', 
-                  color: 'var(--text-main)',
-                  fontSize: '15px',
-                  fontWeight: 600
-                }}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <a
-              href="https://pf.kakao.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-2.5 rounded-full transition-all hover:scale-105"
+        {/* 데스크톱 네비게이션 */}
+        <nav
+          className="hidden md:flex"
+          style={{
+            alignItems: 'center',
+            gap: '32px',
+          }}
+        >
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
               style={{
-                backgroundColor: 'var(--sage)',
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 700,
-                color: 'white',
-                fontSize: '14px',
-                boxShadow: '0 2px 8px rgba(165, 214, 167, 0.3)'
+                fontFamily: ds.fontBody,
+                fontSize: '0.8125rem',
+                fontWeight: 500,
+                color: showSolid ? ds.brownLight : 'rgba(255,255,255,0.8)',
+                textDecoration: 'none',
+                transition: 'color 0.3s',
               }}
             >
-              💬 문의하기
-            </a>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
-            style={{ color: 'var(--text-main)' }}
-            aria-label={isMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
+              {item.label}
+            </Link>
+          ))}
+          <Link
+            to="/visit"
+            style={{
+              fontFamily: ds.fontBody,
+              fontSize: '0.8125rem',
+              fontWeight: 500,
+              color: '#fff',
+              backgroundColor: ds.green,
+              padding: '8px 20px',
+              borderRadius: '20px',
+              textDecoration: 'none',
+            }}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+            방문하기
+          </Link>
+        </nav>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden pb-4 animate-fade-in-up">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsMenuOpen(false)}
-                className="block py-3 px-4 hover:bg-gray-50 rounded-lg transition-colors"
-                style={{ 
-                  fontFamily: 'var(--font-korean)', 
-                  color: 'var(--text-main)',
-                  fontSize: '16px',
-                  fontWeight: 600
-                }}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <a
-              href="https://pf.kakao.com/"
-              target="_blank"
-              rel="noopener noreferrer"
+        {/* 모바일 메뉴 버튼 */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden"
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            color: showSolid ? ds.brown : '#fff',
+            padding: '8px',
+          }}
+          aria-label={isMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
+        >
+          {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+
+      {/* 모바일 메뉴 */}
+      {isMenuOpen && (
+        <div style={{ backgroundColor: ds.white, borderTop: '1px solid rgba(0,0,0,0.05)' }}>
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
               onClick={() => setIsMenuOpen(false)}
-              className="block mx-4 mt-4 px-6 py-3 rounded-full text-center"
               style={{
-                backgroundColor: 'var(--sage)',
-                fontFamily: 'var(--font-korean)',
-                fontWeight: 700,
-                color: 'white',
-                fontSize: '16px'
+                display: 'block',
+                padding: '16px 24px',
+                fontFamily: ds.fontBody,
+                fontSize: '0.9375rem',
+                fontWeight: 500,
+                color: ds.brown,
+                textDecoration: 'none',
+                borderBottom: '1px solid rgba(0,0,0,0.05)',
               }}
             >
-              💬 문의하기
-            </a>
-          </div>
-        )}
-      </div>
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 }

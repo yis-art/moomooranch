@@ -14,108 +14,132 @@ const ds = {
 
 const faqs = [
   {
-    category: '제품안내 — 우유',
+    category: '🥛 제품 문의',
     items: [
       {
         q: 'A2 우유가 뭔가요?',
-        a: 'A2 우유는 A2 베타-카제인만 포함된 우유예요. 일반 우유(A1)는 소화 시 BCM-7 펩타이드가 생겨 불편함을 줄 수 있는데, A2 우유는 그렇지 않아요. 한국인 75%가 느끼는 우유 소화 불편함을 완화해 줍니다.',
+        a: 'A2 우유는 A2 베타-카제인만 포함된 우유예요. 일반 우유(A1)는 소화 시 BCM-7 펩타이드가 생겨 불편함을 줄 수 있는데, A2 우유는 그렇지 않아요. 한국인 75%가 느끼는 우유 불편함, A2 우유로 해결해 보세요.',
       },
       {
-        q: '균질화(호모게나이즈)를 하지 않는다고 하던데, 무슨 뜻인가요?',
-        a: '균질화란 우유의 지방 입자를 작게 쪼개 균일하게 섞는 가공 과정이에요. 무무목장 우유는 이 과정을 거치지 않아 지방 구조가 자연 그대로 보존돼요. 덕분에 더욱 풍부하고 진한 맛을 느끼실 수 있어요.',
+        q: '왜 우유가 노란색인가요? 착색한 거 아닌가요?',
+        a: '착색이 아니라 100% 자연 그대로의 색이에요! 저지종은 베타카로틴을 우유로 잘 전달하고, 건초를 먹이면 베타카로틴이 더 풍부해져요. 유럽에서는 "Golden Milk"라고 부르는 프리미엄 우유의 특징입니다.',
       },
       {
-        q: '우유 위에 크림층이 뜨는데 정상인가요?',
-        a: '네, 정상이에요! 균질화를 하지 않기 때문에 냉장 보관 시 유지방이 자연스럽게 위로 분리돼요. 드시기 전에 살짝 흔들어 주시면 됩니다. 오히려 신선함의 증거예요.',
+        q: '유통기한은 얼마나 되나요?',
+        a: '냉장 보관(0~5°C) 시 제조일로부터 10일이에요. 착유 당일 발송하니, 받으시면 최대한 신선할 때 드시는 걸 추천해요.',
       },
       {
-        q: '소비기한은 얼마나 되나요?',
-        a: '냉장 보관(0~5°C) 시 제조일로부터 7일이에요. 신선 원유 특성상 가능한 빨리 드시는 것을 권장드려요.',
-      },
-    ],
-  },
-  {
-    category: '제품안내 — 요거트',
-    items: [
-      {
-        q: '요거트는 어떤 종류가 있나요?',
-        a: '플레인, 블루베리, 딸기 세 가지 맛이 있어요. 플레인은 첨가물 없이 저지 원유만으로 발효한 순수한 맛이고, 블루베리와 딸기는 과일 퓨레를 더해 달콤하게 즐기실 수 있어요.',
+        q: '저지 우유는 일반 우유와 뭐가 달라요?',
+        a: '저지종 우유는 유지방 5% (홀스타인 3.5%), 단백질 4% (홀스타인 3.1%), 칼슘 +15~20%로 영양이 더 농축되어 있어요. A2 유전자 비율도 60~66%로 홀스타인(26~50%)보다 높아 소화가 더 편해요.',
       },
       {
-        q: '요거트 영양성분은 어떻게 되나요?',
-        a: '저지종 원유 특성상 일반 홀스타인 우유보다 단백질과 유지방 함량이 높아요. 정확한 영양성분 정보는 제품 라벨 또는 스마트스토어 상품 페이지에서 확인하실 수 있어요.',
+        q: '요거트 종류는 뭐가 있나요?',
+        a: '현재 블루베리 요거트와 딸기 요거트를 판매하고 있어요. 둘 다 국산 유기농 과일을 사용하고, A2 저지 우유로 만들어서 소화가 편해요. 200mL, 500mL, 1L 용량으로 있어요.',
       },
     ],
   },
   {
-    category: '배송 안내',
+    category: '📦 배송/택배',
     items: [
       {
-        q: '배송은 얼마나 걸리나요?',
-        a: '주문 후 2~3일 내 냉장 택배로 발송해 드려요. 아이스팩과 단열 포장을 동봉해 신선함을 유지해요.',
+        q: '배송은 어떻게 되나요?',
+        a: '착유 당일 또는 익일 신선 발송해요. 냉장 택배(아이스팩 동봉)로 보내드리고, 주문량에 따라 발송일이 조정될 수 있어요. 발송 시 택배 번호를 카카오톡으로 안내드려요.',
       },
       {
-        q: '배송비는 얼마인가요?',
-        a: '기본 배송비는 4,500원이에요. 일정 금액 이상 구매 시 무료배송 혜택이 적용될 수 있어요 (스마트스토어 기준).',
+        q: '배송 추적은 어떻게 하나요?',
+        a: '발송 완료 시 카카오톡으로 운송장 번호를 보내드려요. 네이버 스마트스토어 주문내역에서도 확인하실 수 있어요.',
       },
       {
-        q: '제주도 및 도서산간 배송 가능한가요?',
-        a: '네, 가능해요. 다만 계절과 날씨에 따라 배송 방법과 추가 비용이 달라질 수 있어요. 주문 전 카카오채널로 먼저 문의해 주시면 안내해 드릴게요.',
+        q: '제주/도서산간 배송 가능한가요?',
+        a: '네, 가능해요! 다만 추가 배송비가 발생하고, 신선도 유지를 위해 항공 택배로 발송해요. 도서산간 지역은 1~2일 더 소요될 수 있어요.',
       },
       {
-        q: '배송 조회는 어떻게 하나요?',
-        a: '발송 완료 후 운송장 번호를 카카오톡 또는 스마트스토어 주문 내역으로 안내해 드려요. 해당 번호로 택배사 홈페이지에서 조회하시면 됩니다.',
+        q: '배송 중 파손되면 어떻게 하나요?',
+        a: '수령 당일 파손 부분 사진과 함께 카카오톡으로 연락 주세요. 확인 후 즉시 재발송 또는 환불 처리해 드려요. 사진이 있어야 택배사 클레임 처리가 빨라요.',
+      },
+      {
+        q: '새벽배송 가능한가요?',
+        a: '현재 새벽배송은 지원하지 않아요. 일반 택배(CJ대한통운)로 발송하며, 대부분 발송 후 1~2일 내 수령 가능해요.',
       },
     ],
   },
   {
-    category: '정기구독',
+    category: '🔄 교환/환불',
     items: [
       {
-        q: '정기구독 혜택이 있나요?',
-        a: '네! 정기구독 시 정가 대비 15% 할인 혜택이 있어요. 네이버 스마트스토어에서 구독 신청하실 수 있어요.',
+        q: '환불은 어떻게 하나요?',
+        a: '단순 변심은 수령 후 7일 이내 미개봉 제품만 가능해요. 신선식품 특성상 개봉 후에는 교환/환불이 어려워요. 제품 하자는 수령 당일 연락 주시면 바로 처리해 드려요.',
       },
       {
-        q: '특정 달에 배송을 건너뛸 수 있나요?',
-        a: '네, 가능해요. 다음 배송일 3일 전까지 카카오채널 또는 전화로 말씀해 주시면 해당 회차를 건너뛸 수 있어요.',
+        q: '제품이 상한 것 같아요.',
+        a: '정말 죄송해요. 제품 상태 사진과 함께 카카오톡으로 바로 연락 주세요. 확인 후 즉시 재발송 또는 환불 처리해 드릴게요. 혹시 드신 후 불편하시면 그것도 꼭 말씀해 주세요.',
       },
       {
-        q: '구독 주기나 수량 변경, 취소는 어떻게 하나요?',
-        a: '언제든 카카오채널(https://pf.kakao.com/_xjVxkxjG) 또는 전화(033-553-3395)로 말씀해 주시면 처리해 드려요. 다음 배송일 3일 전까지 요청하셔야 해요.',
+        q: '이물질이 있어요.',
+        a: '정말 죄송합니다. 사진과 함께 즉시 카카오톡으로 연락 주세요. 확인 즉시 환불 처리해 드리고, 원인 파악을 위해 제품 회수가 필요할 수 있어요. 빠르게 대응할게요.',
+      },
+      {
+        q: '주문한 제품과 다른 게 왔어요.',
+        a: '불편을 드려 죄송해요. 받으신 제품 사진과 함께 주문번호를 카카오톡으로 보내주시면, 확인 후 바로 정확한 제품을 재발송해 드릴게요.',
       },
     ],
   },
   {
-    category: '방문 & 체험',
+    category: '🛒 주문/결제',
     items: [
       {
-        q: '목장 주소가 어디인가요?',
-        a: '강원특별자치도 태백시 매봉산길 61이에요. 네이버 지도 또는 카카오맵에서 "무무목장"으로 검색하시면 바로 찾으실 수 있어요.',
+        q: '어디서 주문하나요?',
+        a: '네이버 스마트스토어 "무무곳간"에서 주문하실 수 있어요. 네이버페이, 카드결제, 무통장입금 모두 가능해요. 링크: smartstore.naver.com/moomooranch',
       },
       {
-        q: '운영 시간은 어떻게 되나요?',
-        a: '토요일, 일요일, 공휴일 오전 10시 ~ 오후 4시에 운영해요. 평일에는 방문이 어렵습니다.',
+        q: '정기구독 가능한가요?',
+        a: '네! 네이버 스마트스토어에서 정기구독 설정하시면 원하시는 주기(1주/2주/4주)로 자동 배송받으실 수 있어요. 정기구독 고객님께는 별도 혜택도 드리고 있어요.',
       },
       {
-        q: '사전 예약이 꼭 필요한가요?',
-        a: '네, 예약 없이는 입장이 어려워요. 방문 전 카카오채널(https://pf.kakao.com/_xjVxkxjG) 또는 전화(033-553-3395)로 꼭 예약해 주세요.',
+        q: '정기구독 일시정지/해지는 어떻게 하나요?',
+        a: '네이버 스마트스토어 > 마이페이지 > 정기구독 관리에서 직접 하실 수 있어요. 다음 결제일 3일 전까지 변경해 주셔야 적용돼요. 어려우시면 카카오톡으로 말씀해 주세요.',
       },
       {
-        q: '반려동물 동반 가능한가요?',
-        a: '아쉽게도 반려동물 동반은 불가해요. 젖소의 스트레스와 위생 관리를 위한 조치이니 양해 부탁드려요.',
+        q: '결제가 두 번 됐어요.',
+        a: '확인해 드릴게요. 주문번호와 함께 카카오톡으로 연락 주시면 결제 내역 확인 후 즉시 환불 처리해 드려요.',
       },
     ],
   },
   {
-    category: '교환 & 환불',
+    category: '🐄 목장 방문',
     items: [
       {
-        q: '제품에 문제가 있을 때 어떻게 하나요?',
-        a: '신선식품 특성상 수령 당일 내로 연락 주셔야 해요. 사진과 함께 카카오채널(https://pf.kakao.com/_xjVxkxjG) 또는 전화(033-553-3395)로 문의해 주시면 교환 또는 환불 처리해 드려요.',
+        q: '목장 방문 가능한가요?',
+        a: '네, 사전 예약제로 운영해요. 카카오톡이나 전화(033-552-0662)로 미리 예약해 주세요. 갑자기 방문하시면 목장 일정상 안내가 어려울 수 있어요.',
       },
       {
-        q: '단순 변심으로 반품/환불이 가능한가요?',
-        a: '신선식품 특성상 미개봉 상태라도 수령 후 반품은 어려워요. 구매 전 충분히 고민해 주시고, 궁금한 점은 먼저 문의해 주세요.',
+        q: '목장 체험 프로그램이 있나요?',
+        a: '현재 정기 체험 프로그램은 준비 중이에요. 단체 방문이나 특별 체험은 별도로 문의해 주시면 조율해 드릴게요.',
+      },
+      {
+        q: '목장 위치가 어디인가요?',
+        a: '강원특별자치도 태백시 매봉산길 61, 해발 1,000m 삼수령에 있어요. 내비게이션에 "예수원" 또는 "무무목장"으로 검색하시면 돼요. 태백IC에서 약 20분 거리예요.',
+      },
+      {
+        q: '주차 가능한가요?',
+        a: '네, 무료 주차장이 있어요. 승용차 기준 10대 이상 주차 가능해요.',
+      },
+    ],
+  },
+  {
+    category: '🏠 예수원/무무목장',
+    items: [
+      {
+        q: '예수원과 무무목장은 어떤 관계인가요?',
+        a: '무무목장은 예수원 공동체의 일부예요. 1965년 대천덕 신부님이 세운 예수원의 낙농 유산을 이어받아, 박요셉 목장주님과 히스기야 형제님이 저지종 젖소를 키우고 있어요.',
+      },
+      {
+        q: '예수원 체류 프로그램도 있나요?',
+        a: '예수원 체류 프로그램은 예수원에서 별도로 운영해요. jesusabbey.org에서 확인하실 수 있어요. 무무목장 방문과는 별개입니다.',
+      },
+      {
+        q: '무무목장은 어떤 철학으로 운영되나요?',
+        a: '"소를 소답게 키운다"가 무무목장의 철학이에요. 창조질서 안에서 동물복지를 실천하고, 자연의 계절 리듬을 따르며, 과잉 생산을 배제해요. 통일 농업의 씨앗이 되고자 해요.',
       },
     ],
   },
@@ -123,10 +147,15 @@ const faqs = [
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const toggle = (id: string) => {
     setOpenIndex(openIndex === id ? null : id);
   };
+
+  const filteredFaqs = activeCategory
+    ? faqs.filter(f => f.category === activeCategory)
+    : faqs;
 
   return (
     <main>
@@ -155,11 +184,69 @@ export function FAQ() {
             fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
             fontWeight: 400,
             color: ds.brown,
-            margin: 0,
+            margin: '0 0 16px',
           }}
         >
           자주 묻는 질문
         </h1>
+        <p
+          style={{
+            fontFamily: ds.fontBody,
+            fontSize: '0.9375rem',
+            color: ds.brownMid,
+          }}
+        >
+          궁금한 점이 있으시면 아래에서 찾아보세요
+        </p>
+      </section>
+
+      {/* 카테고리 필터 */}
+      <section style={{ backgroundColor: ds.white, padding: '24px 0', borderBottom: `1px solid ${ds.ivory}` }}>
+        <div
+          style={{
+            maxWidth: '800px',
+            margin: '0 auto',
+            padding: '0 clamp(24px, 6vw, 60px)',
+          }}
+        >
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <button
+              onClick={() => setActiveCategory(null)}
+              style={{
+                padding: '8px 16px',
+                borderRadius: '20px',
+                backgroundColor: activeCategory === null ? ds.green : ds.ivory,
+                border: 'none',
+                fontFamily: ds.fontBody,
+                fontSize: '0.8125rem',
+                fontWeight: activeCategory === null ? 600 : 500,
+                color: activeCategory === null ? '#fff' : ds.brownMid,
+                cursor: 'pointer',
+              }}
+            >
+              전체
+            </button>
+            {faqs.map((cat) => (
+              <button
+                key={cat.category}
+                onClick={() => setActiveCategory(cat.category)}
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '20px',
+                  backgroundColor: activeCategory === cat.category ? ds.green : ds.ivory,
+                  border: 'none',
+                  fontFamily: ds.fontBody,
+                  fontSize: '0.8125rem',
+                  fontWeight: activeCategory === cat.category ? 600 : 500,
+                  color: activeCategory === cat.category ? '#fff' : ds.brownMid,
+                  cursor: 'pointer',
+                }}
+              >
+                {cat.category}
+              </button>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* FAQ 목록 */}
@@ -171,17 +258,17 @@ export function FAQ() {
             padding: '0 clamp(24px, 6vw, 60px)',
           }}
         >
-          {faqs.map((category) => (
-            <div key={category.category} style={{ marginBottom: '48px' }}>
+          {filteredFaqs.map((category) => (
+            <div key={category.category} style={{ marginBottom: '40px' }}>
               <h2
                 style={{
                   fontFamily: ds.fontBody,
-                  fontSize: '0.875rem',
+                  fontSize: '1rem',
                   fontWeight: 600,
-                  color: ds.green,
+                  color: ds.brown,
                   marginBottom: '16px',
-                  paddingBottom: '8px',
-                  borderBottom: `1px solid ${ds.ivory}`,
+                  paddingBottom: '12px',
+                  borderBottom: `2px solid ${ds.green}`,
                 }}
               >
                 {category.category}
@@ -203,7 +290,8 @@ export function FAQ() {
                         padding: '20px 0',
                         display: 'flex',
                         justifyContent: 'space-between',
-                        alignItems: 'center',
+                        alignItems: 'flex-start',
+                        gap: '16px',
                         background: 'none',
                         border: 'none',
                         cursor: 'pointer',
@@ -213,9 +301,10 @@ export function FAQ() {
                       <span
                         style={{
                           fontFamily: ds.fontBody,
-                          fontSize: '1rem',
+                          fontSize: '0.9375rem',
                           fontWeight: 500,
                           color: ds.brown,
+                          lineHeight: 1.5,
                         }}
                       >
                         {item.q}
@@ -228,7 +317,6 @@ export function FAQ() {
                           transform: isOpen ? 'rotate(45deg)' : 'none',
                           transition: 'transform 0.2s',
                           flexShrink: 0,
-                          marginLeft: '16px',
                         }}
                       >
                         +
@@ -247,6 +335,9 @@ export function FAQ() {
                             color: ds.brownMid,
                             lineHeight: 1.9,
                             margin: 0,
+                            backgroundColor: ds.ivory,
+                            padding: '16px',
+                            borderRadius: '8px',
                           }}
                         >
                           {item.a}
@@ -265,9 +356,8 @@ export function FAQ() {
       <section style={{ backgroundColor: ds.ivory, padding: 'clamp(40px, 8vh, 60px) 0', textAlign: 'center' }}>
         <p
           style={{
-            fontFamily: ds.fontHeading,
-            fontSize: 'clamp(1.125rem, 2.5vw, 1.375rem)',
-            fontWeight: 400,
+            fontFamily: ds.fontBody,
+            fontSize: '1rem',
             color: ds.brown,
             marginBottom: '8px',
           }}
@@ -277,39 +367,23 @@ export function FAQ() {
         <p
           style={{
             fontFamily: ds.fontBody,
-            fontSize: '0.9375rem',
+            fontSize: '0.875rem',
             color: ds.brownMid,
-            marginBottom: '28px',
+            marginBottom: '24px',
           }}
         >
-          전화나 카카오채널로 편하게 문의해 주세요.
+          치즈에게 편하게 물어보세요 🐄
         </p>
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a
-            href="tel:033-553-3395"
-            style={{
-              display: 'inline-block',
-              padding: '12px 24px',
-              fontFamily: ds.fontBody,
-              fontSize: '0.875rem',
-              fontWeight: 600,
-              color: ds.white,
-              backgroundColor: ds.brown,
-              textDecoration: 'none',
-              borderRadius: '4px',
-            }}
-          >
-            033-553-3395
-          </a>
           <a
             href="https://pf.kakao.com/_xjVxkxjG"
             target="_blank"
             rel="noopener noreferrer"
             style={{
               display: 'inline-block',
-              padding: '12px 24px',
+              padding: '14px 28px',
               fontFamily: ds.fontBody,
-              fontSize: '0.875rem',
+              fontSize: '0.9375rem',
               fontWeight: 600,
               color: '#3C1E1E',
               backgroundColor: '#FEE500',
@@ -317,25 +391,24 @@ export function FAQ() {
               borderRadius: '4px',
             }}
           >
-            카카오채널 문의
+            💬 카카오톡 문의
           </a>
           <a
-            href="https://smartstore.naver.com/moomooranch"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="tel:033-552-0662"
             style={{
               display: 'inline-block',
-              padding: '12px 24px',
+              padding: '14px 28px',
               fontFamily: ds.fontBody,
-              fontSize: '0.875rem',
+              fontSize: '0.9375rem',
               fontWeight: 600,
-              color: ds.white,
-              backgroundColor: '#03C75A',
+              color: ds.brown,
+              backgroundColor: ds.white,
               textDecoration: 'none',
               borderRadius: '4px',
+              border: `1px solid ${ds.brownLight}`,
             }}
           >
-            스마트스토어 방문
+            📞 033-552-0662
           </a>
         </div>
       </section>

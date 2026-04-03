@@ -157,8 +157,8 @@ export function Home() {
           </div>
           <div>
             <img
-              src="/images/예수원 소개.png"
-              alt="예수원 전경"
+              src="/images/아이와저지소.jpg"
+              alt="아이가 저지소와 교감하는 모습"
               style={{
                 width: '100%',
                 height: 'auto',

@@ -1,53 +1,94 @@
+/* ══════════════════════════════════════════════════════
+   무무목장 (MOOMOO RANCH) — Main CSS Entry Point
+   삼수령 해발 1,000m · A2 저지 건초우유 · 치즈
+   ══════════════════════════════════════════════════════
+
+   Import 순서:
+   1. fonts.css       — 웹폰트 로드
+   2. tailwind.css    — Tailwind v4 + @theme 토큰
+   3. design-tokens   — CSS Custom Properties 전체
+   4. components.css  — 컴포넌트 스타일
+   ══════════════════════════════════════════════════════ */
+
 @import './fonts.css';
 @import './tailwind.css';
-@import './theme.css';
+@import './design-tokens.css';
+@import './components.css';
 
-/* MooMoo Ranch Animations */
+/* ──────────────────────────────────────────────────────
+   ANIMATIONS
+   사고타니: 조용히 등장 (fade-in-up)
+   예수원: 느린 전환 (duration-slow 400ms+)
+   ────────────────────────────────────────────────────── */
+
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
 }
 
 @keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out;
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-/* Slick Slider Custom Styles */
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* 목장 특유: 풀밭처럼 좌우로 살짝 흔들 */
+@keyframes sway {
+  0%, 100% { transform: rotate(-1deg); }
+  50%       { transform: rotate(1deg); }
+}
+
+.animate-float       { animation: float 3.5s ease-in-out infinite; }
+.animate-fade-in-up  { animation: fade-in-up 0.6s var(--ease-out) both; }
+.animate-fade-in     { animation: fade-in 0.5s var(--ease-out) both; }
+.animate-scale-in    { animation: scale-in 0.4s var(--ease-spring) both; }
+.animate-sway        { animation: sway 4s ease-in-out infinite; }
+
+/* 지연 유틸리티 */
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+.animation-delay-700 { animation-delay: 700ms; }
+
+/* ──────────────────────────────────────────────────────
+   SMOOTH SCROLL
+   ────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ──────────────────────────────────────────────────────
+   SLICK CAROUSEL 커스터마이징 (기존 유지)
+   ────────────────────────────────────────────────────── */
 .slick-dots li button:before {
-  font-size: 12px;
-  color: var(--soft-blue);
-  opacity: 0.5;
+  font-size: 10px;
+  color: var(--color-accent);
+  opacity: 0.4;
 }
 
 .slick-dots li.slick-active button:before {
-  color: var(--soft-blue);
+  color: var(--color-accent);
   opacity: 1;
 }
 
 .slick-dots {
-  bottom: -40px;
+  bottom: -36px;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* ──────────────────────────────────────────────────────
+   SELECTION COLOR
+   ────────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--mm-gold-200);
+  color: var(--mm-brown-950);
 }
