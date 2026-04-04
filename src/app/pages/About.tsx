@@ -27,8 +27,8 @@ export function About() {
         }}
       >
         <img
-          src="/images/예수원 소개.png"
-          alt="예수원 목장 전경"
+          src="/images/예수원목장-초기간판.png"
+          alt="예수원 목장 초기 간판"
           style={{
             position: 'absolute',
             inset: 0,
@@ -159,6 +159,31 @@ export function About() {
           >
             두 명의 소명자
           </h2>
+
+          <figure style={{ margin: '0 0 48px' }}>
+            <img
+              src="/images/대천덕-킹스베리.png"
+              alt="대천덕 신부님과 킹스베리 선교사"
+              style={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: '8px',
+                display: 'block',
+              }}
+            />
+            <figcaption
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.8125rem',
+                color: ds.brownLight,
+                textAlign: 'center',
+                marginTop: '10px',
+                fontStyle: 'italic',
+              }}
+            >
+              대천덕(Archer Torrey) 신부님과 폴 킹스베리(Paul Kingsbury) 선교사
+            </figcaption>
+          </figure>
 
           {/* 대천덕 */}
           <div
@@ -318,6 +343,31 @@ export function About() {
               </div>
             </div>
           </div>
+
+          <figure style={{ margin: '48px 0 0' }}>
+            <img
+              src="/images/킹스베리-양방목.png"
+              alt="킹스베리 선교사의 양방목"
+              style={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: '8px',
+                display: 'block',
+              }}
+            />
+            <figcaption
+              style={{
+                fontFamily: ds.fontBody,
+                fontSize: '0.8125rem',
+                color: ds.brownLight,
+                textAlign: 'center',
+                marginTop: '10px',
+                fontStyle: 'italic',
+              }}
+            >
+              킹스베리 선교사님이 조성한 삼수령 초지의 양방목
+            </figcaption>
+          </figure>
         </div>
       </section>
 
