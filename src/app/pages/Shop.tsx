@@ -242,7 +242,7 @@ export function Shop() {
             lineHeight: 1.8,
           }}
         >
-          정기구독, 새벽배송, 네이버페이 결제 가능
+          정기구독, 냉장 택배, 네이버페이 결제 가능
         </p>
         <a
           href="https://smartstore.naver.com/moomooranch"

@@ -48,7 +48,7 @@ export function Home() {
           <h1
             style={{
               fontFamily: ds.fontHeading,
-              fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+              fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
               fontWeight: 400,
               color: '#fff',
               lineHeight: 1.2,
@@ -56,8 +56,8 @@ export function Home() {
               textShadow: '0 4px 20px rgba(0,0,0,0.3)',
             }}
           >
-            자연이 준 가장<br />
-            정직한 선물
+            좋은 땅에서, 좋은 풀을 먹는 소가 만드는<br />
+            계절마다 맛이 다른 건강한 A2 무무우유
           </h1>
           <p
             style={{
@@ -68,8 +68,8 @@ export function Home() {
               lineHeight: 1.7,
             }}
           >
-            해발 1,000m 삼수령, 저지종 젖소가 만드는<br />
-            소화 편한 A2 목초우유
+            해발 1,000m 삼수령 예수원,<br />
+            착유 당일 신선하게 배송됩니다
           </p>
           <Link
             to="/shop"

@@ -12,8 +12,8 @@ const ds = {
 };
 
 const navItems = [
-  { path: '/journey', label: '순례길' },
-  { path: '/blog', label: '담벼락' },
+  { path: '/journey', label: '디지털순례길' },
+  { path: '/blog', label: '치즈의담벼락' },
   { path: '/about', label: '목장소개' },
   { path: '/taste', label: '맛의차이' },
   { path: '/shop', label: '상품안내' },
