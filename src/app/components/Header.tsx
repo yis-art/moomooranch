@@ -12,13 +12,12 @@ const ds = {
 };
 
 const navItems = [
-  { path: '/journey', label: '디지털순례길' },
-  { path: '/blog', label: '치즈의담벼락' },
   { path: '/about', label: '목장소개' },
-  { path: '/taste', label: '맛의차이' },
+  { path: '/journey', label: '디지털순례길' },
+  { path: '/taste', label: '저지젖소' },
+  { path: '/blog', label: '치즈의담벼락' },
   { path: '/shop', label: '상품안내' },
-  { path: '/faq', label: '문의' },
-  { path: '/visit', label: '오시는길' },
+  { path: '/visit', label: '문의/오시는길' },
 ];
 
 export function Header() {
@@ -98,21 +97,6 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link
-            to="/visit"
-            style={{
-              fontFamily: ds.fontBody,
-              fontSize: '0.8125rem',
-              fontWeight: 500,
-              color: '#fff',
-              backgroundColor: ds.green,
-              padding: '8px 20px',
-              borderRadius: '20px',
-              textDecoration: 'none',
-            }}
-          >
-            방문하기
-          </Link>
         </nav>
 
         {/* 모바일 메뉴 버튼 */}
