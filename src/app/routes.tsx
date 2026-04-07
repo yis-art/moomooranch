@@ -1,3 +1,4 @@
+import React from "react";
 import { createBrowserRouter, Navigate } from "react-router";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
@@ -10,6 +11,9 @@ import { Journey } from "./pages/Journey";
 import { EmptyBarn } from "./pages/EmptyBarn";
 import { Taste } from "./pages/Taste";
 import { Shop } from "./pages/Shop";
+import { HomePreview } from "./pages/HomePreview";
+import { HomeRedesignConcept } from "./pages/HomeRedesignConcept";
+import { HomeRedesignV2 } from "./pages/HomeRedesignV2";
 
 export const router = createBrowserRouter([
   {
@@ -24,10 +28,23 @@ export const router = createBrowserRouter([
       { path: "blog", Component: Blog },
       { path: "blog/:slug", Component: BlogPost },
       { path: "shop", Component: Shop },
+      { path: "preview/home", Component: HomePreview },
       { path: "products", Component: Products },
       { path: "visit", Component: Contact },
       { path: "contact", element: <Navigate to="/visit" replace /> },
       { path: "faq", element: <Navigate to="/visit" replace /> },
     ]
-  }
+  },
+  {
+    path: "/preview/home-standalone",
+    Component: HomePreview,
+  },
+  {
+    path: "/preview/home-redesign-concept",
+    Component: HomeRedesignConcept,
+  },
+  {
+    path: "/preview/home-redesign-v2",
+    Component: HomeRedesignV2,
+  },
 ]);

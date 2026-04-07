@@ -27,7 +27,7 @@ export function About() {
         }}
       >
         <img
-          src="/images/예수원목장-초기간판.png"
+          src="/images/jesus-abbey-ranch-sign.png"
           alt="예수원 목장 초기 간판"
           style={{
             position: 'absolute',
@@ -162,7 +162,7 @@ export function About() {
 
           <figure style={{ margin: '0 0 48px' }}>
             <img
-              src="/images/대천덕-킹스베리.png"
+              src="/images/archer-kingsbury.png"
               alt="대천덕 신부님과 킹스베리 선교사"
               style={{
                 width: '100%',
@@ -266,7 +266,7 @@ export function About() {
           </div>
 
           <img
-            src="/images/예수원 상징.png"
+            src="/images/jesus-abbey-symbol.png"
             alt="예수원 상징"
             style={{
               width: '100%',
@@ -346,7 +346,7 @@ export function About() {
 
           <figure style={{ margin: '48px 0 0' }}>
             <img
-              src="/images/킹스베리-양방목.png"
+              src="/images/kingsbury-sheep.png"
               alt="킹스베리 선교사의 양방목"
               style={{
                 width: '100%',
@@ -503,12 +503,12 @@ export function About() {
             }}
           >
             <img
-              src="/images/무지개초지_저지소01.png"
+              src="/images/rainbow-jersey-01.png"
               alt="삼수령 무지개초지 저지소"
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', borderRadius: '8px' }}
             />
             <img
-              src="/images/무지개초지_저지소02.png"
+              src="/images/rainbow-jersey-02.png"
               alt="삼수령 무지개초지 저지소"
               style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover', borderRadius: '8px' }}
             />

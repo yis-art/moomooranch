@@ -27,7 +27,7 @@ export function Journey() {
         }}
       >
         <img
-          src="/images/무지개초지 설경.png"
+          src="/images/rainbow-meadow-snow.png"
           alt="삼수령 무지개초지 설경"
           style={{
             position: 'absolute',

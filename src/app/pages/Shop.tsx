@@ -17,40 +17,40 @@ const products = [
     name: 'A2 저지 목초우유 1L × 2개',
     category: '우유',
     price: '15,000원',
-    image: '/images/우유_저지소.png',
+    image: '/images/milk-jersey.png',
     badge: '베스트',
   },
   {
     name: 'A2 저지 목초우유 500mL',
     category: '우유',
     price: '6,000원',
-    image: '/images/우유_저지소.png',
+    image: '/images/milk-jersey.png',
     badge: '입문추천',
   },
   {
     name: '오가닉 블루베리 요거트 500mL',
     category: '요거트',
     price: '7,500원',
-    image: '/images/유제품_블루베리요거트.png',
+    image: '/images/dairy-blueberry-yogurt.png',
     badge: '인기',
   },
   {
     name: '오가닉 블루베리 요거트 200mL',
     category: '요거트',
     price: '2,500원',
-    image: '/images/유제품_블루베리요거트.png',
+    image: '/images/dairy-blueberry-yogurt.png',
   },
   {
     name: '오가닉 딸기 요거트 500mL',
     category: '요거트',
     price: '7,500원',
-    image: '/images/유제품_딸기요커트.png',
+    image: '/images/dairy-strawberry-yogurt.png',
   },
   {
     name: '우유 + 요거트 세트',
     category: '세트',
     price: '15,000원',
-    image: '/images/유제품 소개.png',
+    image: '/images/dairy-intro.png',
     badge: '선물용',
   },
 ];
@@ -70,7 +70,7 @@ export function Shop() {
         }}
       >
         <img
-          src="/images/유제품 소개-특장점.png"
+          src="/images/dairy-features.png"
           alt="무무곳간 유제품"
           style={{
             position: 'absolute',
@@ -295,7 +295,7 @@ export function Shop() {
             {[1, 2, 3, 4, 5, 6].map((n) => (
               <img
                 key={n}
-                src={`/images/유제품_리뷰${n}.png`}
+                src={`/images/dairy-review-${n}.png`}
                 alt={`고객 리뷰 ${n}`}
                 style={{
                   width: '100%',

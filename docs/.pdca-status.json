@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-04-04T08:38:34.415Z",
+  "lastUpdated": "2026-04-07T13:53:23.867Z",
   "activeFeatures": [
     "moomooranch"
   ],
@@ -15,9 +15,9 @@
       "documents": {},
       "timestamps": {
         "started": "2026-03-24T10:53:07.704Z",
-        "lastUpdated": "2026-04-04T08:38:34.415Z"
+        "lastUpdated": "2026-04-07T13:53:23.867Z"
       },
-      "lastFile": "/Volumes/ThisismySong /Esther/무무목장/moomooranch/src/app/pages/Visit.tsx"
+      "lastFile": "/Users/yismysc.co.kr/Project_ClaudeCode/moomooranch/src/app/routes.tsx"
     }
   },
   "pipeline": {
@@ -28,7 +28,7 @@
   "session": {
     "startedAt": "2026-03-24T10:52:40.052Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-04-04T08:38:34.415Z"
+    "lastActivity": "2026-04-07T13:53:23.867Z"
   },
   "history": [
     {
@@ -429,6 +429,90 @@
     },
     {
       "timestamp": "2026-04-04T08:38:34.415Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-04T08:59:32.320Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-04T08:59:38.492Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-04T08:59:45.569Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T09:45:14.196Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T09:45:23.322Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T09:51:11.838Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T09:51:17.122Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T09:53:55.535Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T09:54:02.918Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T09:54:15.277Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T13:48:43.712Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T13:48:55.445Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T13:53:18.143Z",
+      "feature": "moomooranch",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-07T13:53:23.867Z",
       "feature": "moomooranch",
       "phase": "do",
       "action": "updated"

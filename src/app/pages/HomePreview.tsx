@@ -1,9 +1,9 @@
 import { Link } from 'react-router';
 
-export function Home() {
+export function HomePreview() {
   return (
     <main className="bg-mm-cream-50 text-mm-brown-950">
-      <section className="relative min-h-screen overflow-hidden">
+      <section className="relative min-h-screen overflow-hidden" style={{ minHeight: '100svh' }}>
         <img
           src="/images/moomoo-ranch-view.png"
           alt="해발 1,000m 삼수령 무무목장 전경"
@@ -11,7 +11,10 @@ export function Home() {
           loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/45 to-black/65" />
-        <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1200px] items-end px-6 pb-24 md:px-12 md:pb-32">
+        <div
+          className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1200px] items-end px-6 pb-24 md:px-12 md:pb-32"
+          style={{ minHeight: '100svh' }}
+        >
           <div className="max-w-3xl">
             <span className="mb-5 inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-2 font-body text-[13px] tracking-[0.12em] text-white/85">
               SAMSU-RYEONG DAIRY · A2 JERSEY

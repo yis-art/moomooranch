@@ -92,7 +92,7 @@ export function Contact() {
         }}
       >
         <img
-          src="/images/축사 하늘사진.png"
+          src="/images/barn-sky.png"
           alt="무무목장 축사"
           style={{
             position: 'absolute',

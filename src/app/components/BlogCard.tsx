@@ -14,16 +14,16 @@ interface BlogCardProps {
 
 // 태그별 기본 이미지
 const TAG_DEFAULT_IMAGES: Record<string, string> = {
-  '#오늘의목장': '/images/무지개초지.png',
-  '#젖소이야기': '/images/무지개초지_저지소01.png',
-  '#생태순환': '/images/무지개초지_저지소03.png',
-  '#헤리티지': '/images/예수원 상징.png',
-  '#제품이야기': '/images/우유_저지소.png',
-  '#이벤트': '/images/우유마시는 아이.png',
+  '#오늘의목장': '/images/rainbow-meadow.png',
+  '#젖소이야기': '/images/rainbow-jersey-01.png',
+  '#생태순환': '/images/rainbow-jersey-03.png',
+  '#헤리티지': '/images/jesus-abbey-symbol.png',
+  '#제품이야기': '/images/milk-jersey.png',
+  '#이벤트': '/images/child-drinking-milk.png',
 };
 
 export function BlogCard({ slug, title, summary, date, tag, imageUrl, hasVideo = false }: BlogCardProps) {
-  const displayImage = imageUrl || TAG_DEFAULT_IMAGES[tag] || '/images/무무목장 전경.png';
+  const displayImage = imageUrl || TAG_DEFAULT_IMAGES[tag] || '/images/moomoo-ranch-view.png';
 
   return (
     <Link 

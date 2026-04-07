@@ -27,7 +27,7 @@ export function Taste() {
         }}
       >
         <img
-          src="/images/우유_저지소.png"
+          src="/images/milk-jersey.png"
           alt="황금빛 무무밀크"
           style={{
             position: 'absolute',
@@ -224,7 +224,7 @@ export function Taste() {
           </h2>
 
           <img
-            src="/images/무지개초지_저지소05.png"
+            src="/images/rainbow-jersey-05.png"
             alt="저지종 젖소"
             style={{
               width: '100%',

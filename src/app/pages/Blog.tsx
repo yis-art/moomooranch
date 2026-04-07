@@ -167,7 +167,7 @@ export function Blog() {
         }}
       >
         <img
-          src="/images/무지개초지_저지소02.png"
+          src="/images/rainbow-jersey-02.png"
           alt="치즈의 담벼락"
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.5)' }}
         />

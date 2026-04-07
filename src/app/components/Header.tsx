@@ -85,13 +85,20 @@ export function Header() {
             <Link
               key={item.path}
               to={item.path}
+              aria-current={location.pathname.startsWith(item.path) ? 'page' : undefined}
               style={{
                 fontFamily: ds.fontBody,
-                fontSize: '0.8125rem',
+                fontSize: '0.9375rem',
                 fontWeight: 500,
-                color: showSolid ? ds.brownLight : 'rgba(255,255,255,0.8)',
+                color: location.pathname.startsWith(item.path)
+                  ? (showSolid ? ds.brown : '#fff')
+                  : (showSolid ? ds.brownLight : 'rgba(255,255,255,0.8)'),
                 textDecoration: 'none',
                 transition: 'color 0.3s',
+                borderBottom: location.pathname.startsWith(item.path)
+                  ? `2px solid ${showSolid ? ds.green : '#fff'}`
+                  : '2px solid transparent',
+                paddingBottom: '4px',
               }}
             >
               {item.label}
@@ -128,11 +135,12 @@ export function Header() {
                 display: 'block',
                 padding: '16px 24px',
                 fontFamily: ds.fontBody,
-                fontSize: '0.9375rem',
+                fontSize: '1rem',
                 fontWeight: 500,
                 color: ds.brown,
                 textDecoration: 'none',
                 borderBottom: '1px solid rgba(0,0,0,0.05)',
+                backgroundColor: location.pathname.startsWith(item.path) ? 'rgba(122,132,105,0.08)' : 'transparent',
               }}
             >
               {item.label}

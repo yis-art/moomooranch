@@ -22,7 +22,7 @@ export function TwoPathCards() {
                 style={{ borderRadius: 'var(--radius-sm)' }}
               >
                 <img
-                  src="/images/무무목장 전경.png"
+                  src="/images/moomoo-ranch-view.png"
                   alt="디지털 순례길"
                   className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -61,7 +61,7 @@ export function TwoPathCards() {
                 style={{ borderRadius: 'var(--radius-sm)' }}
               >
                 <img
-                  src="/images/무지개초지_저지소02.png"
+                  src="/images/rainbow-jersey-02.png"
                   alt="치즈의 담벼락"
                   className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
                 />

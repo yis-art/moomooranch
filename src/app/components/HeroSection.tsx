@@ -7,7 +7,7 @@ export function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/images/무무목장 전경.png"
+          src="/images/moomoo-ranch-view.png"
           alt="삼수령 무무목장"
           className="w-full h-full object-cover"
         />
